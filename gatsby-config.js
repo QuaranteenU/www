@@ -3,6 +3,7 @@ module.exports = {
     title: `Quaranteen University: Commencement 2020`,
     description: `Time to graduate. COVID-19 won't stop this party.`,
     author: `Warren and Rudy`,
+    siteUrl: `https://quaranteen.university/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

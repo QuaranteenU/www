@@ -12,6 +12,8 @@ const Header = () => (
           <Image />
         </Link>
       </div>
+
+
     </div>
   </header>
 );

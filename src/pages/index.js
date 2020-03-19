@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
+import FAQs from "../components/faqs"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -25,9 +26,7 @@ const IndexPage = () => (
 
     <br/><br/><br/><br/>
 
-    <h2>FAQs</h2>
-    <p>Is this real? Yes.</p>
-    <p>We can use masonry for this</p>
+    <FAQs />
 
 
   </Layout>

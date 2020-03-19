@@ -10,7 +10,7 @@ const IndexPage = () => (
     <SEO title="Home" />
     <h1>Quaranteens Commencement 2020</h1>
     <p>COV-19 won't stop this party. Come graduate with us in Minecraft, May 20 2019.</p>
-    <Link to="/page-2/">Add your name to the graduating class, lol</Link>
+    <Link to="/register">Add your name to the graduating class, lol</Link>
 
     <br/><br/><br/><br/>
 

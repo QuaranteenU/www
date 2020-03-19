@@ -1,16 +1,22 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "quaranteen-university-website",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "COV-19 won't stop this party. Come graduate with us in Minecraft, May 20 2019.",
+  "version": "1.0.0",
+  "homepage": "https://quaranteen.university/",
+  "author": "Warren Partridge <wpartrid@bu.edu> (http://www.warrenpartridge.me)",
+  "contributors": [
+    "Rudhra Raveendran <rooday@bu.edu> (https://rooday.com)"
+  ],
   "dependencies": {
     "gatsby": "^2.19.45",
     "gatsby-image": "^2.2.44",
+    "gatsby-plugin-google-analytics": "^2.1.38",
     "gatsby-plugin-manifest": "^2.2.48",
-    "gatsby-plugin-offline": "^3.0.41",
+    "gatsby-plugin-offline": "^3.0.42",
     "gatsby-plugin-react-helmet": "^3.1.24",
     "gatsby-plugin-sharp": "^2.4.13",
+    "gatsby-plugin-sitemap": "^2.2.30",
     "gatsby-source-filesystem": "^2.1.56",
     "gatsby-transformer-sharp": "^2.3.19",
     "prop-types": "^15.7.2",
@@ -23,7 +29,9 @@
     "prettier": "^1.19.1"
   },
   "keywords": [
-    "gatsby"
+    "graduation",
+    "coronavirus",
+    "quarantine"
   ],
   "license": "MIT",
   "scripts": {
@@ -37,9 +45,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/Quaranteens/www"
   }
 }

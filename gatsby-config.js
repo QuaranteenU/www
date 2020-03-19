@@ -1,11 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Quaranteen U 2020`,
-    description: `Time to graduate. COV-19 won't stop this party.`,
+    title: `Quaranteen University: Commencement 2020`,
+    description: `Time to graduate. COVID-19 won't stop this party.`,
     author: `Warren and Rudy`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -13,13 +16,11 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `quaranteen-university-website`,
+        short_name: `quaranteenu`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
@@ -27,8 +28,24 @@ module.exports = {
         icon: `src/images/seal.png`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/*`],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: "UA-161219423-1",
+        // Defines where to place the tracking script - `true` in the head and `false` in the body
+        head: false,
+        // Setting this parameter is optional
+        anonymize: true,
+        // Setting this parameter is also optional
+        respectDNT: true,
+      },
+    },
   ],
 }

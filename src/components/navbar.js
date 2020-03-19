@@ -19,7 +19,9 @@ const Navbar = () => (
         <Dropdown.Item href="#/action-3">Sorry</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
-    <Button variant="primary">Commencement 2020</Button>
+    <Link to="/register">
+      Commencement 2020
+    </Link>
   </Container>
 );
 

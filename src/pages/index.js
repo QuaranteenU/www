@@ -4,8 +4,6 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 
-
-import CoverPhoto from "../components/coverphoto"
 import FAQs from "../components/faqs"
 import Layout from "../components/layout"
 import SEO from "../components/seo"

@@ -2,6 +2,8 @@ import React from "react"
 import Masonry from 'react-masonry-component'; // https://github.com/eiriklv/react-masonry-component
 import FAQContent from '../data/faqs.json';
 
+import "../styles/faqs.css"
+
 const masonryOptions = {
   columnWidth: '.faq-sizer',
   gutter: '.faq-gutter-sizer', // Horizontal margin for masonry columns

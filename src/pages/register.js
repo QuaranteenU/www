@@ -8,7 +8,7 @@ const Registration = () => (
   <Layout>
     <SEO title="Register" />
     <h1>Commencement Registration</h1>
-    <p>Excited for virtual commencement? Register your interest below!</p>
+    <p>Excited for virtual commencement? Let us know, and we'll keep you updated!</p>
     <SignupForm/>
   </Layout>
 )

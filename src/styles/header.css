@@ -1,0 +1,29 @@
+header {
+    background: white;
+    margin-bottom: 1rem;
+}
+
+.header-container {
+    padding: 1.45rem 1.0875rem;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-container > .logo {
+	width: 100px;
+}
+
+.header-icon {
+  font-size: 2rem;
+  color: #2f8dff;
+}
+
+.navbar {
+  background: #2f8dff;
+  padding: 15px;
+  transform: translateY(45px);
+  z-index: 999;
+}

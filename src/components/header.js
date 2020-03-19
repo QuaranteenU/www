@@ -1,20 +1,35 @@
-import { Link } from "gatsby"
 import React from "react"
-import Image from "./image"
+import { Link } from "gatsby"
+import Navbar from './navbar'
+import Logo from "./logo"
+import { FaDiscord, FaFacebookSquare, FaTwitch } from 'react-icons/fa';
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
-import "../styles/main.css"
+import "../styles/header.css"
 
 const Header = () => (
   <header>
     <div className="header-container">
-      <div style={{ maxWidth: `100px`, marginBottom: `1.45rem` }}>
+      <div className="logo">
         <Link to="/">
-          <Image />
+          <Logo />
         </Link>
       </div>
 
-
+      <div>
+        <OutboundLink href="https://www.facebook.com/quaranteenu">
+          <FaFacebookSquare className="header-icon"/>
+        </OutboundLink>
+        <OutboundLink href="https://www.twitch.tv/">
+          <FaTwitch className="header-icon"/>
+        </OutboundLink>
+        <OutboundLink href="https://discordapp.com/">
+          <FaDiscord className="header-icon"/>
+        </OutboundLink>
+      </div>
     </div>
+
+      <Navbar />
   </header>
 );
 

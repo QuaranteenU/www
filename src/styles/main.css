@@ -1,10 +1,10 @@
-header {
-    background: white;
-    margin-bottom: 1rem;
-}
+.landing {
+  color: white;
+  height: 500px;
 
-.header-container {
-    margin: 0 auto;
-    max-width: 960px;
-    padding: 1.45rem 1.0875rem;
+  background-image: url("../images/coverphoto.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

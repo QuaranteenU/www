@@ -43,7 +43,7 @@ const SignupForm = () => {
   return (
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
       <Form.Row>
-        <Form.Group as={Col} md="4" controlId="validationCustom01">
+        <Form.Group as={Col} md="6" controlId="validationCustom01">
           <Form.Label>First name</Form.Label>
           <Form.Control
             required
@@ -52,7 +52,7 @@ const SignupForm = () => {
             name="entry.1677400286"
           />
         </Form.Group>
-        <Form.Group as={Col} md="4" controlId="validationCustom02">
+        <Form.Group as={Col} md="6" controlId="validationCustom02">
           <Form.Label>Last name</Form.Label>
           <Form.Control
             required
@@ -61,7 +61,9 @@ const SignupForm = () => {
             name="entry.993248599"
           />
         </Form.Group>
-        <Form.Group as={Col} md="4" controlId="validationCustomUsername">
+      </Form.Row>
+      <Form.Row>
+        <Form.Group as={Col} md="6" controlId="validationCustomUsername">
           <Form.Label>School Email</Form.Label>
           <InputGroup>
             <Form.Control
@@ -75,20 +77,6 @@ const SignupForm = () => {
               Please enter a valid school email.
             </Form.Control.Feedback>
           </InputGroup>
-        </Form.Group>
-      </Form.Row>
-      <Form.Row>
-        <Form.Group as={Col} md="6" controlId="validationCustom04">
-          <Form.Label>How would you like to participate?</Form.Label>
-          <Form.Control 
-            type="text" 
-            placeholder="Graduate"
-            name="entry.1806088227"
-            required
-          />
-          <Form.Control.Feedback type="invalid">
-            Please select at least one option.
-          </Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Col} md="6" controlId="validationCustom03">
           <Form.Label>
@@ -144,6 +132,20 @@ const SignupForm = () => {
           </Form.Control>
           <Form.Control.Feedback type="invalid">
             Please select a timezone.
+          </Form.Control.Feedback>
+        </Form.Group>
+      </Form.Row>
+      <Form.Row>
+        <Form.Group as={Col} md="6" controlId="validationCustom04">
+          <Form.Label>How would you like to participate?</Form.Label>
+          <Form.Control 
+            type="text" 
+            placeholder="Graduate"
+            name="entry.1806088227"
+            required
+          />
+          <Form.Control.Feedback type="invalid">
+            Please select at least one option.
           </Form.Control.Feedback>
         </Form.Group>
       </Form.Row>

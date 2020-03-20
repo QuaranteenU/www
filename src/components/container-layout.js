@@ -1,4 +1,5 @@
 import React from "react"
+import Container from "react-bootstrap/Container";
 import PropTypes from "prop-types"
 
 import Header from "./header"
@@ -6,18 +7,18 @@ import Footer from "./footer"
 import "../styles/gatsby.css"
 import "../styles/main.css"
 
-const Layout = ({ children }) => {
+const ContainerLayout = ({ children }) => {
   return (
     <>
       <Header />
-      <main className="content-wrapper">{children}</main>
+      <Container className="content-wrapper">{children}</Container>
       <Footer/>
     </>
   )
 }
 
-Layout.propTypes = {
+ContainerLayout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default ContainerLayout

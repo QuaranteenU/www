@@ -31,6 +31,13 @@ header {
 
 .navbar a {
   color: white;
+  transition: transform 0.25s;
+}
+
+.navbar a:hover {
+  transform: rotateZ(-15deg);
+  color: white;
+  text-decoration: none;    
 }
 
 @media only screen and (min-width: 768px) {

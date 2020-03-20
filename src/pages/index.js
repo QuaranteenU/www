@@ -49,7 +49,7 @@ class IndexPage extends React.Component {
               <p>
                 It's not what we we're expecting either
               </p>
-              <Link to="/register">
+              <Link to="/register" className="wiggle">
                 <Button>
                   Join the class lol
                 </Button>

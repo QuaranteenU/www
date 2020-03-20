@@ -43,7 +43,7 @@ const SignupForm = () => {
   return (
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
       <Form.Row>
-        <Form.Group as={Col} md="6" controlId="validationCustom01">
+        <Form.Group as={Col} md="6" controlId="firstname">
           <Form.Label>First name</Form.Label>
           <Form.Control
             required
@@ -52,7 +52,7 @@ const SignupForm = () => {
             name="entry.1677400286"
           />
         </Form.Group>
-        <Form.Group as={Col} md="6" controlId="validationCustom02">
+        <Form.Group as={Col} md="6" controlId="lastname">
           <Form.Label>Last name</Form.Label>
           <Form.Control
             required
@@ -63,7 +63,7 @@ const SignupForm = () => {
         </Form.Group>
       </Form.Row>
       <Form.Row>
-        <Form.Group as={Col} md="6" controlId="validationCustomUsername">
+        <Form.Group as={Col} md="6" controlId="email">
           <Form.Label>School Email</Form.Label>
           <InputGroup>
             <Form.Control
@@ -78,7 +78,7 @@ const SignupForm = () => {
             </Form.Control.Feedback>
           </InputGroup>
         </Form.Group>
-        <Form.Group as={Col} md="6" controlId="validationCustom03">
+        <Form.Group as={Col} md="6" controlId="timezone">
           <Form.Label>
             Timezone <OverlayTrigger
               placement="right"
@@ -93,7 +93,6 @@ const SignupForm = () => {
           </Form.Label>
           <Form.Control 
             as="select"
-            placeholder="GMT - 5"
             name="entry.1538936380"
             required 
           >
@@ -135,21 +134,7 @@ const SignupForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
       </Form.Row>
-      <Form.Row>
-        <Form.Group as={Col} md="6" controlId="validationCustom04">
-          <Form.Label>How would you like to participate?</Form.Label>
-          <Form.Control 
-            type="text" 
-            placeholder="Graduate"
-            name="entry.1806088227"
-            required
-          />
-          <Form.Control.Feedback type="invalid">
-            Please select at least one option.
-          </Form.Control.Feedback>
-        </Form.Group>
-      </Form.Row>
-      <Button type="submit">I'm Down!</Button>
+      <Button type="submit" className="wiggle">I'm Down!</Button>
     </Form>
   );
 };

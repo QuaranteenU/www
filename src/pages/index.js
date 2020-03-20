@@ -12,26 +12,29 @@ class IndexPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      countSignedUp: -1
+      countSignedUp: -1,
+      countUniqueSchools: -1
     };
   }
 
   componentDidMount() {
-    const url = "https://sheets.googleapis.com/v4/spreadsheets/1WANjh9qm28VFb5pF6Ba3rMdvG1r93DbUpg-HdTxjs6c/values/Sheet1!A1:A3?key=AIzaSyA-pLbYH5fK9S3b2nmnog6fc1XkSY-eG6M";
+    const url = "https://sheets.googleapis.com/v4/spreadsheets/1WANjh9qm28VFb5pF6Ba3rMdvG1r93DbUpg-HdTxjs6c/values/Sheet1!A1:B1?key=AIzaSyA-pLbYH5fK9S3b2nmnog6fc1XkSY-eG6M";
     fetch(url, {
       method: "GET",
     }).then(res => res.json())
       .then(
         (result) => {
-          // console.log("good", result);
+          console.log("good", result);
           this.setState({
-            countSignedUp: result.values[0][0]
+            countSignedUp: result.values[0][0],
+            countUniqueSchools: result.values[0][1]
           });
         },
         (error) => {
           // console.log("bad", error);
           this.setState({
-            countSignedUp: -1
+            countSignedUp: -1,
+            countUniqueSchools: -1
           });
         }
       )
@@ -73,7 +76,7 @@ class IndexPage extends React.Component {
             <div className="landing-section">
               <h3>Who's coming?</h3>
               <p>
-                <strong>{this.state.countSignedUp}</strong> signups so far. Tell your friends!
+                <strong>{this.state.countSignedUp}</strong> signups so far from <strong>{this.state.countUniqueSchools}</strong> unique schools. Tell your friends!
               </p>
             </div>
 

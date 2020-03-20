@@ -50,7 +50,7 @@ class IndexPage extends React.Component {
               <p>
                 {/*It's not what we were expecting either*/}
                 {/*COV-19 won't stop this party.*/}
-                Come graduate in Minecraft, May 22, 2020.
+                Come graduate in Minecraft, May 22.
               </p>
               <Link to="/register" className="wiggle">
                 <Button>
@@ -61,28 +61,28 @@ class IndexPage extends React.Component {
           </Jumbotron>
 
           <Container>
-            <h3>Walk the stage and receive your undergrad or grad diploma, virtually</h3>
-            <p>
-              Have you worked hard for years but are graduating with no recognition? Forced to leave campus and your friends?
-            </p>
-            <p>Us too, but coronavirus won't stop Commencement 2020. 😤</p>
-            <p>We're going to livestream this, because tbh we don't have anything better to do under quarantine. Come be a part of history!</p>
+            <div className="landing-section">
+              <h3>Walk the stage and receive your undergrad or grad diploma, virtually</h3>
+              <p>
+                Have you worked hard for years but are graduating with no recognition? Forced to leave campus and your friends?
+              </p>
+              <p>Us too, but coronavirus won't stop the class of 2020. 😤</p>
+              <p>We're going to livestream this, because honestly we don't have anything better to do under quarantine. Come be a part of history!</p>
+            </div>
 
-            <br/><br/><br/>
+            <div className="landing-section">
+              <h3>Who's coming?</h3>
+              <p>
+                <strong>{this.state.countSignedUp}</strong> signups so far. Tell your friends!
+              </p>
+            </div>
 
-            <h3>Who's coming?</h3>
-            <p>
-              <strong>{this.state.countSignedUp}</strong> signups so far. Tell your friends!
-            </p>
+            <div className="landing-section">
+              <h3>Logistics</h3>
+              <p>Once enough people express interest, we'll select graduation times for everyone (and check you can make it). You'll connect to the world, get dressed into some robes dyed in your school's color, have your name called, and walk up to receive your diploma on front of everyone. Plus, it will all be livestreamed!</p>
 
-            <br/><br/><br/>
-
-            <h3>Logistics</h3>
-            <p>Once enough people express interest, we'll select graduation times for everyone (and check you can make it). You'll connect to the world, get dressed into some robes dyed in your school's color, have your name called, and walk up to receive your diploma on front of everyone. Plus, it will all be livestreamed!</p>
-
-            <p>If a lot of people from your school sign up, maybe you could graduate together??</p>
-
-            <br/><br/><br/><br/>
+              <p>If a lot of people from your school sign up, maybe you could graduate together??</p>
+            </div>
 
             <FAQs />
           </Container>

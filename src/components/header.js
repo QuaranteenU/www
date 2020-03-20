@@ -20,7 +20,7 @@ const Header = () => (
         <OutboundLink href="https://www.facebook.com/quaranteenu">
           <FaFacebookSquare className="header-icon"/>
         </OutboundLink>
-        <OutboundLink href="https://www.twitch.tv/quaranteens">
+        <OutboundLink href="https://www.twitch.tv/quaranteenu">
           <FaTwitch className="header-icon"/>
         </OutboundLink>
         <OutboundLink href="https://discordapp.com/">

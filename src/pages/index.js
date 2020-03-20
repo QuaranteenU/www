@@ -45,9 +45,12 @@ class IndexPage extends React.Component {
         <div className="homepage-container">
           <Jumbotron fluid className="landing">
             <Container className="jumbotron-content">
-              <h1>Welcome to Commencement 2020</h1>
+              {/*<h1>Welcome to Commencement 2020</h1>*/}
+              <h1>Quaranteen Commencement 2020</h1>
               <p>
-                It's not what we we're expecting either
+                {/*It's not what we were expecting either*/}
+                {/*COV-19 won't stop this party.*/}
+                Come graduate in Minecraft, May 22, 2020.
               </p>
               <Link to="/register" className="wiggle">
                 <Button>
@@ -60,22 +63,24 @@ class IndexPage extends React.Component {
           <Container>
             <h3>Walk the stage and receive your undergrad or grad diploma, virtually</h3>
             <p>
-              Forced to leave your campus and your friends? Stuck in quarantine? Well, so are we but COVID-19 won't stop Quaranteen University. Come graduate with us in Minecraft, May 22 2020.
+              Have you worked hard for years but are graduating with no recognition? Forced to leave campus and your friends?
             </p>
-            <p>We're going to livestream it, because we really don't have anything better to be doing under quarantine</p>
+            <p>Us too, but coronavirus won't stop Commencement 2020. 😤</p>
+            <p>We're going to livestream this, because tbh we don't have anything better to do under quarantine. Come be a part of history!</p>
 
-            <br/><br/><br/><br/>
+            <br/><br/><br/>
 
-            <h3>Class of 2020</h3>
+            <h3>Who's coming?</h3>
             <p>
-              We're lit. So far our graduating class is <strong>{this.state.countSignedUp}</strong> strong!
+              <strong>{this.state.countSignedUp}</strong> signups so far. Tell your friends!
             </p>
 
-            <br/><br/><br/><br/>
+            <br/><br/><br/>
 
+            <h3>Logistics</h3>
+            <p>Once enough people express interest, we'll select graduation times for everyone (and check you can make it). You'll connect to the world, get dressed into some robes dyed in your school's color, have your name called, and walk up to receive your diploma on front of everyone. Plus, it will all be livestreamed!</p>
 
-            <h3>Another header</h3>
-            <p>Another sub header</p>
+            <p>If a lot of people from your school sign up, maybe you could graduate together??</p>
 
             <br/><br/><br/><br/>
 

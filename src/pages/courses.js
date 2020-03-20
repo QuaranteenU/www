@@ -6,8 +6,7 @@ import SEO from "../components/seo"
 const Courses = () => (
   <ContainerLayout>
     <SEO title="Courses" />
-    <h1>Courses</h1>
-    <p>Sorry fam. You got boo boo the fooled.</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/oHg5SJYRHA0?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </ContainerLayout>
 )
 

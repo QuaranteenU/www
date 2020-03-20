@@ -84,7 +84,7 @@ const SignupForm = () => {
               placement="right"
               overlay={
                 <Tooltip>
-                  Why are we asking for this? Knowing your timezone will let us batch you with other graduates to make the ceremony as seamless as possible!
+                  We'll match you with a graduation time that doesn't keep you up late.
                 </Tooltip>
               }
             >
@@ -134,7 +134,7 @@ const SignupForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
       </Form.Row>
-      <Button type="submit" className="wiggle">I'm Down!</Button>
+      <Button type="submit" className="wiggle">Hype hype</Button>
     </Form>
   );
 };

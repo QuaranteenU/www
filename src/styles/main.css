@@ -137,3 +137,7 @@ footer {
   animation-name: fontalicious;
   animation-duration: 1s;
 }
+
+.share-buttons > * {
+  margin: 5px;
+}

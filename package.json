@@ -9,6 +9,7 @@
     "Rudhra Raveendran <rooday@bu.edu> (https://rooday.com)"
   ],
   "dependencies": {
+    "@sweetalert/with-react": "^0.1.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "gatsby": "^2.19.45",

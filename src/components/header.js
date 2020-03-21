@@ -17,10 +17,10 @@ const Header = () => (
       </div>
 
       <div>
-        <OutboundLink href="https://www.facebook.com/quaranteenu">
+        <OutboundLink href="https://www.facebook.com/quaranteenu" target="_blank">
           <FaFacebookSquare className="header-icon"/>
         </OutboundLink>
-        <OutboundLink href="https://twitter.com/QuaranteenU">
+        <OutboundLink href="https://twitter.com/QuaranteenU" target="_blank">
           <FaTwitterSquare className="header-icon"/>
         </OutboundLink>
         {/*<OutboundLink href="https://www.twitch.tv/quaranteenu">

@@ -48,20 +48,20 @@ class IndexPage extends React.Component {
             <Container className="jumbotron-content">
               <h1>Quaranteen Commencement 2020</h1>
               <p>
-                Come graduate in Minecraft on May 22. Lol
+                Come graduate in Minecraft on May 22
               </p>
-              <span>
-              <Link to="/register" state={{ graduateOrAudience: "Graduate" }} className="wiggle">
-                <Button>
-                  Join the graduating class
-                </Button>
-              </Link>
-              <Link to="/register" state={{ graduateOrAudience: "Audience" }} className="wiggle">
-                <Button>
-                  Join the audience
-                </Button>
-              </Link>
-              </span>
+              <div className="action-buttons">
+                <Link to="/register" state={{ role: "Graduate" }}>
+                  <Button className="wiggle">
+                    Join the graduating class
+                  </Button>
+                </Link>
+                <Link to="/register" state={{ role: "Audience" }}>
+                  <Button className="wiggle">
+                    Join the audience
+                  </Button>
+                </Link>
+              </div>
             </Container>
           </Jumbotron>
 
@@ -71,7 +71,7 @@ class IndexPage extends React.Component {
               <p>
                 Have you worked hard for years but are graduating with no recognition? Forced to leave campus and your friends?
               </p>
-              <p>Us too, but coronavirus won't stop the class of 2020. 😤</p>
+              <p>Us too, but coronavirus won't stop the class of 2020. <span role="img" aria-label="huff">😤</span></p>
               <p>We're going to livestream this because we don't have anything better to do under quarantine lmao.</p>
             </section>
 

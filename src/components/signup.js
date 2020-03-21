@@ -48,7 +48,7 @@ const SwalContent = () => (
   </div>
 )
 
-const SignupForm = () => {
+const SignupForm = ({ role }) => {
   const [validated, setValidated] = useState(false);
   const [email, setEmail] = useState("");
 
@@ -89,8 +89,6 @@ const SignupForm = () => {
 
   return (
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
-
-                
       <Form.Row>
         <Form.Group as={Col} md="6" controlId="firstname">
           <Form.Label>First name</Form.Label>
@@ -191,11 +189,12 @@ const SignupForm = () => {
           <Form.Control 
             as="select"
             name="entry.1806088227"
+            defaultValue={role}
             required 
           >
             <option value="">-- Select a role --</option>
-            <option>Graduate</option>
-            <option>Audience Member</option>
+            <option value="Graduate">Graduate</option>
+            <option value="Audience">Audience Member</option>
           </Form.Control>
           <Form.Control.Feedback type="invalid">
             Please select an option.

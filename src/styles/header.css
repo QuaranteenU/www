@@ -44,3 +44,11 @@ header {
     border-radius: 5px;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-decoration: underline;
+    align-items: flex-start !important;
+  }
+}

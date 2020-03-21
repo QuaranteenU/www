@@ -171,7 +171,8 @@ const SignupForm = ({ role }) => {
             <option>GMT+5:30 (India Standard Time)</option>
             <option>GMT+6:00 (Bangladesh Standard Time)</option>
             <option>GMT+7:00 (Vietnam Standard Time)</option>
-            <option>GMT+8:00 (China Taiwan Time)</option>
+            <option>GMT+8:00 (China Standard Time)</option>
+            <option>GMT+8:00 (Taipei Standard Time)</option>
             <option>GMT+9:00 (Japan Standard Time)</option>
             <option>GMT+9:30 (Australia Central Time)</option>
             <option>GMT+10:00 (Australia Eastern Time)</option>

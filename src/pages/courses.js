@@ -40,7 +40,7 @@ class Courses extends React.Component {
         {bamboozled && <div>
           <h1><span role="img" aria-label="sorry">🤔</span> Bamboozled</h1>
           <p>
-            Sorry about that. We don't actually have courses. However, our virtual commencement is 100% real! Hope to see you there! Please accept this random dog picture as reparation for our academic deceit.
+            Sorry about that. We don't actually have courses. However, our virtual commencement is 100% real! We hope to see you there! Please accept this randomized dog picture as reparation for our academic deceit.
           </p>
           <div className="doggo">
             <img src={dogURL} alt="doggo" />

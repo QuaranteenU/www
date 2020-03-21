@@ -84,7 +84,7 @@ class IndexPage extends React.Component {
 
             <section className="landing-section">
               <h3>How's this gonna work?</h3>
-              <p>Once enough people express interest, we'll select graduation times for everyone (and check you can make it). You'll connect to the world, get dressed into robes dyed in your school's color, have your name called, and walk up to receive your diploma on front of everyone. Plus, it will all be livestreamed!</p>
+              <p>Once enough people express interest, we'll select graduation times for everyone (and check you can make it). You'll connect to the world, get dressed into robes dyed in your school's color, have your name called, and walk up to receive your diploma in front of everyone. Plus, it will all be livestreamed!</p>
 
               <p>If a lot of people from your school sign up, maybe you could graduate together??</p>
             </section>

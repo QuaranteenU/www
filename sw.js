@@ -27,17 +27,17 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-af695bae1dfedba3f6a2.js"
+    "url": "webpack-runtime-63dc5b46d57379fa2cc7.js"
   },
   {
-    "url": "commons-11eaea4f99f7e8304ac3.js"
+    "url": "commons-787055d0221d1ad94545.js"
   },
   {
-    "url": "app-d06d3ac466a93575f1d6.js"
+    "url": "app-17d9a2acf8169eb7a546.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "96db78cf7daf5142e094d52784916316"
+    "revision": "d7d19c8e3367fc2136997402236f14a8"
   },
   {
     "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-0159bb149368cfb6a796.js"
@@ -48,16 +48,16 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "da6b9ea4e3edd82ff6a934d23bcbb572"
+    "revision": "b5c6bc612744a9c5936788fd827247a2"
   },
   {
-    "url": "styles.2fc6bb668977f6686c46.css"
+    "url": "styles.0f713dedcc9ebb2e5424.css"
   },
   {
     "url": "styles-2d48a34d19d8fa784a99.js"
   },
   {
-    "url": "component---src-pages-404-js-703ed5ffdb4f55e057a7.js"
+    "url": "component---src-pages-404-js-7c89a05a9b72b6d1d354.js"
   },
   {
     "url": "page-data/404/page-data.json",
@@ -68,14 +68,28 @@ self.__precacheManifest = [
     "revision": "d2d3612af1df181302e193fa8c922dd4"
   },
   {
-    "url": "component---src-pages-index-js-cea172d5bb271e394b44.js"
+    "url": "component---src-pages-about-js-7687c38c6d13988fe57a.js"
+  },
+  {
+    "url": "page-data/about/page-data.json",
+    "revision": "3ddd5d51b095997b4d473ef99898912f"
+  },
+  {
+    "url": "component---src-pages-courses-js-f6da1d415d9683c6e5f3.js"
+  },
+  {
+    "url": "page-data/courses/page-data.json",
+    "revision": "4c55b0a37587ffa7dc418322d0e7972d"
+  },
+  {
+    "url": "component---src-pages-index-js-0d7cfd429ae0a1788585.js"
   },
   {
     "url": "page-data/index/page-data.json",
     "revision": "7ccb1677a3924eb7498e27ccb409e361"
   },
   {
-    "url": "component---src-pages-register-js-18aa363281a8509687ef.js"
+    "url": "component---src-pages-register-js-eb277b3c97112be70d3a.js"
   },
   {
     "url": "page-data/register/page-data.json",
@@ -176,7 +190,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/app-d06d3ac466a93575f1d6.js`))) {
+  if (!resources || !(await caches.match(`/app-17d9a2acf8169eb7a546.js`))) {
     return await fetch(event.request)
   }
 

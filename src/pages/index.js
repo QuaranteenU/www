@@ -46,18 +46,22 @@ class IndexPage extends React.Component {
         <div className="homepage-container">
           <Jumbotron fluid className="landing">
             <Container className="jumbotron-content">
-              {/*<h1>Welcome to Commencement 2020</h1>*/}
               <h1>Quaranteen Commencement 2020</h1>
               <p>
-                {/*It's not what we were expecting either*/}
-                {/*COV-19 won't stop this party.*/}
-                Come graduate in Minecraft, May 22
+                Come graduate in Minecraft on May 22. Lol
               </p>
-              <Link to="/register" className="wiggle">
+              <span>
+              <Link to="/register" state={{ graduateOrAudience: "Graduate" }} className="wiggle">
                 <Button>
-                  Join the class lol
+                  Join the graduating class
                 </Button>
               </Link>
+              <Link to="/register" state={{ graduateOrAudience: "Audience" }} className="wiggle">
+                <Button>
+                  Join the audience
+                </Button>
+              </Link>
+              </span>
             </Container>
           </Jumbotron>
 

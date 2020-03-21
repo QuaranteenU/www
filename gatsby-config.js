@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Quaranteen University: Commencement 2020`,
-    description: `Time to graduate. COVID-19 won't stop this party.`,
+    title: `Quaranteen University`,
+    description: `COVID-19 won't stop this party. Come graduate with us in Minecraft, May 22 2020.`,
     author: `Warren and Rudy`,
     siteUrl: `https://quaranteen.university/`,
   },
@@ -20,8 +20,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `quaranteen-university-website`,
-        short_name: `quaranteenu`,
+        name: `Quaranteen University`,
+        short_name: `Quaranteen University`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,

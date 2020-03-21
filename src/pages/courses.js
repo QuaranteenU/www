@@ -38,9 +38,9 @@ class Courses extends React.Component {
         <SEO title="Courses" />
         {!bamboozled && <iframe title="you fool" ref={this.iframe} className="thunder" width="560" height="315" src="https://www.youtube.com/embed/hB8S6oKjiw8?autoplay=1" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>}
         {bamboozled && <div>
-          <h1><span role="img" aria-label="sorry">😜</span> Sorry!</h1>
+          <h1><span role="img" aria-label="sorry">🤔</span> Bamboozled</h1>
           <p>
-            That was pretty rude of us to bamboozle you. We don't actually have any courses for you to take. However, our virtual commencement is 100% real! Hope to see you there! (To make up for the bamboozlement, please enjoy this cute doggo!)
+            Sorry about that. We don't actually have courses. However, our virtual commencement is 100% real! Hope to see you there! Please accept this random dog picture as reparation for our academic deceit.
           </p>
           <div className="doggo">
             <img src={dogURL} alt="doggo" />

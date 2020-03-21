@@ -68,19 +68,19 @@ class IndexPage extends React.Component {
                 Have you worked hard for years but are graduating with no recognition? Forced to leave campus and your friends?
               </p>
               <p>Us too, but coronavirus won't stop the class of 2020. 😤</p>
-              <p>We're going to livestream this, because honestly we don't have anything better to do under quarantine. Come be a part of history!</p>
+              <p>We're going to livestream this because we don't have anything better to do under quarantine lmao.</p>
             </section>
 
             <section className="landing-section">
               <h3>Who's coming?</h3>
               <p>
-                So far our Class of 2020 is <strong>{this.state.countSignedUp}</strong> strong, comprised of <strong>{this.state.countUniqueSchools}</strong> different schools. Join them and be a part of internet history! Tell your friends!
+                So far the class of 2020 is <strong>{this.state.countSignedUp}</strong> strong, comprised of <strong>{this.state.countUniqueSchools}</strong> different schools. Join us and be a part of internet history!
               </p>
             </section>
 
             <section className="landing-section">
               <h3>How's this gonna work?</h3>
-              <p>Once enough people express interest, we'll select graduation times for everyone (and check you can make it). You'll connect to the world, get dressed into some robes dyed in your school's color, have your name called, and walk up to receive your diploma on front of everyone. Plus, it will all be livestreamed!</p>
+              <p>Once enough people express interest, we'll select graduation times for everyone (and check you can make it). You'll connect to the world, get dressed into robes dyed in your school's color, have your name called, and walk up to receive your diploma on front of everyone. Plus, it will all be livestreamed!</p>
 
               <p>If a lot of people from your school sign up, maybe you could graduate together??</p>
             </section>

@@ -4,6 +4,9 @@ import Container from "react-bootstrap/Container";
 
 const Navbar = () => (
   <Container className="navbar">
+    <Link to="/" className="d-none d-sm-block">
+      Home
+    </Link>
     <Link to="/about">
       About Us
     </Link>

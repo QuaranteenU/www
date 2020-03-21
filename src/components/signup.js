@@ -9,8 +9,19 @@ import Tooltip from "react-bootstrap/Tooltip";
 import { FaQuestionCircle } from 'react-icons/fa';
 import serialize from "../util/serialize";
 
+import partyhat from "../images/party.png"
+
 const SignupForm = () => {
   const [validated, setValidated] = useState(false);
+
+  /*swal({
+    title: "Woohoo!",
+    text: "You're signed up! Tell your friends!",
+    icon: partyhat,
+    button: {
+      text: "yuh"
+    }
+  });*/
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -27,7 +38,7 @@ const SignupForm = () => {
       const formRequest = new Request(postURL, config);
       fetch(formRequest).then(res => {
         if (res.status === 0 || res.status === 200) {
-          swal("Success!", "You're signed up!", "success");
+          swal("Woohoo!", "You're signed up!", "success");
         } else {
           throw new Error("Request failed!")
         }
@@ -131,6 +142,23 @@ const SignupForm = () => {
           </Form.Control>
           <Form.Control.Feedback type="invalid">
             Please select a timezone.
+          </Form.Control.Feedback>
+        </Form.Group>
+      </Form.Row>
+      <Form.Row>
+        <Form.Group as={Col} md="6" controlId="role">
+          <Form.Label>How would you like to participate?</Form.Label>
+          <Form.Control 
+            as="select"
+            name="entry.1806088227"
+            required 
+          >
+            <option value="">-- Select a role --</option>
+            <option>Graduate</option>
+            <option>Audience Member</option>
+          </Form.Control>
+          <Form.Control.Feedback type="invalid">
+            Please select an option.
           </Form.Control.Feedback>
         </Form.Group>
       </Form.Row>

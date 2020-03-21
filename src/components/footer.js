@@ -2,7 +2,7 @@ import React from "react"
 
 const Footer = () => (
   <footer>
-    © {new Date().getFullYear()} Quaranteens meme page lol
+    © {new Date().getFullYear()} can you even copyright a meme lol
   </footer>
 );
 

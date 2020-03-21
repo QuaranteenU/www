@@ -13,6 +13,7 @@ import serialize from "../util/serialize";
 
 const SignupForm = () => {
   const [validated, setValidated] = useState(false);
+  const [email, setEmail] = useState("");
 
   /*swal({
     title: "Woohoo!",
@@ -22,6 +23,8 @@ const SignupForm = () => {
       text: "yuh"
     }
   });*/
+
+  const handleChange = event => setEmail(event.target.value);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -82,6 +85,8 @@ const SignupForm = () => {
               placeholder="someone@school.edu"
               pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:edu)\b"
               name="entry.1555601280"
+              value={email}
+              onChange={handleChange}
               required
             />
             <Form.Control.Feedback type="invalid">
@@ -160,6 +165,20 @@ const SignupForm = () => {
           <Form.Control.Feedback type="invalid">
             Please select an option.
           </Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group as={Col} md="6" controlId="emaildomain" className="d-none">
+          <Form.Label>Email Domain</Form.Label>
+          <InputGroup>
+            <Form.Control
+              type="text"
+              value={email.split('@')[1]}
+              name="entry.144425953"
+              required
+            />
+            <Form.Control.Feedback type="invalid">
+              You shouldn't be able to see this!
+            </Form.Control.Feedback>
+          </InputGroup>
         </Form.Group>
       </Form.Row>
       <Button type="submit" className="wiggle">Hype hype</Button>

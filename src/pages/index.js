@@ -42,7 +42,7 @@ class IndexPage extends React.Component {
   render() {
     return (
       <Layout>
-        <SEO title="Home" />
+        <SEO title="Home" route="/" />
         <div className="homepage-container">
           <Jumbotron fluid className="landing">
             <Container className="jumbotron-content">

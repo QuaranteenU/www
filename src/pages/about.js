@@ -6,7 +6,7 @@ import LogoBig from "../components/logo-big"
 
 const About = () => (
   <ContainerLayout>
-    <SEO title="About Us" />
+    <SEO title="About Us" route="about" />
     <div style={{width: "150px", display: "block", marginLeft: "auto", marginRight: "auto", marginTop: "25px", marginBottom: "25px"}}>
       <LogoBig />
     </div>

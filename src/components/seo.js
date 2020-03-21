@@ -58,7 +58,7 @@ function SEO({ description, lang, meta, title, route }) {
         },
         {
           property: `og:image`,
-          content: `../images/socialbanner.jpg`,
+          content: `https://quaranteen.university/images/socialbanner.jpg`,
         },
         {
           property: `og:url`,

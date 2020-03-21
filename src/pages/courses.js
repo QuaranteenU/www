@@ -35,7 +35,7 @@ class Courses extends React.Component {
     const { bamboozled, dogURL } = this.state;
     return (
       <ContainerLayout>
-        <SEO title="Courses" />
+        <SEO title="Courses" route="courses" />
         {!bamboozled && <iframe title="you fool" ref={this.iframe} className="thunder" width="560" height="315" src="https://www.youtube.com/embed/hB8S6oKjiw8?autoplay=1" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>}
         {bamboozled && <div>
           <h1><span role="img" aria-label="sorry">🤔</span> Bamboozled</h1>

@@ -13,7 +13,7 @@ const Registration = ({ location }) => {
   
   return (
   <ContainerLayout>
-    <SEO title="Register" />
+    <SEO title="Register" route="/register" />
     <h1>Join the {role === "Audience" ? "Audience" : "Graduating Class"}</h1>
     <p>Excited for virtual commencement? Let us know, and we'll keep you updated!</p>
     <SignupForm role={role} />

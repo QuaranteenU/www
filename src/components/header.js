@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Navbar from './navbar'
 import Logo from "./logo"
-import { FaDiscord, FaFacebookSquare, FaTwitch, FaTwitterSquare } from 'react-icons/fa';
+import { FaFacebookSquare, FaTwitterSquare } from 'react-icons/fa'; // FaDiscord, FaTwitch
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import "../styles/header.css"

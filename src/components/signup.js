@@ -9,7 +9,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 import { FaQuestionCircle } from 'react-icons/fa';
 import serialize from "../util/serialize";
 
-import partyhat from "../images/party.png"
+//import partyhat from "../images/party.png"
 
 const SignupForm = () => {
   const [validated, setValidated] = useState(false);

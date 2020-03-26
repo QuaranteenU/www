@@ -46,13 +46,18 @@ const SwalContent = () => (
         data-url="https://quaranteen.university/" />
     </div>
   </div>
-)
+);
+
+const gradRegex = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:edu|org|ac\.uk|ca|edu\.tr)"; //eslint-disable-line
+const audienceRegex = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[a-z0-9]{2,})"; //eslint-disable-line
 
 const SignupForm = ({ role }) => {
   const [validated, setValidated] = useState(false);
+  const [formRole, setFormRole] = useState(role);
   const [email, setEmail] = useState("");
 
-  const handleChange = event => setEmail(event.target.value);
+  const handleEmailChange = event => setEmail(event.target.value);
+  const handleRoleChange = event => setFormRole(event.target.value);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -116,10 +121,10 @@ const SignupForm = ({ role }) => {
             <Form.Control
               type="email"
               placeholder="someone@school.edu"
-              pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:edu|org|ac\.uk|ca)\b"
+              pattern={formRole === 'Audience' ? audienceRegex : gradRegex}
               name="entry.1555601280"
               value={email}
-              onChange={handleChange}
+              onChange={handleEmailChange}
               required
             />
             <Form.Control.Feedback type="invalid">
@@ -190,7 +195,8 @@ const SignupForm = ({ role }) => {
           <Form.Control 
             as="select"
             name="entry.1806088227"
-            defaultValue={role}
+            value={formRole}
+            onChange={handleRoleChange}
             required 
           >
             <option value="">-- Select a role --</option>

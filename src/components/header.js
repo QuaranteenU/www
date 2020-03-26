@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Navbar from './navbar'
 import Logo from "./logo"
-import { FaFacebookSquare, FaTwitterSquare } from 'react-icons/fa'; // FaDiscord, FaTwitch
+import { FaFacebookSquare, FaTwitterSquare, FaEnvelopeSquare } from 'react-icons/fa'; // FaDiscord, FaTwitch
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import "../styles/header.css"
@@ -22,6 +22,9 @@ const Header = () => (
         </OutboundLink>
         <OutboundLink href="https://twitter.com/QuaranteenU" target="_blank">
           <FaTwitterSquare className="header-icon"/>
+        </OutboundLink>
+        <OutboundLink href="mailto:admissions@quaranteen.university?subject=Virtual Commencement 2020" target="_blank">
+          <FaEnvelopeSquare className="header-icon"/>
         </OutboundLink>
         {/*<OutboundLink href="https://www.twitch.tv/quaranteenu">
           <FaTwitch className="header-icon"/>

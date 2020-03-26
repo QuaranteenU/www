@@ -37,6 +37,10 @@ function SEO({ description, lang, meta, title, route }) {
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
+          name: `theme-color`,
+          content: `#2f8dff`
+        },
+        {
           name: `description`,
           content: metaDescription,
         },

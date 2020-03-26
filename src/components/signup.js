@@ -48,8 +48,8 @@ const SwalContent = () => (
   </div>
 );
 
-const gradRegex = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:edu|org|ac\.uk|ca|edu\.tr)"; //eslint-disable-line
-const audienceRegex = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[a-z0-9]{2,})"; //eslint-disable-line
+const gradRegex = "[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:edu|org|ac\.uk|ca|edu\.tr)"; //eslint-disable-line
+const audienceRegex = "[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[a-z0-9]{2,})"; //eslint-disable-line
 
 const SignupForm = ({ role }) => {
   const [validated, setValidated] = useState(false);

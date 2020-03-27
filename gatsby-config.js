@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Quaranteen University: Commencement 2020`,
+    title: `Quaranteen University`,
     description: `Time to graduate. COVID-19 won't stop this party.`,
     author: `Warren and Rudy`,
     siteUrl: `https://quaranteen.university/`,

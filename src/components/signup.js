@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import swal from "sweetalert";
+import swal from "@sweetalert/with-react";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -9,8 +9,55 @@ import Tooltip from "react-bootstrap/Tooltip";
 import { FaQuestionCircle } from 'react-icons/fa';
 import serialize from "../util/serialize";
 
-const SignupForm = () => {
+import partyhat from "../images/party.png"
+
+const SwalContent = () => (
+  <div>
+    <p>
+      You're all signed up! Stay tuned for more information, we'll send you an email as soon as we have updates. In the meantime, please spread the word and tell your friends!
+    </p>
+    
+    <div className="share-buttons">
+      <iframe
+        src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fquaranteen.university%2F&layout=button&size=small&appId=601642820272377&width=67&height=20"
+        width="67"
+        height="20"
+        style={{border: "none", overflow: "hidden" }}
+        scrolling="no"
+        frameBorder="0"
+        allowtransparency="true"
+        allow="encrypted-media"
+        title="Facebook Share Button" />
+      <iframe
+        id="twitter-widget-0"
+        scrolling="no"
+        frameBorder="0"
+        allowtransparency="true"
+        allowFullScreen={true}
+        className="twitter-share-button twitter-share-button-rendered twitter-tweet-button"
+        style={{
+          position: "static",
+          visibility: "visible",
+          width: "60px",
+          height: "20px"
+        }}
+        title="Twitter Tweet Button"
+        src="https://platform.twitter.com/widgets/tweet_button.d0f13be8321eb432fba28cfc1c3351b1.en.html#dnt=false&amp;hashtags=QuaranteenU&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=http%3A%2F%2Flocalhost%3A8000%2Fregister%2F&amp;size=m&amp;text=I%20just%20signed%20up%20for%20virtual%20commencement%20at%20Quaranteen%20University!%20You%20can%20too!&amp;time=1584765354022&amp;type=share&amp;url=https%3A%2F%2Fquaranteen.university%2F&amp;via=QuaranteenU"
+        data-url="https://quaranteen.university/" />
+    </div>
+  </div>
+);
+
+const gradRegex = "[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:edu|org|ac\.uk|ca|edu\.tr)"; //eslint-disable-line
+const audienceRegex = "[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[a-z0-9]{2,})"; //eslint-disable-line
+
+const SignupForm = ({ role }) => {
   const [validated, setValidated] = useState(false);
+  const [formRole, setFormRole] = useState(role);
+  const [email, setEmail] = useState("");
+
+  const handleEmailChange = event => setEmail(event.target.value);
+  const handleRoleChange = event => setFormRole(event.target.value);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -27,7 +74,12 @@ const SignupForm = () => {
       const formRequest = new Request(postURL, config);
       fetch(formRequest).then(res => {
         if (res.status === 0 || res.status === 200) {
-          swal("Success!", "You're signed up!", "success");
+          swal({
+            title: "Woohoo!",
+            icon: partyhat,
+            content: <SwalContent />,
+            button: "yuh"
+          });
         } else {
           throw new Error("Request failed!")
         }
@@ -69,8 +121,10 @@ const SignupForm = () => {
             <Form.Control
               type="email"
               placeholder="someone@school.edu"
-              pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:edu)\b"
+              pattern={formRole === 'Audience' ? audienceRegex : gradRegex}
               name="entry.1555601280"
+              value={email}
+              onChange={handleEmailChange}
               required
             />
             <Form.Control.Feedback type="invalid">
@@ -84,7 +138,7 @@ const SignupForm = () => {
               placement="right"
               overlay={
                 <Tooltip>
-                  Why are we asking for this? Knowing your timezone will let us batch you with other graduates to make the ceremony as seamless as possible!
+                  We'll match you with a graduation time that doesn't keep you up late.
                 </Tooltip>
               }
             >
@@ -122,7 +176,8 @@ const SignupForm = () => {
             <option>GMT+5:30 (India Standard Time)</option>
             <option>GMT+6:00 (Bangladesh Standard Time)</option>
             <option>GMT+7:00 (Vietnam Standard Time)</option>
-            <option>GMT+8:00 (China Taiwan Time)</option>
+            <option>GMT+8:00 (China Standard Time)</option>
+            <option>GMT+8:00 (Taipei Standard Time)</option>
             <option>GMT+9:00 (Japan Standard Time)</option>
             <option>GMT+9:30 (Australia Central Time)</option>
             <option>GMT+10:00 (Australia Eastern Time)</option>
@@ -134,7 +189,41 @@ const SignupForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
       </Form.Row>
-      <Button type="submit" className="wiggle">I'm Down!</Button>
+      <Form.Row>
+        <Form.Group as={Col} md="6" controlId="role">
+          <Form.Label>How would you like to participate?</Form.Label>
+          <Form.Control 
+            as="select"
+            name="entry.1806088227"
+            value={formRole}
+            onChange={handleRoleChange}
+            required 
+          >
+            <option value="">-- Select a role --</option>
+            <option value="Graduate">Graduate</option>
+            <option value="Audience">Audience Member</option>
+          </Form.Control>
+          <Form.Control.Feedback type="invalid">
+            Please select an option.
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group as={Col} md="6" controlId="emaildomain" className="d-none">
+          <Form.Label>Email Domain</Form.Label>
+          <InputGroup>
+            <Form.Control
+              type="text"
+              value={email.split('@')[1] || ''}
+              name="entry.144425953"
+              readOnly
+              required
+            />
+            <Form.Control.Feedback type="invalid">
+              You shouldn't be able to see this!
+            </Form.Control.Feedback>
+          </InputGroup>
+        </Form.Group>
+      </Form.Row>
+      <Button type="submit" className="wiggle">Hype hype</Button>
     </Form>
   );
 };

@@ -2,12 +2,15 @@ import React from "react"
 
 import ContainerLayout from "../components/container-layout"
 import SEO from "../components/seo"
+import Button from "react-bootstrap/Button";
+import showBSOD from "../util/bsod.js"
 
 const NotFoundPage = () => (
   <ContainerLayout>
-    <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <SEO title="Page not found" route="/404" />
+    <h1 className="fontalicious"><span role="img" aria-label="sad">😔</span> Aww</h1>
+    <p>Unfortunately, we didn't have the budget to create the page you were looking for. However, I did find this button our developer left behind in the source code. Not too sure what it does...</p>
+    <Button variant="danger" onClick={showBSOD}>DO NOT CLICK</Button>
   </ContainerLayout>
 )
 

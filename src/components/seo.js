@@ -11,7 +11,7 @@ import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, route }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -37,12 +37,20 @@ function SEO({ description, lang, meta, title }) {
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
+          name: `theme-color`,
+          content: `#2f8dff`
+        },
+        {
           name: `description`,
           content: metaDescription,
         },
         {
           property: `og:title`,
           content: title,
+        },
+        {
+          property: `og:site_name`,
+          content: site.siteMetadata.title,
         },
         {
           property: `og:description`,
@@ -53,8 +61,20 @@ function SEO({ description, lang, meta, title }) {
           content: `website`,
         },
         {
+          property: `og:image`,
+          content: `https://quaranteen.university/images/socialbanner.jpg`,
+        },
+        {
+          property: `og:url`,
+          content: `https://quaranteen.university${route}`,
+        },
+        {
+          property: `twitter:image:alt`,
+          content: `Virtual Graduation`,
+        },
+        {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
@@ -68,6 +88,10 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `twitter:site`,
+          content: `@QuaranteenU`
+        }
       ].concat(meta)}
     />
   )
@@ -84,6 +108,7 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  route: PropTypes.string.isRequired,
 }
 
 export default SEO

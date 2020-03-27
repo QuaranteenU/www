@@ -12,8 +12,8 @@ class IndexPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      countSignedUp: -1,
-      countUniqueSchools: -1
+      countSignedUp: '_',
+      countUniqueSchools: '_'
     };
   }
 
@@ -21,23 +21,23 @@ class IndexPage extends React.Component {
     const url = "https://sheets.googleapis.com/v4/spreadsheets/1WANjh9qm28VFb5pF6Ba3rMdvG1r93DbUpg-HdTxjs6c/values/Sheet1!A1:B1?key=AIzaSyA-pLbYH5fK9S3b2nmnog6fc1XkSY-eG6M";
     fetch(url, {
       method: "GET",
-    }).then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            countSignedUp: result.values[0][0],
-            countUniqueSchools: result.values[0][1]
-          });
-        },
-        (error) => {
-          this.setState({
-            countSignedUp: -1,
-            countUniqueSchools: -1
-          });
-        }
-      )
+    })
+    .then(res => res.json())
+    .then(
+      (result) => {
+        this.setState({
+          countSignedUp: result.values[0][0],
+          countUniqueSchools: result.values[0][1]
+        });
+      },
+      (error) => {
+        this.setState({
+          countSignedUp: -1,
+          countUniqueSchools: -1
+        });
+      }
+    );
   }
-
 
   render() {
     return (
@@ -47,7 +47,7 @@ class IndexPage extends React.Component {
           <Jumbotron fluid className="landing">
             <Container className="jumbotron-content">
               <h1>Quaranteen Commencement 2020</h1>
-              <p>
+              <p className="lead">
                 Come graduate in Minecraft on May 22
               </p>
               <div className="action-buttons">
@@ -71,14 +71,20 @@ class IndexPage extends React.Component {
               <p>
                 Have you worked hard for years but are graduating with no recognition? Forced to leave campus and your friends?
               </p>
-              <p>Us too, but coronavirus won't stop the class of 2020. <span role="img" aria-label="huff">😤</span></p>
+              <p>Us too, but coronavirus won't stop the Class of 2020. <span role="img" aria-label="huff">😤</span></p>
               <p>We're going to livestream this because we don't have anything better to do under quarantine lmao.</p>
+              <p className="text-muted">
+                <em>
+                  Are you a graduating high school senior (or a friend/parent of one)? Use the <Link to="/academy">QUA Interest Form</Link> instead!
+                </em>
+              </p>
+
             </section>
 
             <section className="landing-section">
               <h3>Who's coming?</h3>
               <p>
-                So far the class of 2020 is <strong>{this.state.countSignedUp}</strong> strong, comprised of <strong>{this.state.countUniqueSchools}</strong> different schools. Join us and be a part of internet history!
+                So far the QU Class of 2020 is <strong>{this.state.countSignedUp}</strong> strong, comprised of <strong>{this.state.countUniqueSchools}</strong> different schools. Join us and be a part of internet history!
               </p>
             </section>
 

@@ -17,7 +17,7 @@
   },
   {
     "question": "💲 How much does it cost to attend?",
-    "answer": "It's free! You'll need a Minecraft account to log onto the graduation server though."
+    "answer": "It's free! You'll need a copy of Minecraft (<a href='https://www.minecraft.net/en-us/store/minecraft-java-edition/'>Jave Edition</a> to be exact) to log onto the graduation server though. (there's a free trial!)"
   },
   {
     "question": "👀 What's the IP?",
@@ -30,9 +30,5 @@
   {
     "question": "💙 School spirit colors?",
     "answer": "Zoom Blue."
-  },
-  {
-    "question": "👋 Can I help?",
-    "answer": "<a href='https://m.me/quaranteenu'>Message us on Facebook</a>! We're looking for Minecraft builders/modders and people with AWS experience."
   }
 ]

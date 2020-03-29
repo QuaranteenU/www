@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Navbar from './navbar'
 import Logo from "./logo"
-import { FaFacebookSquare, FaTwitterSquare, FaEnvelopeSquare } from 'react-icons/fa'; // FaDiscord, FaTwitch
+import { FaFacebookSquare, FaTwitterSquare, FaEnvelopeSquare, FaDiscord } from 'react-icons/fa'; // FaTwitch
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import "../styles/header.css"
@@ -17,6 +17,9 @@ const Header = () => (
       </div>
 
       <div>
+        <OutboundLink href="https://discord.gg/Vq9QBZ">
+          <FaDiscord className="header-icon"/>
+        </OutboundLink>
         <OutboundLink href="https://www.facebook.com/quaranteenu" target="_blank">
           <FaFacebookSquare className="header-icon"/>
         </OutboundLink>
@@ -28,9 +31,6 @@ const Header = () => (
         </OutboundLink>
         {/*<OutboundLink href="https://www.twitch.tv/quaranteenu">
           <FaTwitch className="header-icon"/>
-        </OutboundLink>
-        <OutboundLink href="https://discordapp.com/">
-          <FaDiscord className="header-icon"/>
         </OutboundLink>*/}
       </div>
     </div>

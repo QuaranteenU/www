@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "gatsby";
-import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 import ContainerLayout from "../components/container-layout";
 import SEO from "../components/seo";
@@ -34,9 +33,6 @@ const Registration = ({ location }) => {
       </small>
     </p>
     <SignupForm defaultRole={role} formId="1FAIpQLScTKQ9YHAMJqLxgVztjnmp5b3kfaoSgKl_KwaF4VeFj2-tRhw" fieldNames={fieldNames} simpleEmail={false} />
-    <p>
-      Want to help out? <OutboundLink href="https://m.me/quaranteenu">Message us on Facebook!</OutboundLink> We're looking for Minecraft builders/modders and people with AWS experience.
-    </p>
   </ContainerLayout>
 )};
 

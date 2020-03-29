@@ -53,7 +53,7 @@ class Academy extends React.Component {
           Due to popular demand, we're opening signups for a second graduation ceremony exclusively for high school seniors! Register your interest below! <br/>
           <small className="text-muted">
             <em>
-              Currently, the QUA Class of 2020 is <strong>{this.state.countSignedUp}</strong> strong, comprised of <strong>{this.state.countUniqueSchools}</strong> different schools.
+              Currently, the QUA Class of 2020 is <strong>{this.state.countSignedUp}</strong> strong!
             </em>
           </small>
         </p>

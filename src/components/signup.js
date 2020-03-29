@@ -8,53 +8,16 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { FaQuestionCircle } from 'react-icons/fa';
 import serialize from "../util/serialize";
+import { universityEmailPattern, simpleEmailPattern } from "../util/regex";
 
 import partyhat from "../images/party.png"
+import SignupSwal from "./SignupSwal";
 
-const SwalContent = () => (
-  <div>
-    <p>
-      You're all signed up! Stay tuned for more information, we'll send you an email as soon as we have updates. In the meantime, please spread the word and tell your friends!
-    </p>
-    
-    <div className="share-buttons">
-      <iframe
-        src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fquaranteen.university%2F&layout=button&size=small&appId=601642820272377&width=67&height=20"
-        width="67"
-        height="20"
-        style={{border: "none", overflow: "hidden" }}
-        scrolling="no"
-        frameBorder="0"
-        allowtransparency="true"
-        allow="encrypted-media"
-        title="Facebook Share Button" />
-      <iframe
-        id="twitter-widget-0"
-        scrolling="no"
-        frameBorder="0"
-        allowtransparency="true"
-        allowFullScreen={true}
-        className="twitter-share-button twitter-share-button-rendered twitter-tweet-button"
-        style={{
-          position: "static",
-          visibility: "visible",
-          width: "60px",
-          height: "20px"
-        }}
-        title="Twitter Tweet Button"
-        src="https://platform.twitter.com/widgets/tweet_button.d0f13be8321eb432fba28cfc1c3351b1.en.html#dnt=false&amp;hashtags=QuaranteenU&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=http%3A%2F%2Flocalhost%3A8000%2Fregister%2F&amp;size=m&amp;text=I%20just%20signed%20up%20for%20virtual%20commencement%20at%20Quaranteen%20University!%20You%20can%20too!&amp;time=1584765354022&amp;type=share&amp;url=https%3A%2F%2Fquaranteen.university%2F&amp;via=QuaranteenU"
-        data-url="https://quaranteen.university/" />
-    </div>
-  </div>
-);
-
-const gradRegex = "[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:edu|org|ac\.uk|ca|edu\.tr)"; //eslint-disable-line
-const audienceRegex = "[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[a-z0-9]{2,})"; //eslint-disable-line
-
-const SignupForm = ({ role }) => {
+const SignupForm = ({ defaultRole, formId, fieldNames, simpleEmail }) => {
   const [validated, setValidated] = useState(false);
-  const [formRole, setFormRole] = useState(role);
+  const [formRole, setFormRole] = useState(defaultRole);
   const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   const handleEmailChange = event => setEmail(event.target.value);
   const handleRoleChange = event => setFormRole(event.target.value);
@@ -65,7 +28,8 @@ const SignupForm = ({ role }) => {
     if (form.checkValidity() === false) {
       event.stopPropagation();
     } else {
-      const postURL = `https://docs.google.com/forms/d/e/1FAIpQLScTKQ9YHAMJqLxgVztjnmp5b3kfaoSgKl_KwaF4VeFj2-tRhw/formResponse?${serialize(form)}`;
+      setSubmitted(true);
+      const postURL = `https://docs.google.com/forms/d/e/${formId}/formResponse?${serialize(form)}`;
       const config = {
         method: 'GET',
         mode: 'no-cors',
@@ -77,8 +41,14 @@ const SignupForm = ({ role }) => {
           swal({
             title: "Woohoo!",
             icon: partyhat,
-            content: <SwalContent />,
+            content: <SignupSwal />,
             button: "yuh"
+          }).then(() => {
+            form.reset();
+            setFormRole("");
+            setEmail("");
+            setSubmitted(false);
+            setValidated(false);
           });
         } else {
           throw new Error("Request failed!")
@@ -95,43 +65,65 @@ const SignupForm = ({ role }) => {
   return (
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
       <Form.Row>
-        <Form.Group as={Col} md="6" controlId="firstname">
+        <Form.Group as={Col} md="6" controlId="firstName">
           <Form.Label>First name</Form.Label>
           <Form.Control
             required
             type="text"
             placeholder="First name"
-            name="entry.1677400286"
+            name={fieldNames.firstName}
           />
         </Form.Group>
-        <Form.Group as={Col} md="6" controlId="lastname">
+        <Form.Group as={Col} md="6" controlId="lastName">
           <Form.Label>Last name</Form.Label>
           <Form.Control
             required
             type="text"
             placeholder="Last name"
-            name="entry.993248599"
+            name={fieldNames.lastName}
           />
         </Form.Group>
       </Form.Row>
       <Form.Row>
-        <Form.Group as={Col} md="6" controlId="email">
-          <Form.Label>School Email</Form.Label>
-          <InputGroup>
-            <Form.Control
-              type="email"
-              placeholder="someone@school.edu"
-              pattern={formRole === 'Audience' ? audienceRegex : gradRegex}
-              name="entry.1555601280"
-              value={email}
-              onChange={handleEmailChange}
-              required
-            />
-            <Form.Control.Feedback type="invalid">
-              Please enter a valid school email.
-            </Form.Control.Feedback>
-          </InputGroup>
-        </Form.Group>
+        {simpleEmail ? (
+            <Form.Group as={Col} md="6" controlId="email">
+              <Form.Label>Email Address</Form.Label>
+              <InputGroup>
+                <Form.Control
+                  type="email"
+                  placeholder="someone@gmail.com"
+                  pattern={simpleEmailPattern}
+                  name={fieldNames.email}
+                  value={email}
+                  onChange={handleEmailChange}
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter a valid email address.
+                </Form.Control.Feedback>
+              </InputGroup>
+            </Form.Group>
+          ) : (
+            <Form.Group as={Col} md="6" controlId="email">
+              <Form.Label>{formRole === 'Audience' ? "" : "University "}Email Address</Form.Label>
+              <InputGroup>
+                <Form.Control
+                  type="email"
+                  placeholder={formRole === 'Audience' ? "someone@gmail.com" : "someone@school.edu"}
+                  pattern={formRole === 'Audience' ? simpleEmailPattern : universityEmailPattern}
+                  name={fieldNames.email}
+                  value={email}
+                  onChange={handleEmailChange}
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter a valid {formRole === 'Audience' ? "" : <strong>university/college</strong>} email address.
+                </Form.Control.Feedback>
+              </InputGroup>
+            </Form.Group>
+          )
+        }
+          
         <Form.Group as={Col} md="6" controlId="timezone">
           <Form.Label>
             Timezone <OverlayTrigger
@@ -147,7 +139,7 @@ const SignupForm = ({ role }) => {
           </Form.Label>
           <Form.Control 
             as="select"
-            name="entry.1538936380"
+            name={fieldNames.timezone}
             required 
           >
             <option value="">-- Select a timezone --</option>
@@ -194,7 +186,7 @@ const SignupForm = ({ role }) => {
           <Form.Label>How would you like to participate?</Form.Label>
           <Form.Control 
             as="select"
-            name="entry.1806088227"
+            name={fieldNames.role}
             value={formRole}
             onChange={handleRoleChange}
             required 
@@ -213,7 +205,7 @@ const SignupForm = ({ role }) => {
             <Form.Control
               type="text"
               value={email.split('@')[1] || ''}
-              name="entry.144425953"
+              name={fieldNames.domain}
               readOnly
               required
             />
@@ -223,7 +215,7 @@ const SignupForm = ({ role }) => {
           </InputGroup>
         </Form.Group>
       </Form.Row>
-      <Button type="submit" className="wiggle">Hype hype</Button>
+      <Button type="submit" className="wiggle" disabled={submitted}>Hype hype</Button>
     </Form>
   );
 };

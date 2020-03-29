@@ -13,6 +13,9 @@ const Navbar = () => (
     <Link to="/courses">
       Courses
     </Link>
+    <Link to="/academy">
+      Academy
+    </Link>
     <Link to="/register">
       Commencement 2020
     </Link>

@@ -78,7 +78,6 @@ class IndexPage extends React.Component {
                   Are you a graduating high school senior (or a friend/parent of one)? Use the <Link to="/academy">QUA Interest Form</Link> instead!
                 </em>
               </p>
-              <iframe src="https://discordapp.com/widget?id=690019838445486121&theme=dark" width="350" height="500" allowtransparency="true" frameBorder="0" />
             </section>
 
             <section className="landing-section">

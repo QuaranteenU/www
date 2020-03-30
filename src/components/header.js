@@ -17,7 +17,7 @@ const Header = () => (
       </div>
 
       <div>
-        <OutboundLink href="https://discord.gg/Vq9QBZ">
+        <OutboundLink href="https://discord.gg/mhH65sR">
           <FaDiscord className="header-icon"/>
         </OutboundLink>
         <OutboundLink href="https://www.facebook.com/quaranteenu" target="_blank">
@@ -26,16 +26,15 @@ const Header = () => (
         <OutboundLink href="https://twitter.com/QuaranteenU" target="_blank">
           <FaTwitterSquare className="header-icon"/>
         </OutboundLink>
-        <OutboundLink href="mailto:admissions@quaranteen.university?subject=Virtual Commencement 2020" target="_blank">
-          <FaEnvelopeSquare className="header-icon"/>
-        </OutboundLink>
         {/*<OutboundLink href="https://www.twitch.tv/quaranteenu">
           <FaTwitch className="header-icon"/>
         </OutboundLink>*/}
+        <OutboundLink href="mailto:admissions@quaranteen.university?subject=Virtual Commencement 2020" target="_blank">
+          <FaEnvelopeSquare className="header-icon"/>
+        </OutboundLink>
       </div>
     </div>
-
-      <Navbar />
+    <Navbar />
   </header>
 );
 

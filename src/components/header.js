@@ -106,15 +106,15 @@ const Header = () => (
             Livestream
           </Link>
 
-          <NavDropdown title="Events" alignRight>
+          <NavDropdown title="Ceremonies" alignRight>
             <NavDropdown.Item as="button">
               <Link className="hvr-underline-from-center" to="/register">
-                QU Commencement
+                University
               </Link>
             </NavDropdown.Item>
             <NavDropdown.Item as="button">
               <Link className="hvr-underline-from-center" to="/academy">
-                QUA Graduation
+                High School
               </Link>
             </NavDropdown.Item>
           </NavDropdown>

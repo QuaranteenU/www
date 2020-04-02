@@ -4,7 +4,6 @@ import ContainerLayout from "../layouts/container";
 import SEO from "../components/seo";
 import { VideoContainer, VideoIframe } from "../styles/global";
 
-
 const Doggo = styled.div`
   display: flex;
   flex-direction: row;

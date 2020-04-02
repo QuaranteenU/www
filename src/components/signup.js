@@ -14,7 +14,7 @@ import { universityEmailPattern, simpleEmailPattern } from "../util/regex";
 
 const SignupForm = ({ defaultRole, formId, fieldNames, simpleEmail }) => {
   const [validated, setValidated] = useState(false);
-  const [formRole, setFormRole] = useState(defaultRole);
+  const [formRole, setFormRole] = useState(defaultRole || "");
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
 

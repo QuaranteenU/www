@@ -1,19 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withTheme } from "styled-components";
+import styled, { withTheme } from "styled-components";
 import Header from "../components/header";
 import Footer from "../components/footer";
-import { GlobalStyle } from "../styles/global"
+import { GlobalStyle, ContentWrapperStyle } from "../styles/global";
 
 import "../styles/gatsby.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../styles/main.css";
+
+const ContentWrapper = styled.main`
+  ${ContentWrapperStyle}
+`;
 
 const Layout = withTheme((props) => (
   <>
     <GlobalStyle theme={props.theme} />
     <Header />
-    <main className="content-wrapper">{props.children}</main>
+    <ContentWrapper>{props.children}</ContentWrapper>
     <Footer/>
   </>
 ));

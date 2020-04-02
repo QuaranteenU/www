@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Masonry from "react-masonry-component";
 import FAQContent from "../data/faqs";
-import { LandingSection } from '../styles/global';
+import { Section } from '../styles/global';
 
 const FAQSizer = styled.div`
   width: 45%;
@@ -43,12 +43,12 @@ const FAQs = () => {
   ]);
 
   return (
-    <LandingSection id="faqs">
+    <Section id="faqs">
       <h2>FAQs</h2>
       <Masonry options={masonryOptions}>
         {childElements}
       </Masonry>
-    </LandingSection>
+    </Section>
   );
 };
 

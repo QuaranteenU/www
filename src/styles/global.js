@@ -1,11 +1,15 @@
-import styled, { createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle, css } from "styled-components";
 import navTogglerIconPath from '../images/navbar-toggler-icon.svg';
 
-export const LandingSection = styled.section`
+export const ContentWrapperStyle = css`
+  flex: 1 0 auto;
+  margin-top: 25px;
+`;
+
+export const Section = styled.section`
   margin-top: 50px;
   margin-bottom: 100px;
 `;
-
 
 export const VideoContainer = styled.div`
   width: 100%;
@@ -92,6 +96,11 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   /* CUSTOM STYLES */
+
+  #gatsby-focus-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
 
   html, body {
     height: 100%; 

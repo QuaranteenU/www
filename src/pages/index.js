@@ -5,9 +5,7 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Layout from "../layouts/default";
-import SEO from "../components/seo";
-import FAQs from "../components/faqs";
-import { Section } from "../styles/global";
+import SEO from "../components/SEO";
 import Coverphoto from "../images/coverphoto.jpg";
 //import Coverphoto from "../images/minecraft-hall.png";
 
@@ -56,6 +54,11 @@ const LandingContent = styled(Container)`
       font-weight: bold;
     }
   }
+`;
+
+const Section = styled.section`
+  margin-top: 50px;
+  margin-bottom: 100px;
 `;
 
 class IndexPage extends React.Component {
@@ -144,8 +147,6 @@ class IndexPage extends React.Component {
 
               <p>If a lot of people from your school sign up, maybe you could graduate together??</p>
             </Section>
-
-            <FAQs />
           </Container>
         </div>
       </Layout>

@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled, { withTheme } from "styled-components";
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import { GlobalStyle, ContentWrapperStyle } from "../styles/global";
 
 import "../styles/gatsby.css";

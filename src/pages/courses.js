@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import ContainerLayout from "../layouts/container";
-import SEO from "../components/seo";
+import SEO from "../components/SEO";
 import { VideoContainer, VideoIframe } from "../styles/global";
 
 const Doggo = styled.div`

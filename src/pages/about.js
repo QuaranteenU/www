@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 import ContainerLayout from "../layouts/container";
-import SEO from "../components/seo";
-import Logo from "../components/logo";
+import SEO from "../components/SEO";
+import Logo from "../components/Logo";
 
 const LogoWrapper = styled.div`
   width: fit-content;

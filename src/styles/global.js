@@ -6,11 +6,6 @@ export const ContentWrapperStyle = css`
   margin-top: 25px;
 `;
 
-export const Section = styled.section`
-  margin-top: 50px;
-  margin-bottom: 100px;
-`;
-
 export const VideoContainer = styled.div`
   width: 100%;
   position: relative;
@@ -34,6 +29,10 @@ export const GlobalStyle = createGlobalStyle`
 
   .navbar-toggler-icon {
     background-image: url("${navTogglerIconPath}") !important;
+  }
+
+  .navbar-collapse {
+    padding: 0 15px;
   }
 
   .navbar-nav {

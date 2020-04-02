@@ -6,7 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 import { FaFacebookSquare, FaTwitterSquare, FaEnvelopeSquare, FaDiscord, FaTwitch } from "react-icons/fa";
-import Logo from "./logo"
+import Logo from "./Logo"
 import ThemeToggler from "./ThemeToggler";
 
 const HeaderContainer = styled.div`
@@ -96,7 +96,7 @@ const Header = () => (
           <Link className="hvr-underline-from-center" to="/about">
             About Us
           </Link>
-          <Link className="hvr-underline-from-center" to="/#faqs">
+          <Link className="hvr-underline-from-center" to="/faqs">
             FAQs
           </Link>
           <Link className="hvr-underline-from-center" to="/courses">

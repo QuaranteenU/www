@@ -45,7 +45,7 @@ module.exports = {
       link: colorPalette.mainBrand,
       linkHover: colorPalette.lightAccent,
       muted: colorPalette.darkMuted,
-      logoTint: "rgba(0,0,0,0.5)"
+      logoTint: "rgba(0,0,0,0.4)"
     },
   },
   lightTheme: {

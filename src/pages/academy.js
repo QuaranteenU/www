@@ -1,7 +1,7 @@
 import React from "react";
 import ContainerLayout from "../layouts/container";
-import SEO from "../components/seo";
-import SignupForm from "../components/signup";
+import SEO from "../components/SEO";
+import SignupForm from "../components/SignupForm";
 
 class Academy extends React.Component {
   constructor(props) {

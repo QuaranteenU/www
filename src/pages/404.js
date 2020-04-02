@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import ContainerLayout from "../layouts/container";
-import SEO from "../components/seo";
+import SEO from "../components/SEO";
 import showBSOD from "../util/bsod.js";
 
 const NotFoundPage = () => (

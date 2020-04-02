@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-//import Navbar from './navbar'
 import Logo from "./logo"
 import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
@@ -8,6 +7,7 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { FaFacebookSquare, FaTwitterSquare, FaEnvelopeSquare, FaDiscord, FaTwitch } from 'react-icons/fa';
 import { OutboundLink } from "gatsby-plugin-google-analytics"
+import ThemeToggler from "./ThemeToggler";
 
 import styled from "styled-components"
 
@@ -44,6 +44,8 @@ const Header = () => (
         </OutboundLink>
       </div>
     </div>
+
+    <ThemeToggler />
 
     <Navbar className="container" expand="lg">
       <Navbar.Toggle aria-controls="basic-navbar-nav" />

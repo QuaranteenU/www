@@ -1,3 +1,5 @@
+const { lightTheme, darkTheme } = require('./src/styles/theme');
+
 module.exports = {
   siteMetadata: {
     title: `Quaranteen University`,
@@ -27,7 +29,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/seal.png`, // This path is relative to the root of the site.
+        icon: `${__dirname}/src/images/seal.png`, // This path is relative to the root of the site.
       },
     },
     {
@@ -57,6 +59,13 @@ module.exports = {
             family: `Libre Baskerville`
           }
         ],
+      },
+    },
+    {
+      resolve: `gatsby-styled-components-dark-mode`,
+      options: {
+        light: require(`${__dirname}/src/styles/theme.js`).lightTheme,
+        dark: require(`${__dirname}/src/styles/theme.js`).darkTheme,
       },
     }
   ]

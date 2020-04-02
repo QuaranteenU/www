@@ -2,7 +2,7 @@ import React from "react"
 
 import ContainerLayout from "../layouts/container"
 import SEO from "../components/seo"
-import LogoBig from "../components/logo-big"
+import { LogoBig } from "../components/logo"
 
 const About = () => (
   <ContainerLayout>

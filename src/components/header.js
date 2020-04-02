@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import Logo from "./logo"
+import { Logo } from "./logo"
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";

@@ -1,6 +1,5 @@
 header {
-    background: white;
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .header-container {
@@ -17,6 +16,12 @@ header {
   align-items: center;
   color: #2f8dff;
 
+}
+
+.social-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .home-link .logo {

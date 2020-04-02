@@ -1,35 +1,50 @@
-import React from "react"
-import Masonry from 'react-masonry-component'; // https://github.com/eiriklv/react-masonry-component
-import FAQContent from '../data/faqs.json';
+import React from "react";
+import styled from "styled-components";
+import Masonry from "react-masonry-component";
+import FAQContent from "../data/faqs.json";
+import { LandingSection } from "../styles/global";
 
-import "../styles/faqs.css"
+const FAQSizer = styled.div`
+  width: 45%;
+`;
+
+const FAQGutterSizer = styled.div`
+  width: 5%;
+`;
+
+const FAQItem = styled.div`
+  width: 45%;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+`;
 
 const masonryOptions = {
-  columnWidth: '.faq-sizer',
-  gutter: '.faq-gutter-sizer', // Horizontal margin for masonry columns
-  itemSelector: '.faq-item',
+  columnWidth: ".faq-sizer",
+  gutter: ".faq-gutter-sizer",
+  itemSelector: ".faq-item",
   percentPosition: true
 };
 
 const FAQs = () => {
   const childElements = FAQContent.map((FAQ, index) => [
-    <div key={`faq-sizer-${index}`} className="faq-sizer" />,
-    <div key={`faq-gutter-${index}`} className="faq-gutter-sizer" />,
-    <div key={`faq-item-${index}`} className="faq-item">
+    <FAQSizer key={`faq-sizer-${index}`} className="faq-sizer" />,
+    <FAQGutterSizer key={`faq-gutter-${index}`} className="faq-gutter-sizer" />,
+    <FAQItem key={`faq-item-${index}`} className="faq-item">
       <div>
         <b>{FAQ.question}</b>
         <p dangerouslySetInnerHTML={{ __html: FAQ.answer }} />
       </div>
-    </div>
+    </FAQItem>
   ]);
 
   return (
-    <section id="faqs" className="landing-section">
+    <LandingSection id="faqs">
       <h2>FAQs</h2>
-      <Masonry options={masonryOptions} className="faq-masonry-wrapper">
+      <Masonry options={masonryOptions}>
         {childElements}
       </Masonry>
-    </section>
+    </LandingSection>
   );
 };
 

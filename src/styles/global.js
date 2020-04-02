@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
   html, body {
@@ -18,4 +18,9 @@ export const GlobalStyle = createGlobalStyle`
   a:hover {
     color: rgb(${props => props.theme.global.linkHover});
   }
-`
+`;
+
+export const LandingSection = styled.section`
+  margin-top: 50px;
+  margin-bottom: 100px;
+`;

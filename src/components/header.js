@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 import Logo from "./logo"
-import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
@@ -9,15 +8,7 @@ import { FaFacebookSquare, FaTwitterSquare, FaEnvelopeSquare, FaDiscord, FaTwitc
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 import ThemeToggler from "./ThemeToggler";
 
-import styled from "styled-components"
-
-import "../styles/header.css"
-
-const TomatoButton = styled(Button)`
-  color: tomato;
-  background: tomato;
-`;
-
+import "../styles/header.css";
 const Header = () => (
   <header>
     <div className="header-container">
@@ -26,7 +17,7 @@ const Header = () => (
         <h1 className="hvr-underline-from-center">Quaranteen University</h1>
       </Link>
         
-      <div>
+      <div className="social-links">
         <OutboundLink href="https://discord.gg/mhH65sR" target="_blank">
           <FaDiscord className="header-icon"/>
         </OutboundLink>
@@ -42,10 +33,9 @@ const Header = () => (
         <OutboundLink href="mailto:admissions@quaranteen.university?subject=Virtual Commencement 2020" target="_blank">
           <FaEnvelopeSquare className="header-icon"/>
         </OutboundLink>
+        <ThemeToggler />
       </div>
     </div>
-
-    <ThemeToggler />
 
     <Navbar className="container" expand="lg">
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -53,6 +43,9 @@ const Header = () => (
         <Nav className="mr-auto">
           <Link className="hvr-underline-from-center" to="/about">
             About Us
+          </Link>
+          <Link className="hvr-underline-from-center" to="/#faqs">
+            FAQs
           </Link>
           <Link className="hvr-underline-from-center" to="/courses">
             Courses

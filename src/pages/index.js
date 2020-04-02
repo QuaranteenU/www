@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import FAQs from "../components/faqs"
 import Layout from "../layouts/default"
 import SEO from "../components/seo"
+import { LandingSection } from '../styles/global';
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -66,7 +67,7 @@ class IndexPage extends React.Component {
           </Jumbotron>
 
           <Container>
-            <section className="landing-section">
+            <LandingSection>
               <h3>Walk the stage and receive your undergrad or grad diploma, virtually</h3>
               <p>
                 Have you worked hard for years but are graduating with no recognition? Forced to leave campus and your friends?
@@ -78,21 +79,21 @@ class IndexPage extends React.Component {
                   Are you a graduating high school senior (or a friend/parent of one)? Use the <Link to="/academy">QUA Interest Form</Link> instead!
                 </em>
               </p>
-            </section>
+            </LandingSection>
 
-            <section className="landing-section">
+            <LandingSection>
               <h3>Who's coming?</h3>
               <p>
                 So far the QU Class of 2020 is <strong>{this.state.countSignedUp}</strong> strong, comprised of <strong>{this.state.countUniqueSchools}</strong> different schools. Join us and be a part of internet history!
               </p>
-            </section>
+            </LandingSection>
 
-            <section className="landing-section">
+            <LandingSection>
               <h3>How's this gonna work?</h3>
               <p>Once enough people express interest, we'll select graduation times for everyone (and check you can make it). You'll connect to the world, get dressed into robes dyed in your school's color, have your name called, and walk up to receive your diploma in front of everyone. Plus, it will all be livestreamed!</p>
 
               <p>If a lot of people from your school sign up, maybe you could graduate together??</p>
-            </section>
+            </LandingSection>
 
             <FAQs />
           </Container>

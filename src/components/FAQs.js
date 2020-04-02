@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Masonry from "react-masonry-component";
-import ContainerLayout from "../layouts/container";
-import SEO from "../components/SEO";
 import FAQContent from "../data/FAQContent";
 
 const FAQSizer = styled.div`
@@ -44,14 +42,12 @@ const FAQs = () => {
   ]);
 
   return (
-    <ContainerLayout>
-      <SEO title="FAQs" route="faqs" />
-      <h1>Frequently Asked Questions</h1>
-      <br/>
+    <>
+      <h2>FAQs</h2>
       <Masonry options={masonryOptions}>
         {childElements}
       </Masonry>
-    </ContainerLayout>
+    </>
   );
 };
 

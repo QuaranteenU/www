@@ -6,6 +6,7 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Layout from "../layouts/default";
 import SEO from "../components/SEO";
+import FAQs from "../components/FAQs";
 import Coverphoto from "../images/coverphoto.jpg";
 //import Coverphoto from "../images/minecraft-hall.png";
 
@@ -146,6 +147,10 @@ class IndexPage extends React.Component {
               <p>Once enough people express interest, we'll select graduation times for everyone (and check you can make it). You'll connect to the world, get dressed into robes dyed in your school's color, have your name called, and walk up to receive your diploma in front of everyone. Plus, it will all be livestreamed!</p>
 
               <p>If a lot of people from your school sign up, maybe you could graduate together??</p>
+            </Section>
+
+            <Section id="faqs">
+              <FAQs />
             </Section>
           </Container>
         </div>

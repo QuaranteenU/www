@@ -96,9 +96,6 @@ const Header = () => (
           <Link className="hvr-underline-from-center" to="/about">
             About Us
           </Link>
-          <Link className="hvr-underline-from-center" to="/faqs">
-            FAQs
-          </Link>
           <Link className="hvr-underline-from-center" to="/courses">
             Courses
           </Link>

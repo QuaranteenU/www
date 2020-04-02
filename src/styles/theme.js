@@ -1,13 +1,13 @@
 const colorPalette = {
-  lightShades: "#fff",
-  lightAccent: "139, 142, 149",
   mainBrand: "#2f8dff",
-  darkAccent: "133, 129, 137",
-  darkShades: "32, 30, 32",
+  lightAccent: "#8b8e95",
+  lightShades: "#fff",
+  darkAccent: "#858189",
+  darkShades: "#201e20",
 
-  success: "95, 153, 81",
-  warning: "221, 136, 25",
-  error: "244, 67, 54",
+  success: "#5f9951",
+  warning: "#dd8819",
+  error: "#f44336",
 }
 
 const baseTheme = {

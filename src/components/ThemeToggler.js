@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ThemeManagerContext } from "gatsby-styled-components-dark-mode";
-import styled from "styled-components"
+import styled from "styled-components";
 
 const Toggle = styled.span`
   cursor: pointer;
@@ -8,7 +8,7 @@ const Toggle = styled.span`
 `;
 
 const ThemeToggler = () => {
-  const themeContext = useContext(ThemeManagerContext)
+  const themeContext = useContext(ThemeManagerContext);
 
   return (
     <Toggle onClick={() => themeContext.toggleDark()}>

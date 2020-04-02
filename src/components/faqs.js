@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Masonry from "react-masonry-component";
 import FAQContent from "../data/faqs.json";
-import { LandingSection } from "../styles/global";
+import { LandingSection } from "../pages/index";
 
 const FAQSizer = styled.div`
   width: 45%;
@@ -17,6 +17,10 @@ const FAQItem = styled.div`
   display: flex;
   align-items: flex-start;
   margin-bottom: 30px;
+
+  & p {
+    word-break: break-word;
+  }
 `;
 
 const masonryOptions = {

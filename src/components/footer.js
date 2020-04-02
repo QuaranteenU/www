@@ -1,12 +1,12 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { withTheme } from "styled-components";
 
-const StyledFooter = styled.footer`
-  background: #2f8dff;
+const StyledFooter = withTheme(styled.footer`
+  background: ${props => props.theme.palette.mainBrand};
   color: white;
   padding: 15px;
   text-align: center;
-`;
+`);
 
 const Footer = () => (
   <StyledFooter>

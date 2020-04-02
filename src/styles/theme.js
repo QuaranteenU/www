@@ -1,9 +1,13 @@
 const colorPalette = {
   mainBrand: "#2f8dff",
+
   lightAccent: "#8b8e95",
   lightShades: "#fff",
-  darkAccent: "#858189",
+  lightMuted: "#6c757d",
+
+  darkAccent: "#004599",
   darkShades: "#201e20",
+  darkMuted: "#96a2ad",
 
   success: "#5f9951",
   warning: "#dd8819",
@@ -19,22 +23,29 @@ const baseTheme = {
     warning: colorPalette.warning,
   },
   palette: {
-    darkAccent: colorPalette.darkAccent,
-    darkShades: colorPalette.darkShades,
+    mainBrand: colorPalette.mainBrand,
+
     lightAccent: colorPalette.lightAccent,
     lightShades: colorPalette.lightShades,
-    mainBrand: colorPalette.mainBrand,
+
+    darkAccent: colorPalette.darkAccent,
+    darkShades: colorPalette.darkShades,
   },
 }
 
 module.exports = {
   darkTheme: {
     ...baseTheme,
+    palette: {
+      mainBrand: colorPalette.darkAccent
+    },
     global: {
       bg: colorPalette.darkShades,
       color: colorPalette.lightShades,
       link: colorPalette.mainBrand,
       linkHover: colorPalette.lightAccent,
+      muted: colorPalette.darkMuted,
+      logoTint: "rgba(0,0,0,0.5)"
     },
   },
   lightTheme: {
@@ -44,6 +55,8 @@ module.exports = {
       color: colorPalette.darkShades,
       link: colorPalette.mainBrand,
       linkHover: colorPalette.darkAccent,
+      muted: colorPalette.lightMuted,
+      logoTint: "rgba(0,0,0,0)"
     },
   }
 }

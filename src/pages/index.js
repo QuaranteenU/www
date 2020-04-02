@@ -8,7 +8,8 @@ import Layout from "../layouts/default";
 import SEO from "../components/seo";
 import FAQs from "../components/faqs";
 import { Section } from "../styles/global";
-import Coverphoto from "../images/minecraft-hall.png";
+import Coverphoto from "../images/coverphoto.jpg";
+//import Coverphoto from "../images/minecraft-hall.png";
 
 const Landing = styled(Jumbotron)`
   color: white;
@@ -95,6 +96,7 @@ class IndexPage extends React.Component {
         <div style={{marginTop: "-55px"}}>
           <Landing fluid>
             <LandingContent>
+              <div style={{flex: 1}}/>
               <h1>Quaranteen Commencement 2020</h1>
               <p className="lead">
                 Come graduate in Minecraft on May 22

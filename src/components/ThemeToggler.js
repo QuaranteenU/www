@@ -17,7 +17,7 @@ const IconWrapper = styled.div`
   position: absolute;
   transition: margin-top 0.3s;
   margin-top: ${props => props.isDark? -.1 : -2.3}rem;
-`
+`;
 
 const ThemeToggler = () => {
   const themeContext = useContext(ThemeManagerContext);

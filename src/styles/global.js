@@ -109,8 +109,11 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${props => props.theme.global.bg};
     color: ${props => props.theme.global.color};
-    
     transition: background 0.2s ease-out;
+  }
+
+  .text-muted {
+    color: ${props => props.theme.global.muted} !important;
   }
   
   a {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import styled from "styled-components";
+import styled, { withTheme } from "styled-components";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
@@ -23,14 +23,14 @@ const HeaderContainer = styled.div`
   }
 `;
 
-const HomeLink = styled(Link)`
+const HomeLink = withTheme(styled(Link)`
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: #2f8dff;
+  color: ${props => props.theme.palette.mainBrand};
 
   &:hover {
-    color: #2f8dff;
+    color: ${props => props.theme.palette.mainBrand};
     text-decoration: none;
   }
 
@@ -43,9 +43,9 @@ const HomeLink = styled(Link)`
   }
 
   & > h1.hvr-underline-from-center:before {
-    background: #2f8dff;
+    background: ${props => props.theme.palette.mainBrand};
   }
-`;
+`);
 
 const SocialLinks = styled.div`
   display: flex;
@@ -53,13 +53,13 @@ const SocialLinks = styled.div`
   align-items: center;
 `;
 
-const SocialIcon = styled(OutboundLink)`
+const SocialIcon = withTheme(styled(OutboundLink)`
   & > svg {
     font-size: 2rem;
     margin: 0 5px;
-    color: #2f8dff;
+    color: ${props => props.theme.palette.mainBrand};
   }
-`;
+`);
 
 const Header = () => (
   <header>

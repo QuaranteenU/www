@@ -1,12 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
-import styled from "styled-components";
+import styled, { withTheme } from "styled-components";
 import { useStaticQuery, graphql } from "gatsby";
 
-const SmallImg = styled(Img)`
+const SmallImg = withTheme(styled(Img)`
   width: 100px;
-`;
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: ${props => props.theme.global.logoTint};
+    border-radius: 100%;
+  }
+`);
 
 const LargeImg = styled(Img)`
   width: 300px;

@@ -6,6 +6,7 @@ import Footer from "../components/footer";
 import { GlobalStyle } from "../styles/global"
 
 import "../styles/gatsby.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/main.css";
 
 const Layout = withTheme((props) => (

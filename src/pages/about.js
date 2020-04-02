@@ -2,13 +2,13 @@ import React from "react"
 
 import ContainerLayout from "../layouts/container"
 import SEO from "../components/seo"
-import { LogoBig } from "../components/logo"
+import Logo from "../components/logo"
 
 const About = () => (
   <ContainerLayout>
     <SEO title="About Us" route="about" />
     <div style={{width: "150px", display: "block", marginLeft: "auto", marginRight: "auto", marginTop: "25px", marginBottom: "25px"}}>
-      <LogoBig />
+      <Logo size="large" />
     </div>
     <p><strong>Quaranteen University</strong> is an international not-for-profit institution. It was founded in March 2020 because two BU students were bored. Being quarantined in a dorm for a week makes you crazy.</p>
     <p>

@@ -121,6 +121,15 @@ export const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.global.linkHover};
   }
 
+  .swal-icon.swal-icon--custom {
+    width: 250px;
+    margin: 0 auto;
+  }
+
+  .swal-button.swal-button--confirm:hover {
+    animation: wiggle 0.5s infinite;
+  }
+
   .hvr-underline-from-center {
     display: inline-block;
     vertical-align: middle;

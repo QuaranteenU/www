@@ -24,12 +24,12 @@ const FAQs = () => {
   ]);
 
   return (
-    <>
+    <section id="faqs" className="landing-section">
       <h2>FAQs</h2>
       <Masonry options={masonryOptions} className="faq-masonry-wrapper">
         {childElements}
       </Masonry>
-    </>
+    </section>
   );
 };
 

@@ -11,15 +11,18 @@
   "dependencies": {
     "@sweetalert/with-react": "^0.1.1",
     "axios": "^0.19.2",
+    "babel-plugin-styled-components": "^1.10.7",
     "bootstrap": "^4.4.1",
     "gatsby": "^2.19.45",
     "gatsby-image": "^2.2.44",
     "gatsby-plugin-google-analytics": "^2.1.38",
+    "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-manifest": "^2.2.48",
     "gatsby-plugin-offline": "^3.0.42",
     "gatsby-plugin-react-helmet": "^3.1.24",
     "gatsby-plugin-sharp": "^2.4.13",
     "gatsby-plugin-sitemap": "^2.2.30",
+    "gatsby-plugin-styled-components": "^3.2.1",
     "gatsby-source-filesystem": "^2.1.56",
     "gatsby-transformer-sharp": "^2.3.19",
     "prop-types": "^15.7.2",
@@ -29,6 +32,7 @@
     "react-helmet": "^5.2.1",
     "react-icons": "^3.9.0",
     "react-masonry-component": "^6.2.1",
+    "styled-components": "^5.0.1",
     "sweetalert": "^2.1.2"
   },
   "devDependencies": {

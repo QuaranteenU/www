@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Masonry from "react-masonry-component";
-import FAQContent from "../data/faqs.json";
-import { LandingSection } from "../pages/index";
+import FAQContent from "../data/faqs";
+import { LandingSection } from '../styles/global';
 
 const FAQSizer = styled.div`
   width: 45%;
@@ -37,7 +37,7 @@ const FAQs = () => {
     <FAQItem key={`faq-item-${index}`} className="faq-item">
       <div>
         <b>{FAQ.question}</b>
-        <p dangerouslySetInnerHTML={{ __html: FAQ.answer }} />
+        <p>{FAQ.answer}</p>
       </div>
     </FAQItem>
   ]);

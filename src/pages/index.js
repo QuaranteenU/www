@@ -8,12 +8,7 @@ import styled from "styled-components";
 import FAQs from "../components/faqs"
 import Layout from "../layouts/default"
 import SEO from "../components/seo"
-//import { LandingSection } from '../styles/global';
-
-export const LandingSection = styled.section`
-  margin-top: 50px;
-  margin-bottom: 100px;
-`;
+import { LandingSection } from '../styles/global';
 
 class IndexPage extends React.Component {
   constructor(props) {

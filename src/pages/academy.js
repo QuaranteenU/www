@@ -1,6 +1,5 @@
 import React from "react";
-
-import ContainerLayout from "../layouts/container"
+import ContainerLayout from "../layouts/container";
 import SEO from "../components/seo";
 import SignupForm from "../components/signup";
 
@@ -8,8 +7,8 @@ class Academy extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      countSignedUp: '_',
-      countUniqueSchools: '_'
+      countSignedUp: "_",
+      countUniqueSchools: "_"
     };
   }
 
@@ -63,4 +62,4 @@ class Academy extends React.Component {
   }
 };
 
-export default Academy
+export default Academy;

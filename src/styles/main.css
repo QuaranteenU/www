@@ -1,67 +1,14 @@
 
-@keyframes fontalicious {
-  0% {
-    font-family: helvetica;
-  }
-  10% {
-    font-family: times;
-  }
-  20% {
-    font-family: fantasy;
-  }
-  30% {
-    font-family: monospace;
-  }
-  40% {
-    font-family: Palatino;
-  }
-  50% {
-    font-family: Tahoma;
-  }
-  60% {
-    font-family: impact;
-  }
-  70% {
-    font-family: cursive;
-  }
-  80% {
-    font-family: monospace;
-  }
-  90% {
-    font-family: fantasy;
-  }
-  99% {
-    font-family: futura;
-  }
-  100% {
-  }
-}
 
-@keyframes wiggle {
-    0% { transform: rotate(0deg); }
-   25% { transform: rotate(5deg); }
-   75% { transform: rotate(-5deg); }
-  100% { transform: rotate(0deg); }
-}
-
-.wiggle:hover {
-  animation: wiggle 0.5s infinite;
-}
-
-.fontalicious {
-  animation-name: fontalicious;
-  animation-duration: 1s;
-}
 
 .content-wrapper {
   flex: 1 0 auto;
+  margin-top: 25px;
 }
 
 .homepage-container {
-  margin-top: -45px;
+  margin-top: -55px;
 }
-
-
 
 .landing {
   color: white;
@@ -103,15 +50,6 @@
   margin: 5px;
 }
 
-.doggo {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.thunder {
-  width: 100%;
-}
 
 .swal-icon.swal-icon--custom {
   width: 250px;
@@ -122,21 +60,12 @@
   animation: wiggle 0.5s infinite;
 }
 
-.btn.btn-primary {
-  background-color: #2f8dff;
-  border-color: #2f8dff;
-}
+
 
 .share-buttons > * {
   margin: 5px;
 }
 
-footer {
-  background: #2f8dff;
-  color: white;
-  padding: 15px;
-  text-align: center;
-}
 
 #gatsby-focus-wrapper {
   display: flex;

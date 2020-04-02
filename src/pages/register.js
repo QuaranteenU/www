@@ -36,4 +36,4 @@ const Registration = ({ location }) => {
   </ContainerLayout>
 )};
 
-export default Registration
+export default Registration;

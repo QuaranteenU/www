@@ -1,17 +1,16 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import swal from "@sweetalert/with-react";
-import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
-import { FaQuestionCircle } from 'react-icons/fa';
+import { FaQuestionCircle } from "react-icons/fa";
+import SignupSwal from "./SignupSwal";
+import partyhat from "../images/party.png"
 import serialize from "../util/serialize";
 import { universityEmailPattern, simpleEmailPattern } from "../util/regex";
-
-import partyhat from "../images/party.png"
-import SignupSwal from "./SignupSwal";
 
 const SignupForm = ({ defaultRole, formId, fieldNames, simpleEmail }) => {
   const [validated, setValidated] = useState(false);
@@ -31,8 +30,8 @@ const SignupForm = ({ defaultRole, formId, fieldNames, simpleEmail }) => {
       setSubmitted(true);
       const postURL = `https://docs.google.com/forms/d/e/${formId}/formResponse?${serialize(form)}`;
       const config = {
-        method: 'GET',
-        mode: 'no-cors',
+        method: "GET",
+        mode: "no-cors",
       };
 
       const formRequest = new Request(postURL, config);
@@ -105,19 +104,19 @@ const SignupForm = ({ defaultRole, formId, fieldNames, simpleEmail }) => {
             </Form.Group>
           ) : (
             <Form.Group as={Col} md="6" controlId="email">
-              <Form.Label>{formRole === 'Audience' ? "" : "University "}Email Address</Form.Label>
+              <Form.Label>{formRole === "Audience" ? "" : "University "}Email Address</Form.Label>
               <InputGroup>
                 <Form.Control
                   type="email"
-                  placeholder={formRole === 'Audience' ? "someone@gmail.com" : "someone@school.edu"}
-                  pattern={formRole === 'Audience' ? simpleEmailPattern : universityEmailPattern}
+                  placeholder={formRole === "Audience" ? "someone@gmail.com" : "someone@school.edu"}
+                  pattern={formRole === "Audience" ? simpleEmailPattern : universityEmailPattern}
                   name={fieldNames.email}
                   value={email}
                   onChange={handleEmailChange}
                   required
                 />
                 <Form.Control.Feedback type="invalid">
-                  Please enter a valid {formRole === 'Audience' ? "" : <strong>university/college</strong>} email address.
+                  Please enter a valid {formRole === "Audience" ? "" : <strong>university/college</strong>} email address.
                 </Form.Control.Feedback>
               </InputGroup>
             </Form.Group>
@@ -204,7 +203,7 @@ const SignupForm = ({ defaultRole, formId, fieldNames, simpleEmail }) => {
           <InputGroup>
             <Form.Control
               type="text"
-              value={email.split('@')[1] || ''}
+              value={email.split("@")[1] || ""}
               name={fieldNames.domain}
               readOnly
               required

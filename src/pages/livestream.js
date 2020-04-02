@@ -1,24 +1,11 @@
 import React from "react";
+import styled from "styled-components"
 import ContainerLayout from "../layouts/container"
 import SEO from "../components/seo";
-import styled from "styled-components"
-
-const VideoContainer = styled.div`
-  width: 100%;
-  position: relative;
-  padding-bottom: 56.25%;
-`;
-
-const VideoIframe = styled.iframe`
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-`;
+import { VideoContainer, VideoIframe } from "../styles/global";
 
 const FullWidthIframe = styled.iframe`
-width: 100%;
+  width: 100%;
 `;
 
 const Livestream = () => {
@@ -54,7 +41,7 @@ const Livestream = () => {
         allowtransparency="true"
         frameBorder="0" />
     </ContainerLayout>
-  )
+  );
 };
 
-export default Livestream
+export default Livestream;

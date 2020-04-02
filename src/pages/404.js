@@ -1,9 +1,8 @@
-import React from "react"
-
-import ContainerLayout from "../layouts/container"
-import SEO from "../components/seo"
+import React from "react";
 import Button from "react-bootstrap/Button";
-import showBSOD from "../util/bsod.js"
+import ContainerLayout from "../layouts/container";
+import SEO from "../components/seo";
+import showBSOD from "../util/bsod.js";
 
 const NotFoundPage = () => (
   <ContainerLayout>
@@ -12,6 +11,6 @@ const NotFoundPage = () => (
     <p>Unfortunately, we didn't have the budget to create the page you were looking for. However, I did find this button our developer left behind in the source code. Not too sure what it does...</p>
     <Button variant="danger" onClick={showBSOD}>DO NOT CLICK</Button>
   </ContainerLayout>
-)
+);
 
-export default NotFoundPage
+export default NotFoundPage;

@@ -1,4 +1,4 @@
-// credit goes to https://github.com/tholman/bsod.js
+// https://github.com/tholman/bsod.js
 
 const wipeDomAndHead = () => {
   document.body.innerHTML = '';

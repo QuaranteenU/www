@@ -7,8 +7,8 @@ import Button from "react-bootstrap/Button";
 import Layout from "../layouts/default";
 import SEO from "../components/SEO";
 import FAQs from "../components/FAQs";
-import Coverphoto from "../images/coverphoto.jpg";
-//import Coverphoto from "../images/minecraft-hall.png";
+//import Coverphoto from "../images/coverphoto.jpg";
+import Coverphoto from "../images/minecraft-hall.png";
 
 const Landing = styled(Jumbotron)`
   color: white;

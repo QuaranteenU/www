@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 
 import FAQs from "../components/faqs"
-import Layout from "../components/layout"
+import Layout from "../layouts/default"
 import SEO from "../components/seo"
 
 class IndexPage extends React.Component {

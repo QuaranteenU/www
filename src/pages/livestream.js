@@ -1,5 +1,5 @@
 import React from "react";
-import ContainerLayout from "../components/container-layout";
+import ContainerLayout from "../layouts/container"
 import SEO from "../components/seo";
 import styled from "styled-components"
 

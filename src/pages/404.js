@@ -1,6 +1,6 @@
 import React from "react"
 
-import ContainerLayout from "../components/container-layout"
+import ContainerLayout from "../layouts/container"
 import SEO from "../components/seo"
 import Button from "react-bootstrap/Button";
 import showBSOD from "../util/bsod.js"

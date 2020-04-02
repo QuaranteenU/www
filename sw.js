@@ -27,17 +27,21 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-77eb642b9dbf261216d0.js"
+    "url": "webpack-runtime-97349148940d355028d9.js"
   },
   {
-    "url": "commons-62d8aeb3405fca049d6f.js"
+    "url": "commons-7819f26851752fbea94b.js"
   },
   {
-    "url": "app-a70d42955243153cd70e.js"
+    "url": "app-1d5f5ccf8cfd6a3bf9a8.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "096cac12b40f30032d3c8664c1d665e4"
+    "revision": "e8fd3a5b57a0149ccc9e317280ec2c25"
+  },
+  {
+    "url": "google-fonts/s/librebaskerville/v7/kmKnZrc3Hgbbcjq75U4uslyuy4kn0qNZaxM.woff2",
+    "revision": "d15ba972040b09041a17f6a751282dcb"
   },
   {
     "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-0159bb149368cfb6a796.js"
@@ -48,16 +52,16 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "02a59b4a92880bc80f700c3dd6dd376c"
+    "revision": "50297490546c02fa7b698340859f9f10"
   },
   {
-    "url": "styles.2dee21cd1f2df8b9664d.css"
+    "url": "styles.cdbefcf032504d410e50.css"
   },
   {
-    "url": "styles-2d48a34d19d8fa784a99.js"
+    "url": "styles-4bd7b0764b3539f778ff.js"
   },
   {
-    "url": "component---src-pages-404-js-171144b5309c9cd7dc14.js"
+    "url": "component---src-pages-404-js-b11a60521f3214fbc08f.js"
   },
   {
     "url": "page-data/404/page-data.json",
@@ -68,35 +72,49 @@ self.__precacheManifest = [
     "revision": "d2d3612af1df181302e193fa8c922dd4"
   },
   {
-    "url": "component---src-pages-about-js-67193d5606716b94bba4.js"
+    "url": "component---src-pages-about-js-2e11aad2e718a993f483.js"
   },
   {
     "url": "page-data/about/page-data.json",
     "revision": "3ddd5d51b095997b4d473ef99898912f"
   },
   {
-    "url": "component---src-pages-academy-js-ce88b94a324e782f818d.js"
+    "url": "component---src-pages-academy-js-aa2c2ef6c703af539a34.js"
   },
   {
     "url": "page-data/academy/page-data.json",
     "revision": "802b9b1abc5174a4ec4aaa21c09bb364"
   },
   {
-    "url": "component---src-pages-courses-js-85d75401f02081e59533.js"
+    "url": "component---src-pages-courses-js-10e38109a2755638c118.js"
   },
   {
     "url": "page-data/courses/page-data.json",
     "revision": "4c55b0a37587ffa7dc418322d0e7972d"
   },
   {
-    "url": "component---src-pages-index-js-f951b39053e65a84a622.js"
+    "url": "component---src-pages-faqs-js-bfeb3a3c30082dbe9e92.js"
+  },
+  {
+    "url": "page-data/faqs/page-data.json",
+    "revision": "d89eeb82d0b8766ac238489da428f325"
+  },
+  {
+    "url": "component---src-pages-index-js-b0b0a439809fe780eaa4.js"
   },
   {
     "url": "page-data/index/page-data.json",
     "revision": "7ccb1677a3924eb7498e27ccb409e361"
   },
   {
-    "url": "component---src-pages-register-js-c3a24bfb4adcf5366348.js"
+    "url": "component---src-pages-livestream-js-e8a87a716cee5f39a780.js"
+  },
+  {
+    "url": "page-data/livestream/page-data.json",
+    "revision": "01027a9290b2df11ac2b79ce73d7a9d1"
+  },
+  {
+    "url": "component---src-pages-register-js-3f13020ae6f1d5c2ddcf.js"
   },
   {
     "url": "page-data/register/page-data.json",
@@ -197,7 +215,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/app-a70d42955243153cd70e.js`))) {
+  if (!resources || !(await caches.match(`/app-1d5f5ccf8cfd6a3bf9a8.js`))) {
     return await fetch(event.request)
   }
 

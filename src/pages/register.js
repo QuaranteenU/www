@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "gatsby";
-import ContainerLayout from "../layouts/container";
 import SEO from "../components/SEO";
 import SignupForm from "../components/SignupForm";
 
@@ -20,7 +19,7 @@ const Registration = ({ location }) => {
   }
   
   return (
-    <ContainerLayout>
+    <>
       <SEO title="Register" route="/register" />
       <h1>Join the {role === "Audience" ? "Audience" : "Graduating Class"}</h1>
       <p className="lead">
@@ -32,7 +31,7 @@ const Registration = ({ location }) => {
         </small>
       </p>
       <SignupForm defaultRole={role} formId="1FAIpQLScTKQ9YHAMJqLxgVztjnmp5b3kfaoSgKl_KwaF4VeFj2-tRhw" fieldNames={fieldNames} simpleEmail={false} />
-    </ContainerLayout>
+    </>
   );
 };
 

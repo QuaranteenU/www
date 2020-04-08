@@ -1,10 +1,5 @@
-import styled, { createGlobalStyle, css } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import navTogglerIconPath from '../images/navbar-toggler-icon.svg';
-
-export const ContentWrapperStyle = css`
-  flex: 1 0 auto;
-  margin-top: 25px;
-`;
 
 export const VideoContainer = styled.div`
   width: 100%;

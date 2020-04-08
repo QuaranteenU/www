@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
-import ContainerLayout from "../layouts/container";
 import SEO from "../components/SEO";
 import Logo from "../components/Logo";
 
@@ -12,7 +11,7 @@ const LogoWrapper = styled.div`
 `;
 
 const About = () => (
-  <ContainerLayout>
+  <>
     <SEO title="About Us" route="about" />
     <LogoWrapper>
       <Logo size="large" />
@@ -21,7 +20,7 @@ const About = () => (
     <p>
       COVID-19 won't stop us from delivering everyone's hard-earned diplomas. Sign up to graduate so we can all make blocky history together! And if you want to help organize Q.U. commencement, <OutboundLink href="https://m.me/quaranteenu" target="_blank">message us on Facebook</OutboundLink>. We'd love to have you!
     </p>
-  </ContainerLayout>
+  </>
 );
 
 export default About;

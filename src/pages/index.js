@@ -4,13 +4,18 @@ import styled from "styled-components";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
-import Layout from "../layouts/default";
 import SEO from "../components/SEO";
 import FAQs from "../components/FAQs";
-//import Coverphoto from "../images/coverphoto.jpg";
 import Coverphoto from "../images/minecraft-hall.png";
 
+const LandingWrapper = styled.div`
+  height: 500px;
+`;
+
 const Landing = styled(Jumbotron)`
+  position: absolute;
+  left: 0;
+  right: 0;
   color: white;
   height: 500px;
   text-align: center;
@@ -95,66 +100,66 @@ class IndexPage extends React.Component {
 
   render() {
     return (
-      <Layout>
+      <>
         <SEO title="Home" route="/" />
         <div style={{marginTop: "-55px"}}>
-          <Landing fluid>
-            <LandingContent>
-              <div style={{flex: 1}}/>
-              <h1>Quaranteen Commencement 2020</h1>
-              <p className="lead">
-                Come graduate in Minecraft on May 22
-              </p>
-              <div>
-                <Link to="/register" state={{ role: "Graduate" }}>
-                  <Button className="wiggle">
-                    Join the graduating class
-                  </Button>
-                </Link>
-                <Link to="/register" state={{ role: "Audience" }}>
-                  <Button className="wiggle">
-                    Join the audience
-                  </Button>
-                </Link>
-              </div>
-            </LandingContent>
-          </Landing>
+          <LandingWrapper>
+            <Landing fluid>
+              <LandingContent>
+                <div style={{flex: 1}}/>
+                <h1>Quaranteen Commencement 2020</h1>
+                <p className="lead">
+                  Come graduate in Minecraft on May 22
+                </p>
+                <div>
+                  <Link to="/register" state={{ role: "Graduate" }}>
+                    <Button className="wiggle">
+                      Join the graduating class
+                    </Button>
+                  </Link>
+                  <Link to="/register" state={{ role: "Audience" }}>
+                    <Button className="wiggle">
+                      Join the audience
+                    </Button>
+                  </Link>
+                </div>
+              </LandingContent>
+            </Landing>
+          </LandingWrapper>
 
-          <Container>
-            <Section>
-              <h3>Walk the stage and receive your undergrad or grad diploma, virtually</h3>
-              <p>
-                Have you worked hard for years but are graduating with no recognition? Forced to leave campus and your friends?
-              </p>
-              <p>Us too, but coronavirus won't stop the Class of 2020. <span role="img" aria-label="huff">😤</span></p>
-              <p>We're going to livestream this because we don't have anything better to do under quarantine lmao.</p>
-              <p className="text-muted">
-                <em>
-                  Are you a graduating high school senior (or a friend/parent of one)? Use the <Link to="/academy">QUA Interest Form</Link> instead!
-                </em>
-              </p>
-            </Section>
+          <Section>
+            <h3>Walk the stage and receive your undergrad or grad diploma, virtually</h3>
+            <p>
+              Have you worked hard for years but are graduating with no recognition? Forced to leave campus and your friends?
+            </p>
+            <p>Us too, but coronavirus won't stop the Class of 2020. <span role="img" aria-label="huff">😤</span></p>
+            <p>We're going to livestream this because we don't have anything better to do under quarantine lmao.</p>
+            <p className="text-muted">
+              <em>
+                Are you a graduating high school senior (or a friend/parent of one)? Use the <Link to="/academy">QUA Interest Form</Link> instead!
+              </em>
+            </p>
+          </Section>
 
-            <Section>
-              <h3>Who's coming?</h3>
-              <p>
-                So far the QU Class of 2020 is <strong>{this.state.countSignedUp}</strong> strong, comprised of <strong>{this.state.countUniqueSchools}</strong> different schools. Join us and be a part of internet history!
-              </p>
-            </Section>
+          <Section>
+            <h3>Who's coming?</h3>
+            <p>
+              So far the QU Class of 2020 is <strong>{this.state.countSignedUp}</strong> strong, comprised of <strong>{this.state.countUniqueSchools}</strong> different schools. Join us and be a part of internet history!
+            </p>
+          </Section>
 
-            <Section>
-              <h3>How's this gonna work?</h3>
-              <p>Once enough people express interest, we'll select graduation times for everyone (and check you can make it). You'll connect to the world, get dressed into robes dyed in your school's color, have your name called, and walk up to receive your diploma in front of everyone. Plus, it will all be livestreamed!</p>
+          <Section>
+            <h3>How's this gonna work?</h3>
+            <p>Once enough people express interest, we'll select graduation times for everyone (and check you can make it). You'll connect to the world, get dressed into robes dyed in your school's color, have your name called, and walk up to receive your diploma in front of everyone. Plus, it will all be livestreamed!</p>
 
-              <p>If a lot of people from your school sign up, maybe you could graduate together??</p>
-            </Section>
+            <p>If a lot of people from your school sign up, maybe you could graduate together??</p>
+          </Section>
 
-            <Section id="faqs">
-              <FAQs />
-            </Section>
-          </Container>
+          <Section id="faqs">
+            <FAQs />
+          </Section>
         </div>
-      </Layout>
+      </>
     );
   }
 }

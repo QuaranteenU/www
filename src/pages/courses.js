@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import ContainerLayout from "../layouts/container";
 import SEO from "../components/SEO";
 import { VideoContainer, VideoIframe } from "../styles/global";
 
@@ -40,7 +39,7 @@ class Courses extends React.Component {
   render() {
     const { bamboozled, dogURL } = this.state;
     return (
-      <ContainerLayout>
+      <>
         <SEO title="Courses" route="courses" />
         {!bamboozled && <VideoContainer>
           <VideoIframe
@@ -62,7 +61,7 @@ class Courses extends React.Component {
             <img src={dogURL} alt="doggo" />
           </Doggo>
         </div>}
-      </ContainerLayout>
+      </>
     );
   }
 };

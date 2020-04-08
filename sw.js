@@ -27,17 +27,17 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-818db4a8f4568d3a4218.js"
+    "url": "webpack-runtime-922693653b9401fe1352.js"
   },
   {
     "url": "commons-ca2fe3ecbd13662c5161.js"
   },
   {
-    "url": "app-13bb6bff6cb6375db23d.js"
+    "url": "app-12f3a228500cab44a8a6.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "02ef4fcd4b14648c91e557c2508e4b39"
+    "revision": "806394376f37970eb7fa4fe846407780"
   },
   {
     "url": "google-fonts/s/librebaskerville/v7/kmKnZrc3Hgbbcjq75U4uslyuy4kn0qNZaxM.woff2",
@@ -52,7 +52,7 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "ff940275579be7c2e96a7df33e039e91"
+    "revision": "1f31b209856d0bf4ac1b5596efb89b35"
   },
   {
     "url": "styles.cdbefcf032504d410e50.css"
@@ -79,7 +79,7 @@ self.__precacheManifest = [
     "revision": "3ddd5d51b095997b4d473ef99898912f"
   },
   {
-    "url": "component---src-pages-academy-js-2dde406a7460b963de0e.js"
+    "url": "component---src-pages-academy-js-6ca363357c03e5f953d0.js"
   },
   {
     "url": "page-data/academy/page-data.json",
@@ -107,7 +107,7 @@ self.__precacheManifest = [
     "revision": "01027a9290b2df11ac2b79ce73d7a9d1"
   },
   {
-    "url": "component---src-pages-register-js-23080fc4b2539e5b788f.js"
+    "url": "component---src-pages-register-js-8899aa770844341885ba.js"
   },
   {
     "url": "page-data/register/page-data.json",
@@ -208,7 +208,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/app-13bb6bff6cb6375db23d.js`))) {
+  if (!resources || !(await caches.match(`/app-12f3a228500cab44a8a6.js`))) {
     return await fetch(event.request)
   }
 

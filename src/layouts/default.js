@@ -18,7 +18,6 @@ const Layout = withTheme((props) => (
     <GlobalStyle theme={props.theme} />
     <Header />
     <ContentWrapper>{props.children}</ContentWrapper>
-    <MessengerChat />
     <Footer/>
   </>
 ));

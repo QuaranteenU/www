@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
+import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import FAQs from "../components/FAQs";
 import Coverphoto from "../images/minecraft-hall.png";
@@ -100,7 +101,7 @@ class IndexPage extends React.Component {
 
   render() {
     return (
-      <>
+      <Layout>
         <SEO title="Home" route="/" />
         <div style={{marginTop: "-55px"}}>
           <LandingWrapper>
@@ -159,7 +160,7 @@ class IndexPage extends React.Component {
             <FAQs />
           </Section>
         </div>
-      </>
+      </Layout>
     );
   }
 }

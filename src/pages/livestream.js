@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import { VideoContainer, VideoIframe } from "../styles/global";
 
@@ -9,7 +10,7 @@ const FullWidthIframe = styled.iframe`
 
 const Livestream = () => {
   return (
-    <>
+    <Layout>
       <SEO title="Livestream" route="/livestream" />
       <h1>Crafting Livestream</h1>
       <p className="lead">
@@ -39,7 +40,7 @@ const Livestream = () => {
         height="500"
         allowtransparency="true"
         frameBorder="0" />
-    </>
+    </Layout>
   );
 };
 

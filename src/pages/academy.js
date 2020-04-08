@@ -1,4 +1,5 @@
 import React from "react";
+import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import SignupForm from "../components/SignupForm";
 
@@ -44,7 +45,7 @@ class Academy extends React.Component {
     }
     
     return (
-      <>
+      <Layout>
         <SEO title="Academy" route="/academy" />
         <h1>Join Quaranteen University Academy</h1>
         <p className="lead">
@@ -56,7 +57,7 @@ class Academy extends React.Component {
           </small>
         </p>
         <SignupForm formId="1FAIpQLSeNuLMVROpzo3lAYzKNQHp2KFDgYtd6dLARuG848tEAQXKn4w" fieldNames={fieldNames} simpleEmail={true} />
-      </>
+      </Layout>
     );
   }
 };

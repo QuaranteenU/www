@@ -1,4 +1,9 @@
 const React = require("react");
-const Layout = require("./src/components/Layout").default;
+const MessengerChat = require("./src/components/MessengerChat").default;
 
-exports.wrapPageElement = ({ element, props }) => <Layout {...props}>{element}</Layout>;
+exports.wrapPageElement = ({ element, props }) => (
+  <React.Fragment {...props}>
+    {element}
+    <MessengerChat />
+  </React.Fragment>
+);

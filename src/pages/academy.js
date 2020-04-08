@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
+import DeadlineChecker from "../components/DeadlineChecker";
 import SignupForm from "../components/SignupForm";
 
 class Academy extends React.Component {
@@ -47,16 +48,22 @@ class Academy extends React.Component {
     return (
       <Layout>
         <SEO title="Academy" route="/academy" />
-        <h1>Join Quaranteen University Academy</h1>
-        <p className="lead">
-          Due to popular demand, we're opening signups for a second graduation ceremony exclusively for high school seniors! Register your interest below! <br/>
-          <small className="text-muted">
-            <em>
-              Currently, the QUA Class of 2020 is <strong>{this.state.countSignedUp}</strong> strong!
-            </em>
-          </small>
-        </p>
-        <SignupForm formId="1FAIpQLSeNuLMVROpzo3lAYzKNQHp2KFDgYtd6dLARuG848tEAQXKn4w" fieldNames={fieldNames} simpleEmail={true} />
+        <DeadlineChecker>
+          <h1>Join Quaranteen University Academy</h1>
+          <p className="lead">
+            Due to popular demand, we're opening signups for a second graduation ceremony exclusively for high school seniors! Register your interest below! <br/>
+            <small className="text-muted">
+              <em>
+                Currently, the QUA Class of 2020 is <strong>{this.state.countSignedUp}</strong> strong!
+              </em>
+            </small>
+            <br/>
+            <small className="text-muted">
+              <em>Registration closes <strong>May 1<sup>st</sup></strong> at <strong>midnight</strong>!</em>
+            </small>
+          </p>
+          <SignupForm formId="1FAIpQLSeNuLMVROpzo3lAYzKNQHp2KFDgYtd6dLARuG848tEAQXKn4w" fieldNames={fieldNames} simpleEmail={true} />
+        </DeadlineChecker>
       </Layout>
     );
   }

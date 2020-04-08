@@ -70,7 +70,7 @@ const Header = () => (
       </HomeLink>
         
       <SocialLinks>
-        <SocialIcon href="https://discord.gg/mhH65sR" target="_blank">
+        <SocialIcon href="https://discord.gg/UbrvVcU" target="_blank">
           <FaDiscord/>
         </SocialIcon>
         <SocialIcon href="https://www.facebook.com/quaranteenu" target="_blank">

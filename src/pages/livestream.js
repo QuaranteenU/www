@@ -31,11 +31,11 @@ const Livestream = () => {
 
       <h3>Join our Discord!</h3>
       <p className="lead">
-        Here's a sneak peak below, join and game with us!
+        Here's a sneak peak below, join and hang with us!
       </p>
       <FullWidthIframe
         title="Discord Widget"
-        src="https://discordapp.com/widget?id=690019838445486121&theme=dark"
+        src="https://discordapp.com/widget?id=588482838886613012&theme=dark"
         width="350"
         height="500"
         allowtransparency="true"

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
@@ -7,7 +7,6 @@ import Button from "react-bootstrap/Button";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import FAQs from "../components/FAQs";
-import Coverphoto from "../images/minecraft-hall.png";
 
 const LandingWrapper = styled.div`
   height: 500px;
@@ -24,7 +23,7 @@ const Landing = styled(Jumbotron)`
       rgba(0, 0, 0, 0.25), 
       rgba(0, 0, 0, 0.25)
     ),
-    url("${Coverphoto}");
+    url("${props => props.background}");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -103,9 +102,9 @@ class IndexPage extends React.Component {
     return (
       <Layout>
         <SEO title="Home" route="/" />
-        <div style={{marginTop: "-55px"}}>
+        <div style={{ marginTop: "-55px" }}>
           <LandingWrapper>
-            <Landing fluid>
+            <Landing fluid background={this.props.data.coverphoto.childImageSharp.fluid.src}>
               <LandingContent>
                 <div style={{flex: 1}}/>
                 <h1>Quaranteen Commencement 2020</h1>
@@ -164,5 +163,17 @@ class IndexPage extends React.Component {
     );
   }
 }
+
+export const query = graphql`
+  query {
+    coverphoto: file(relativePath: { eq: "minecraft-hall.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;

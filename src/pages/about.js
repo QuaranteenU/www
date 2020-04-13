@@ -4,6 +4,7 @@ import { OutboundLink } from "gatsby-plugin-google-analytics";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import Logo from "../components/Logo";
+import TeamGrid from "../components/TeamGrid";
 
 const LogoWrapper = styled.div`
   width: fit-content;
@@ -21,6 +22,7 @@ const About = () => (
     <p>
       COVID-19 won't stop us from delivering everyone's hard-earned diplomas. Sign up to graduate so we can all make blocky history together! And if you want to help organize Q.U. commencement, <OutboundLink href="https://m.me/quaranteenu" target="_blank">message us on Facebook</OutboundLink>. We'd love to have you!
     </p>
+    <TeamGrid />
   </Layout>
 );
 

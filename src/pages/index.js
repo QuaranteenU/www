@@ -20,7 +20,7 @@ const Landing = styled(Jumbotron)`
   height: 500px;
   text-align: center;
   background: linear-gradient(
-      rgba(0, 0, 0, 0.25), 
+      rgba(0, 0, 0, 0.25),
       rgba(0, 0, 0, 0.25)
     ),
     url("${props => props.background}");
@@ -133,7 +133,7 @@ class IndexPage extends React.Component {
               Have you worked hard for years but are graduating with no recognition? Forced to leave campus and your friends?
             </p>
             <p>Us too, but coronavirus won't stop the Class of 2020. <span role="img" aria-label="huff">😤</span></p>
-            <p>We're going to livestream this because we don't have anything better to do under quarantine lmao.</p>
+            <p>We're going to livestream this because we don't have anything better to do under quarantine lol.</p>
             <p className="text-muted">
               <em>
                 Are you a graduating high school senior (or a friend/parent of one)? Use the <Link to="/academy">QUA Interest Form</Link> instead!

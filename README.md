@@ -1,8 +1,7 @@
-# Quaranteens.github.io
-Quaranteen University Website
+# Quaranteen University Website
 
-Built with Gatsby. Do `gatsby develop` to run with hot-reloading on localhost:8000.
+Come graduate in Minecraft on May 22!
 
-Do `git worktree add -B gh-pages public origin/gh-pages` to connect the `/public` directory to the `gh-pages` branch.
+## Development
 
-Once this is set up, you can quickly do `gatsby build && cd public && git add -A && git commit -m "New Release" && git push` to do a release.
+Run `npm install` then `npm run develop`. When ready to deploy, run `npm run deploy`. ez pz

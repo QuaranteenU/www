@@ -30,7 +30,7 @@ const TeamImage = ({ name }) => {
         }
       }
 
-      Jithvan: file(relativePath: { eq: "team/default.png" }) {
+      Jithvan: file(relativePath: { eq: "team/Jithvan.png" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid
@@ -62,7 +62,7 @@ const TeamImage = ({ name }) => {
         }
       }
 
-      Prathyusha: file(relativePath: { eq: "team/default.png" }) {
+      Prathyusha: file(relativePath: { eq: "team/Prathyusha.png" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid
@@ -70,7 +70,7 @@ const TeamImage = ({ name }) => {
         }
       }
 
-      Timothy: file(relativePath: { eq: "team/default.png" }) {
+      Timothy: file(relativePath: { eq: "team/Timothy.png" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid
@@ -78,7 +78,7 @@ const TeamImage = ({ name }) => {
         }
       }
 
-      Krishna: file(relativePath: { eq: "team/default.png" }) {
+      Krishna: file(relativePath: { eq: "team/Krishna.png" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid
@@ -92,7 +92,7 @@ const TeamImage = ({ name }) => {
 }
 
 TeamImage.propTypes = {
-  size: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired
 };
 
 export default TeamImage;

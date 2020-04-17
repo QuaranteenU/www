@@ -20,7 +20,7 @@ const Team = [
   {
     name: "Jithvan Ariyaratne",
     title: "Server Administrator",
-    bio: ""
+    bio: "Boston University 2021, Computer Science"
   },
   {
     name: "Nicholas Marchuk",
@@ -28,14 +28,14 @@ const Team = [
     bio: <React.Fragment>Boston University 2023, Engineering (<OutboundLink href="https://www.instagram.com/craft.bu/" target="_blank">@craft.bu</OutboundLink>)</React.Fragment>
   },
   {
-    name: "Krishna Up",
+    name: "Krishna Upadhyayula",
     title: "Social Media Team",
-    bio: ""
+    bio: "University of Washington 2020, Electrical and Computing Engineering"
   },
   {
     name: "Prathyusha Pillari",
     title: "Social Media Team",
-    bio: ""
+    bio: "University of Washington 2020, Computer Science"
   },
   {
     name: "Sofiya Lysenko",
@@ -50,7 +50,7 @@ const Team = [
   {
     name: "Timothy Cyrus",
     title: "Logistics Team",
-    bio: ""
+    bio: "Rensselaer Polytechnic Institute 2020, Computer Science"
   }
 ];
 

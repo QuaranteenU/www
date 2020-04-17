@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { withTheme } from "styled-components";
 import Card from "react-bootstrap/Card";
 
 import TeamImage from "./TeamImage";
@@ -13,10 +13,13 @@ const Cards = styled.div`
   align-items: center;
 `;
 
-const CustomCard = styled(Card)`
+const CustomCard = withTheme(styled(Card)`
   width: 300px;
   margin: 25px;
-`;
+  align-self: stretch;
+  background: ${props => props.theme.global.bg};
+  border-color: ${props => props.theme.isDark && props.theme.global.muted}
+`);
 
 const MemberCard = ({ name, title, bio }) => {
   return (

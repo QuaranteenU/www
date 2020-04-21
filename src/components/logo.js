@@ -17,6 +17,7 @@ const SmallImg = withTheme(styled(Img)`
     right: 0;
     background: ${props => props.theme.global.logoTint};
     border-radius: 100%;
+    pointer-events: none;
   }
 `);
 

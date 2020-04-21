@@ -2,10 +2,12 @@ import React from "react";
 import { Link } from "gatsby";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 
+
+
 const FAQContent = [
   {
     "question": "🔥 Is this actually happening?",
-    "answer": "Yes."
+    "answer": <React.Fragment>Yes. We've been mentioned in <OutboundLink href="https://www.theverge.com/2020/3/31/21200972/college-students-graduation-minecraft-coronavirus-school-closures">The Verge</OutboundLink>, <OutboundLink href="https://campustechnology.com/articles/2020/04/02/seniors-invited-to-participate-in-minecraft-graduation-ceremony.aspx">Campus Technology</OutboundLink>, <OutboundLink href="https://www.chronicle.com/article/Virtual-BingoMinecraft/248450">The Chronicle of Higher Education</OutboundLink>, <OutboundLink href="https://www.campusreform.org/?ID=14673">Campus Reform</OutboundLink>, and <OutboundLink href="https://thejournal.com/articles/2020/04/02/seniors-invited-to-participate-in-minecraft-graduation-ceremony.aspx">The Journal</OutboundLink>.</React.Fragment>
   },
   {
     "question": "📅 When?",

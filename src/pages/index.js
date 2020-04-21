@@ -72,33 +72,51 @@ class IndexPage extends React.Component {
     super(props);
     this.state = {
       countSignedUp: "_",
-      countUniqueSchools: "_"
+      countUniqueSchools: "_",
+      countGraduates: "_",
+      countAudience: "_",
+      topTen: [],
     };
   }
 
   componentDidMount() {
-    const url = "https://sheets.googleapis.com/v4/spreadsheets/1WANjh9qm28VFb5pF6Ba3rMdvG1r93DbUpg-HdTxjs6c/values/Sheet1!A1:B1?key=AIzaSyA-pLbYH5fK9S3b2nmnog6fc1XkSY-eG6M";
-    fetch(url, {
+    fetch('https://sheets.googleapis.com/v4/spreadsheets/1WANjh9qm28VFb5pF6Ba3rMdvG1r93DbUpg-HdTxjs6c/values/Sheet1!A1:D1?key=AIzaSyA-pLbYH5fK9S3b2nmnog6fc1XkSY-eG6M', {
       method: "GET",
     })
     .then(res => res.json())
     .then(
-      (result) => {
+      result =>
         this.setState({
           countSignedUp: result.values[0][0],
-          countUniqueSchools: result.values[0][1]
-        });
-      },
-      (error) => {
+          countUniqueSchools: result.values[0][1],
+          countGraduates: result.values[0][2],
+          countAudience: result.values[0][3],
+        }),
+      error => 
         this.setState({
           countSignedUp: -1,
-          countUniqueSchools: -1
-        });
-      }
+          countUniqueSchools: -1,
+          countGraduates: -1,
+          countAudience: -1,
+        })
+    );
+
+    fetch('https://sheets.googleapis.com/v4/spreadsheets/1R8R4Y9mlxURvyXY4xml_1LUddAtiWUI-fGF5aZV_nWM/values/Tally!A2:B?key=AIzaSyA-pLbYH5fK9S3b2nmnog6fc1XkSY-eG6M', {
+      method: "GET",
+    })
+    .then(res => res.json())
+    .then(
+      result => {
+        const topTen = result.values.filter(v => !v[0].includes('gmail')).sort((a,b) => a[1] > b[1]).slice(0,10);
+        this.setState({ topTen });
+      },
+      error => console.error(error)
     );
   }
 
   render() {
+    const {countSignedUp, countUniqueSchools, countGraduates, countAudience, topTen} = this.state;
+
     return (
       <Layout>
         <SEO title="Home" route="/" />
@@ -144,8 +162,18 @@ class IndexPage extends React.Component {
           <Section>
             <h3>Who's coming?</h3>
             <p>
-              So far the QU Class of 2020 is <strong>{this.state.countSignedUp}</strong> strong, comprised of <strong>{this.state.countUniqueSchools}</strong> different schools. Join us and be a part of internet history!
+              So far the QU Class of 2020 is <strong>{countSignedUp}</strong> strong ({countGraduates} grads and {countAudience} audience members), comprised of <strong>{countUniqueSchools}</strong> different schools. Join us and be a part of internet history!
             </p>
+            <strong><em>Top Ten Schools by Signups</em></strong>
+            {topTen && (
+              <ol>
+                {topTen.map(school => (
+                  <li key={school[0]}>
+                    {school[0]}: {school[1]}
+                  </li>
+                ))}
+              </ol>
+            )}
           </Section>
 
           <Section>

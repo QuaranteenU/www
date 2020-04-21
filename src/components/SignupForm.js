@@ -8,7 +8,7 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { FaQuestionCircle } from "react-icons/fa";
 import SignupSwal from "./SignupSwal";
-import partyhat from "../images/party.png"
+import partyhat from "../images/party.png";
 import serialize from "../util/serialize";
 import { universityEmailPattern, simpleEmailPattern } from "../util/regex";
 
@@ -28,34 +28,38 @@ const SignupForm = ({ defaultRole, formId, fieldNames, simpleEmail }) => {
       event.stopPropagation();
     } else {
       setSubmitted(true);
-      const postURL = `https://docs.google.com/forms/d/e/${formId}/formResponse?${serialize(form)}`;
+      const postURL = `https://docs.google.com/forms/d/e/${formId}/formResponse?${serialize(
+        form
+      )}`;
       const config = {
         method: "GET",
         mode: "no-cors",
       };
 
       const formRequest = new Request(postURL, config);
-      fetch(formRequest).then(res => {
-        if (res.status === 0 || res.status === 200) {
-          swal({
-            title: "Woohoo!",
-            icon: partyhat,
-            content: <SignupSwal />,
-            button: "yuh"
-          }).then(() => {
-            form.reset();
-            setFormRole("");
-            setEmail("");
-            setSubmitted(false);
-            setValidated(false);
-          });
-        } else {
-          throw new Error("Request failed!")
-        }
-      }).catch(error => {
-        swal("Oh no!", error, "error");
-        console.error(error);
-      });
+      fetch(formRequest)
+        .then(res => {
+          if (res.status === 0 || res.status === 200) {
+            swal({
+              title: "Woohoo!",
+              icon: partyhat,
+              content: <SignupSwal />,
+              button: "yuh",
+            }).then(() => {
+              form.reset();
+              setFormRole("");
+              setEmail("");
+              setSubmitted(false);
+              setValidated(false);
+            });
+          } else {
+            throw new Error("Request failed!");
+          }
+        })
+        .catch(error => {
+          swal("Oh no!", error, "error");
+          console.error(error);
+        });
     }
 
     setValidated(true);
@@ -85,62 +89,75 @@ const SignupForm = ({ defaultRole, formId, fieldNames, simpleEmail }) => {
       </Form.Row>
       <Form.Row>
         {simpleEmail ? (
-            <Form.Group as={Col} md="6" controlId="email">
-              <Form.Label>Email Address</Form.Label>
-              <InputGroup>
-                <Form.Control
-                  type="email"
-                  placeholder="someone@gmail.com"
-                  pattern={simpleEmailPattern}
-                  name={fieldNames.email}
-                  value={email}
-                  onChange={handleEmailChange}
-                  required
-                />
-                <Form.Control.Feedback type="invalid">
-                  Please enter a valid email address.
-                </Form.Control.Feedback>
-              </InputGroup>
-            </Form.Group>
-          ) : (
-            <Form.Group as={Col} md="6" controlId="email">
-              <Form.Label>{formRole === "Audience" ? "" : "University "}Email Address</Form.Label>
-              <InputGroup>
-                <Form.Control
-                  type="email"
-                  placeholder={formRole === "Audience" ? "someone@gmail.com" : "someone@school.edu"}
-                  pattern={formRole === "Audience" ? simpleEmailPattern : universityEmailPattern}
-                  name={fieldNames.email}
-                  value={email}
-                  onChange={handleEmailChange}
-                  required
-                />
-                <Form.Control.Feedback type="invalid">
-                  Please enter a valid {formRole === "Audience" ? "" : <strong>university/college</strong>} email address.
-                </Form.Control.Feedback>
-              </InputGroup>
-            </Form.Group>
-          )
-        }
-          
+          <Form.Group as={Col} md="6" controlId="email">
+            <Form.Label>Email Address</Form.Label>
+            <InputGroup>
+              <Form.Control
+                type="email"
+                placeholder="someone@gmail.com"
+                pattern={simpleEmailPattern}
+                name={fieldNames.email}
+                value={email}
+                onChange={handleEmailChange}
+                required
+              />
+              <Form.Control.Feedback type="invalid">
+                Please enter a valid email address.
+              </Form.Control.Feedback>
+            </InputGroup>
+          </Form.Group>
+        ) : (
+          <Form.Group as={Col} md="6" controlId="email">
+            <Form.Label>
+              {formRole === "Audience" ? "" : "University "}Email Address
+            </Form.Label>
+            <InputGroup>
+              <Form.Control
+                type="email"
+                placeholder={
+                  formRole === "Audience"
+                    ? "someone@gmail.com"
+                    : "someone@school.edu"
+                }
+                pattern={
+                  formRole === "Audience"
+                    ? simpleEmailPattern
+                    : universityEmailPattern
+                }
+                name={fieldNames.email}
+                value={email}
+                onChange={handleEmailChange}
+                required
+              />
+              <Form.Control.Feedback type="invalid">
+                Please enter a valid{" "}
+                {formRole === "Audience" ? (
+                  ""
+                ) : (
+                  <strong>university/college</strong>
+                )}{" "}
+                email address.
+              </Form.Control.Feedback>
+            </InputGroup>
+          </Form.Group>
+        )}
+
         <Form.Group as={Col} md="6" controlId="timezone">
           <Form.Label>
-            Timezone <OverlayTrigger
+            Timezone{" "}
+            <OverlayTrigger
               placement="right"
               overlay={
                 <Tooltip>
-                  We'll match you with a graduation time that doesn't keep you up late.
+                  We'll match you with a graduation time that doesn't keep you
+                  up late.
                 </Tooltip>
               }
             >
               <FaQuestionCircle />
             </OverlayTrigger>
           </Form.Label>
-          <Form.Control 
-            as="select"
-            name={fieldNames.timezone}
-            required 
-          >
+          <Form.Control as="select" name={fieldNames.timezone} required>
             <option value="">-- Select a timezone --</option>
             <option>GMT-11:00 (Midway Islands Time)</option>
             <option>GMT-10:00 (Hawaii Standard Time)</option>
@@ -183,12 +200,12 @@ const SignupForm = ({ defaultRole, formId, fieldNames, simpleEmail }) => {
       <Form.Row>
         <Form.Group as={Col} md="6" controlId="role">
           <Form.Label>How would you like to participate?</Form.Label>
-          <Form.Control 
+          <Form.Control
             as="select"
             name={fieldNames.role}
             value={formRole}
             onChange={handleRoleChange}
-            required 
+            required
           >
             <option value="">-- Select a role --</option>
             <option value="Graduate">Graduate</option>
@@ -214,7 +231,9 @@ const SignupForm = ({ defaultRole, formId, fieldNames, simpleEmail }) => {
           </InputGroup>
         </Form.Group>
       </Form.Row>
-      <Button type="submit" className="wiggle" disabled={submitted}>Hype hype</Button>
+      <Button type="submit" className="wiggle" disabled={submitted}>
+        Hype hype
+      </Button>
     </Form>
   );
 };

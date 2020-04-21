@@ -88,11 +88,11 @@ const TeamImage = ({ name }) => {
     }
   `);
 
-  return <Img fluid={query[name].childImageSharp.fluid} />
-}
+  return <Img fluid={query[name].childImageSharp.fluid} />;
+};
 
 TeamImage.propTypes = {
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
 };
 
 export default TeamImage;

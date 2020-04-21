@@ -30,7 +30,7 @@ const SEO = ({ description, lang, meta, title, route }) => {
       meta={[
         {
           name: `theme-color`,
-          content: `#2f8dff`
+          content: `#2f8dff`,
         },
         {
           name: `description`,
@@ -82,8 +82,8 @@ const SEO = ({ description, lang, meta, title, route }) => {
         },
         {
           name: `twitter:site`,
-          content: `@QuaranteenU`
-        }
+          content: `@QuaranteenU`,
+        },
       ].concat(meta)}
     />
   );

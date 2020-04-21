@@ -1,4 +1,4 @@
-const { lightTheme, darkTheme } = require('./src/styles/theme');
+const { lightTheme, darkTheme } = require("./src/styles/theme");
 
 module.exports = {
   siteMetadata: {
@@ -56,8 +56,8 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Libre Baskerville`
-          }
+            family: `Libre Baskerville`,
+          },
         ],
       },
     },
@@ -67,6 +67,6 @@ module.exports = {
         light: require(`${__dirname}/src/styles/theme.js`).lightTheme,
         dark: require(`${__dirname}/src/styles/theme.js`).darkTheme,
       },
-    }
-  ]
-}
+    },
+  ],
+};

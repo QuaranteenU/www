@@ -16,7 +16,7 @@ const IconWrapper = styled.div`
   font-size: 1.5rem;
   position: absolute;
   transition: margin-top 0.3s;
-  margin-top: ${props => props.isDark? -.1 : -2.3}rem;
+  margin-top: ${props => (props.isDark ? -0.1 : -2.3)}rem;
 `;
 
 const ThemeToggler = () => {
@@ -25,11 +25,15 @@ const ThemeToggler = () => {
   return (
     <Toggle onClick={() => themeContext.toggleDark()}>
       <IconWrapper isDark={themeContext.isDark}>
-       <span role="img" aria-label="Dark Mode">🌙</span>
-       <span role="img" aria-label="Light Mode">☀</span>
+        <span role="img" aria-label="Dark Mode">
+          🌙
+        </span>
+        <span role="img" aria-label="Light Mode">
+          ☀
+        </span>
       </IconWrapper>
     </Toggle>
   );
-}
+};
 
 export default ThemeToggler;

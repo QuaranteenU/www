@@ -26,7 +26,7 @@ const masonryOptions = {
   columnWidth: ".faq-sizer",
   gutter: ".faq-gutter-sizer",
   itemSelector: ".faq-item",
-  percentPosition: true
+  percentPosition: true,
 };
 
 const FAQs = () => {
@@ -38,16 +38,14 @@ const FAQs = () => {
         <b>{FAQ.question}</b>
         <p>{FAQ.answer}</p>
       </div>
-    </FAQItem>
+    </FAQItem>,
   ]);
 
   return (
-    <>
+    <React.Fragment>
       <h2>FAQs</h2>
-      <Masonry options={masonryOptions}>
-        {childElements}
-      </Masonry>
-    </>
+      <Masonry options={masonryOptions}>{childElements}</Masonry>
+    </React.Fragment>
   );
 };
 

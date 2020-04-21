@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
-import navTogglerIconPath from '../images/navbar-toggler-icon.svg';
+import navTogglerIconPath from "../images/navbar-toggler-icon.svg";
 
 export const VideoContainer = styled.div`
   width: 100%;

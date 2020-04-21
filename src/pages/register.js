@@ -17,27 +17,43 @@ const Registration = ({ location }) => {
     email: "entry.1555601280",
     timezone: "entry.1538936380",
     role: "entry.1806088227",
-    domain: "entry.144425953"
-  }
-  
+    domain: "entry.144425953",
+  };
+
   return (
     <Layout>
       <SEO title="Register" route="/register" />
       <DeadlineChecker>
-        <h1>Join the {role === "Audience" ? "Audience" : "Graduating Class"}</h1>
+        <h1>
+          Join the {role === "Audience" ? "Audience" : "Graduating Class"}
+        </h1>
         <p className="lead">
-          Excited for virtual commencement? Let us know, and we'll keep you updated! <br/>
+          Excited for virtual commencement? Let us know, and we'll keep you
+          updated! <br />
           <small className="text-muted">
             <em>
-              Are you a graduating high school senior (or a friend/parent of one)? Use the <Link to="/academy">QUA Interest Form</Link> instead!
+              Are you a graduating high school senior (or a friend/parent of
+              one)? Use the <Link to="/academy">QUA Interest Form</Link>{" "}
+              instead!
             </em>
           </small>
-          <br/>
+          <br />
           <small className="text-muted">
-            <em>Registration closes <strong>May 1<sup>st</sup></strong> at <strong>midnight</strong>!</em>
+            <em>
+              Registration closes{" "}
+              <strong>
+                May 1<sup>st</sup>
+              </strong>{" "}
+              at <strong>midnight</strong>!
+            </em>
           </small>
         </p>
-        <SignupForm defaultRole={role} formId="1FAIpQLScTKQ9YHAMJqLxgVztjnmp5b3kfaoSgKl_KwaF4VeFj2-tRhw" fieldNames={fieldNames} simpleEmail={false} />
+        <SignupForm
+          defaultRole={role}
+          formId="1FAIpQLScTKQ9YHAMJqLxgVztjnmp5b3kfaoSgKl_KwaF4VeFj2-tRhw"
+          fieldNames={fieldNames}
+          simpleEmail={false}
+        />
       </DeadlineChecker>
     </Layout>
   );

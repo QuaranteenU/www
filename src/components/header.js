@@ -5,8 +5,14 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
-import { FaFacebookSquare, FaTwitterSquare, FaEnvelopeSquare, FaDiscord, FaTwitch } from "react-icons/fa";
-import Logo from "./Logo"
+import {
+  FaFacebookSquare,
+  FaTwitterSquare,
+  FaEnvelopeSquare,
+  FaDiscord,
+  FaTwitch,
+} from "react-icons/fa";
+import Logo from "./Logo";
 import ThemeToggler from "./ThemeToggler";
 
 const HeaderContainer = styled.div`
@@ -39,7 +45,7 @@ const HomeLink = withTheme(styled(Link)`
   }
 
   & > h1 {
-    font-family: 'Libre Baskerville', serif;
+    font-family: "Libre Baskerville", serif;
   }
 
   & > h1.hvr-underline-from-center:before {
@@ -65,25 +71,28 @@ const Header = () => (
   <header>
     <HeaderContainer>
       <HomeLink to="/">
-        <Logo/>
+        <Logo />
         <h1 className="hvr-underline-from-center">Quaranteen University</h1>
       </HomeLink>
-        
+
       <SocialLinks>
         <SocialIcon href="https://discord.gg/UbrvVcU" target="_blank">
-          <FaDiscord/>
+          <FaDiscord />
         </SocialIcon>
         <SocialIcon href="https://www.facebook.com/quaranteenu" target="_blank">
-          <FaFacebookSquare/>
+          <FaFacebookSquare />
         </SocialIcon>
         <SocialIcon href="https://twitter.com/QuaranteenU" target="_blank">
-          <FaTwitterSquare/>
+          <FaTwitterSquare />
         </SocialIcon>
         <SocialIcon href="https://www.twitch.tv/QuaranteenU" target="_blank">
-          <FaTwitch/>
+          <FaTwitch />
         </SocialIcon>
-        <SocialIcon href="mailto:admissions@quaranteen.university?subject=Virtual Commencement 2020" target="_blank">
-          <FaEnvelopeSquare/>
+        <SocialIcon
+          href="mailto:admissions@quaranteen.university?subject=Virtual Commencement 2020"
+          target="_blank"
+        >
+          <FaEnvelopeSquare />
         </SocialIcon>
         <ThemeToggler />
       </SocialLinks>

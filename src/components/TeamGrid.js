@@ -18,14 +18,14 @@ const CustomCard = withTheme(styled(Card)`
   margin: 25px;
   align-self: stretch;
   background: ${props => props.theme.global.bg};
-  border-color: ${props => props.theme.isDark && props.theme.global.muted}
+  border-color: ${props => props.theme.isDark && props.theme.global.muted};
 `);
 
 const MemberCard = ({ name, title, bio }) => {
   return (
     <CustomCard>
       <Card.Img variant="top" as="div">
-        <TeamImage name={name.split(" ")[0]}/>
+        <TeamImage name={name.split(" ")[0]} />
       </Card.Img>
       <Card.Body>
         <Card.Title>{name}</Card.Title>
@@ -34,18 +34,19 @@ const MemberCard = ({ name, title, bio }) => {
       </Card.Body>
     </CustomCard>
   );
-}
+};
 
 const TeamGrid = () => {
-
   return (
     <div>
       <h1>Meet the Team</h1>
       <Cards>
-        {Team.map((member, i) => <MemberCard key={i} {...member} />)}
+        {Team.map((member, i) => (
+          <MemberCard key={i} {...member} />
+        ))}
       </Cards>
     </div>
   );
-}
+};
 
 export default TeamGrid;

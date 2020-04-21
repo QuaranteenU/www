@@ -14,7 +14,8 @@ const Livestream = () => {
       <SEO title="Livestream" route="/livestream" />
       <h1>Crafting Livestream</h1>
       <p className="lead">
-        Watch as the Minecraft world for Quaranteen University is built in real-time!
+        Watch as the Minecraft world for Quaranteen University is built in
+        real-time!
       </p>
       <VideoContainer>
         <VideoIframe
@@ -24,22 +25,22 @@ const Livestream = () => {
           width="100%"
           frameBorder="0"
           scrolling="no"
-          allowFullScreen={true} />
+          allowFullScreen={true}
+        />
       </VideoContainer>
 
-      <br/>
+      <br />
 
       <h3>Join our Discord!</h3>
-      <p className="lead">
-        Here's a sneak peak below, join and hang with us!
-      </p>
+      <p className="lead">Here's a sneak peak below, join and hang with us!</p>
       <FullWidthIframe
         title="Discord Widget"
         src="https://discordapp.com/widget?id=588482838886613012&theme=dark"
         width="350"
         height="500"
         allowtransparency="true"
-        frameBorder="0" />
+        frameBorder="0"
+      />
     </Layout>
   );
 };

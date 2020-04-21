@@ -14,13 +14,13 @@ const ContentWrapper = styled(Container)`
   margin-top: 25px;
 `;
 
-const Layout = withTheme((props) => (
-  <>
+const Layout = withTheme(props => (
+  <React.Fragment>
     <GlobalStyle theme={props.theme} />
     <Header />
     <ContentWrapper>{props.children}</ContentWrapper>
-    <Footer/>
-  </>
+    <Footer />
+  </React.Fragment>
 ));
 
 Layout.propTypes = {

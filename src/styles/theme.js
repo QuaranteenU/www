@@ -12,7 +12,7 @@ const colorPalette = {
   success: "#5f9951",
   warning: "#dd8819",
   error: "#f44336",
-}
+};
 
 const baseTheme = {
   actions: {
@@ -31,13 +31,13 @@ const baseTheme = {
     darkAccent: colorPalette.darkAccent,
     darkShades: colorPalette.darkShades,
   },
-}
+};
 
 module.exports = {
   darkTheme: {
     ...baseTheme,
     palette: {
-      mainBrand: colorPalette.darkAccent
+      mainBrand: colorPalette.darkAccent,
     },
     global: {
       bg: colorPalette.darkShades,
@@ -45,7 +45,7 @@ module.exports = {
       link: colorPalette.mainBrand,
       linkHover: colorPalette.lightAccent,
       muted: colorPalette.darkMuted,
-      logoTint: "rgba(0,0,0,0.4)"
+      logoTint: "rgba(0,0,0,0.4)",
     },
   },
   lightTheme: {
@@ -56,7 +56,7 @@ module.exports = {
       link: colorPalette.mainBrand,
       linkHover: colorPalette.darkAccent,
       muted: colorPalette.lightMuted,
-      logoTint: "rgba(0,0,0,0)"
+      logoTint: "rgba(0,0,0,0)",
     },
-  }
-}
+  },
+};

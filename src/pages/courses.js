@@ -16,12 +16,14 @@ class Courses extends React.Component {
     this.iframe = React.createRef();
     this.state = {
       bamboozled: false,
-      dogURL: ""
+      dogURL: "",
     };
   }
 
   componentDidMount() {
-    this.setState({ bamboozled: JSON.parse(window.localStorage.getItem("bamboozled")) });
+    this.setState({
+      bamboozled: JSON.parse(window.localStorage.getItem("bamboozled")),
+    });
     if (this.iframe.current) {
       this.iframe.current.addEventListener("load", () => {
         setTimeout(() => {
@@ -42,29 +44,42 @@ class Courses extends React.Component {
     return (
       <Layout>
         <SEO title="Courses" route="courses" />
-        {!bamboozled && <VideoContainer>
-          <VideoIframe
-            title="You Fool"
-            ref={this.iframe}
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/hB8S6oKjiw8?autoplay=1"
-            frameBorder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen />
-        </VideoContainer>}
-        {bamboozled && <div>
-          <h1><span role="img" aria-label="sorry">🤔</span> Bamboozled</h1>
-          <p>
-            Sorry about that. We don't actually have courses. However, our virtual commencement is 100% real! We hope to see you there! Please accept this randomized dog picture as reparation for our academic deceit.
-          </p>
-          <Doggo>
-            <img src={dogURL} alt="doggo" />
-          </Doggo>
-        </div>}
+        {!bamboozled && (
+          <VideoContainer>
+            <VideoIframe
+              title="You Fool"
+              ref={this.iframe}
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/hB8S6oKjiw8?autoplay=1"
+              frameBorder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </VideoContainer>
+        )}
+        {bamboozled && (
+          <div>
+            <h1>
+              <span role="img" aria-label="sorry">
+                🤔
+              </span>{" "}
+              Bamboozled
+            </h1>
+            <p>
+              Sorry about that. We don't actually have courses. However, our
+              virtual commencement is 100% real! We hope to see you there!
+              Please accept this randomized dog picture as reparation for our
+              academic deceit.
+            </p>
+            <Doggo>
+              <img src={dogURL} alt="doggo" />
+            </Doggo>
+          </div>
+        )}
       </Layout>
     );
   }
-};
+}
 
 export default Courses;

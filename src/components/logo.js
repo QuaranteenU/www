@@ -40,21 +40,21 @@ const Logo = ({ size }) => {
 
   switch (size) {
     case "small":
-      return <SmallImg fluid={logo.childImageSharp.fluid} />
+      return <SmallImg fluid={logo.childImageSharp.fluid} />;
     case "large":
-      return <LargeImg fluid={logo.childImageSharp.fluid} />
+      return <LargeImg fluid={logo.childImageSharp.fluid} />;
     default:
       console.warn(`Value: ${size} is not valid for prop size`);
-      return <SmallImg fluid={logo.childImageSharp.fluid} />
+      return <SmallImg fluid={logo.childImageSharp.fluid} />;
   }
-}
+};
 
 Logo.defaultProps = {
-  size: `small`
+  size: `small`,
 };
 
 Logo.propTypes = {
-  size: PropTypes.string
+  size: PropTypes.string,
 };
 
 export default Logo;

@@ -27,7 +27,7 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-14138ab648c263dba16f.js"
+    "url": "webpack-runtime-bcfd3e09bad3fc526109.js"
   },
   {
     "url": "commons-5010c6ae43b5d9578007.js"
@@ -37,7 +37,7 @@ self.__precacheManifest = [
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "b407c8ce311dbcecc9c4722930640d51"
+    "revision": "3b0fea3234a31fb9e40b97a998592d28"
   },
   {
     "url": "google-fonts/s/librebaskerville/v7/kmKnZrc3Hgbbcjq75U4uslyuy4kn0qNZaxM.woff2",
@@ -52,7 +52,7 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "36efc5d8ed51f536590085ef23864c31"
+    "revision": "35f5b5dd84f3902bdb5be3434f81816f"
   },
   {
     "url": "styles.cdbefcf032504d410e50.css"
@@ -79,7 +79,7 @@ self.__precacheManifest = [
     "revision": "3ddd5d51b095997b4d473ef99898912f"
   },
   {
-    "url": "component---src-pages-academy-js-67093a59abd83d9993bd.js"
+    "url": "component---src-pages-academy-js-b0d15a459a8de902f1fe.js"
   },
   {
     "url": "page-data/academy/page-data.json",
@@ -107,7 +107,7 @@ self.__precacheManifest = [
     "revision": "01027a9290b2df11ac2b79ce73d7a9d1"
   },
   {
-    "url": "component---src-pages-register-js-a704ba9ce982e51dad00.js"
+    "url": "component---src-pages-register-js-0bf65d62cecf75412f12.js"
   },
   {
     "url": "page-data/register/page-data.json",

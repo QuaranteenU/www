@@ -75,6 +75,11 @@ const SchoolListContainer = styled.div`
 `;
 
 const SchoolTable = styled.table`
+  & td {
+    ${props =>
+      props.theme.isDark && "border-bottom: 1px solid hsla(0, 0%, 100%, 0.12)"}
+  }
+
   & .school {
     font-family: "Libre Baskerville", serif;
   }

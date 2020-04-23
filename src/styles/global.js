@@ -87,7 +87,15 @@ export const GlobalStyle = createGlobalStyle`
   .modal-body {
     max-height: 80vh;
     overflow-y: auto;
-}
+  }
+
+  .modal-content {
+    background-color: ${props => props.theme.global.bg};
+
+    button.close {
+      color: ${props => props.theme.global.color};
+    }
+  }
 
   .btn.btn-primary {
     background-color: ${props => props.theme.palette.mainBrand};

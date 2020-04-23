@@ -84,6 +84,11 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .modal-body {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
   .btn.btn-primary {
     background-color: ${props => props.theme.palette.mainBrand};
     border-color: ${props => props.theme.palette.mainBrand};

@@ -4,9 +4,15 @@ import styled from "styled-components";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
+import { FaQuestionCircle } from "react-icons/fa";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import FAQs from "../components/FAQs";
+
+import UNIVERSITY_MAP from "../data/university_map";
 
 const LandingWrapper = styled.div`
   height: 500px;
@@ -62,6 +68,22 @@ const LandingContent = styled(Container)`
   }
 `;
 
+const SchoolListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const SchoolTable = styled.table`
+  & .school {
+    font-family: "Libre Baskerville", serif;
+  }
+
+  & .signups {
+    text-align: right;
+  }
+`;
+
 const Section = styled.section`
   margin-top: 50px;
   margin-bottom: 100px;
@@ -75,7 +97,8 @@ class IndexPage extends React.Component {
       countUniqueSchools: "_",
       countGraduates: "_",
       countAudience: "_",
-      topTen: [],
+      rankedSchools: [],
+      showSchoolModal: false,
     };
   }
 
@@ -105,7 +128,7 @@ class IndexPage extends React.Component {
       );
 
     fetch(
-      "https://sheets.googleapis.com/v4/spreadsheets/1R8R4Y9mlxURvyXY4xml_1LUddAtiWUI-fGF5aZV_nWM/values/Tally!A2:B?key=AIzaSyA-pLbYH5fK9S3b2nmnog6fc1XkSY-eG6M",
+      "https://sheets.googleapis.com/v4/spreadsheets/1R8R4Y9mlxURvyXY4xml_1LUddAtiWUI-fGF5aZV_nWM/values/API!C2:D?key=AIzaSyA-pLbYH5fK9S3b2nmnog6fc1XkSY-eG6M",
       {
         method: "GET",
       }
@@ -113,11 +136,18 @@ class IndexPage extends React.Component {
       .then(res => res.json())
       .then(
         result => {
-          const topTen = result.values
-            .filter(v => !v[0].includes("gmail"))
-            .sort((a, b) => a[1] > b[1])
-            .slice(0, 10);
-          this.setState({ topTen });
+          const filtered = result.values
+            .filter(v => v[0] !== "")
+            .filter(v => !v[0].includes("gmail"));
+
+          const collator = new Intl.Collator(undefined, {
+            numeric: true,
+            sensitivity: "base",
+          });
+          const rankedSchools = filtered.sort((a, b) =>
+            collator.compare(b[1], a[1])
+          );
+          this.setState({ rankedSchools });
         },
         error => console.error(error)
       );
@@ -129,8 +159,32 @@ class IndexPage extends React.Component {
       countUniqueSchools,
       countGraduates,
       countAudience,
-      topTen,
+      rankedSchools,
+      showSchoolModal,
     } = this.state;
+
+    const SchoolList = ({ topTen }) => {
+      if (!rankedSchools) return null;
+      let schools = rankedSchools;
+      if (topTen) schools = schools.slice(0, 10);
+      return (
+        <SchoolTable>
+          <tbody>
+            {schools.map((school, i) => (
+              <tr key={school[0]}>
+                <td className="school">
+                  <strong>{`#${i + 1}`}</strong>{" "}
+                  {UNIVERSITY_MAP.hasOwnProperty(school[0])
+                    ? UNIVERSITY_MAP[school[0]]
+                    : school[0]}
+                </td>
+                <td className="signups">{school[1]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </SchoolTable>
+      );
+    };
 
     return (
       <Layout>
@@ -190,23 +244,56 @@ class IndexPage extends React.Component {
           <Section>
             <h3>Who's coming?</h3>
             <p>
-              So far the QU Class of 2020 is <strong>{countSignedUp}</strong>{" "}
+              Currently the QU Class of 2020 is <strong>{countSignedUp}</strong>{" "}
               strong ({countGraduates} grads and {countAudience} audience
               members), comprised of <strong>{countUniqueSchools}</strong>{" "}
-              different schools. Join us and be a part of internet history!
+              different schools. Join us and be a part of internet history! And
+              if you can get all your classmates to sign up, you might just snag
+              that top spot!
             </p>
-            <strong>
-              <em>Top Ten Schools by Signups</em>
-            </strong>
-            {topTen && (
-              <ol>
-                {topTen.map(school => (
-                  <li key={school[0]}>
-                    {school[0]}: {school[1]}
-                  </li>
-                ))}
-              </ol>
-            )}
+
+            <Modal
+              show={showSchoolModal}
+              onHide={() => this.setState({ showSchoolModal: false })}
+            >
+              <Modal.Header closeButton>
+                <Modal.Title>
+                  Schools Ranked by Signups{" "}
+                  <OverlayTrigger
+                    placement="right"
+                    overlay={
+                      <Tooltip>
+                        We map school names based on their email domain, but
+                        unfortunately we couldn't account for every combination.
+                        If your school's name isn't showing up properly, let us
+                        know and we'll add it!
+                      </Tooltip>
+                    }
+                  >
+                    <FaQuestionCircle />
+                  </OverlayTrigger>
+                </Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <SchoolList />
+              </Modal.Body>
+            </Modal>
+
+            <SchoolListContainer>
+              <strong>
+                <em>
+                  Top Ten Schools by Signups (
+                  <a
+                    href="#"
+                    onClick={() => this.setState({ showSchoolModal: true })}
+                  >
+                    view all schools
+                  </a>
+                  )
+                </em>
+              </strong>
+              <SchoolList topTen />
+            </SchoolListContainer>
           </Section>
 
           <Section>

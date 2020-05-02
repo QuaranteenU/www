@@ -49,7 +49,7 @@ class Academy extends React.Component {
     return (
       <Layout>
         <SEO title="Academy" route="/academy" />
-        <DeadlineChecker>
+        <DeadlineChecker date="05/9/2020">
           <h1>Join Quaranteen University Academy</h1>
           <p className="lead">
             Due to popular demand, we're opening signups for a second graduation
@@ -64,9 +64,9 @@ class Academy extends React.Component {
             <br />
             <small className="text-muted">
               <em>
-                Registration closes{" "}
+                Registration has been extended until{" "}
                 <strong>
-                  May 1<sup>st</sup>
+                  May 8<sup>th</sup>
                 </strong>{" "}
                 at <strong>midnight</strong>!
               </em>

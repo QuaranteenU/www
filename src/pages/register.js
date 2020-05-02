@@ -23,7 +23,7 @@ const Registration = ({ location }) => {
   return (
     <Layout>
       <SEO title="Register" route="/register" />
-      <DeadlineChecker>
+      <DeadlineChecker date="05/2/2020">
         <h1>
           Join the {role === "Audience" ? "Audience" : "Graduating Class"}
         </h1>

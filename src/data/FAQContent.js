@@ -59,14 +59,14 @@ const FAQContent = [
     question: "💲 How much does it cost to attend?",
     answer: (
       <React.Fragment>
-        It's free! Minecraft has a free trial too &mdash; make sure you get the{" "}
+        Our event is free! However, you'll need to get a copy of{" "}
         <OutboundLink
           href="https://www.minecraft.net/en-us/store/minecraft-java-edition/"
           target="_blank"
         >
-          Java Edition
+          Minecraft Java Edition
         </OutboundLink>
-        !
+        . Alternatively, an NPC with your name can walk in your place!
       </React.Fragment>
     ),
   },

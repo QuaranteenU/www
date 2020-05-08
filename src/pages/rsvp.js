@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
+
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Spinner from "react-bootstrap/Spinner";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
+
+import RSVPForm from "../components/RSVPForm";
 import DeadlineChecker from "../components/DeadlineChecker";
 import { simpleEmailPattern } from "../util/regex";
+
 import axios from "axios";
 import swal from "@sweetalert/with-react";
 import partyhat from "../images/party.png";
@@ -81,6 +85,15 @@ const RSVP = () => {
     setValidated(true);
   };
 
+  const fieldNames = {
+    firstName: "entry.1677400286",
+    lastName: "entry.993248599",
+    email: "entry.1555601280",
+    timezone: "entry.1538936380",
+    role: "entry.1806088227",
+    domain: "entry.144425953",
+  };
+
   return (
     <Layout>
       <SEO title="RSVP" route="/rsvp" />
@@ -132,6 +145,10 @@ const RSVP = () => {
             )}
           </FlexRow>
         </Form>
+
+        <RSVPForm />
+
+
       </DeadlineChecker>
     </Layout>
   );

@@ -219,16 +219,14 @@ class IndexPage extends React.Component {
           </LandingWrapper>
 
           <Section>
-            <h3>
-              Important note about RSVPs
-            </h3>
+            <h3>Important note about RSVPs</h3>
             <p>
               Due to many university spam filters blocking emails sent from
-              .university domains, we'll be sending out QU RSVP emails
-              through <b>rooday@bu.edu</b>. Keep an eye out!
+              .university domains, we'll be sending out QU RSVP emails through{" "}
+              <b>rooday@bu.edu</b>. Keep an eye out!
             </p>
           </Section>
-          
+
           <Section>
             <h3>
               Walk the stage and receive your undergrad or grad diploma,

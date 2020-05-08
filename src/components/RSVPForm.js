@@ -14,8 +14,8 @@ const PWLB = styled.div`
   white-space: pre-wrap;
 `;
 
-const RSVPForm = ({ fieldNames }) => {
-  const [coming, setComing] = useState(true);
+const RSVPForm = ({ fieldNames, userInfo }) => {
+  const [coming, setComing] = useState(false);
 
   return (
     <Form>
@@ -50,6 +50,7 @@ const RSVPForm = ({ fieldNames }) => {
           <Form.Control
             type="email"
             placeholder="someone@gmail.com"
+            defaultValue={userInfo.email}
             pattern={simpleEmailPattern}
             required
           />
@@ -60,7 +61,11 @@ const RSVPForm = ({ fieldNames }) => {
 
         <Form.Group as={Col} md="6" controlId="comingYesNo">
           <Form.Label>Are you coming to the ceremony on May 22nd?</Form.Label>
-          <Form.Control as="select" required>
+          <Form.Control
+            as="select"
+            onChange={e => setComing(e.target.value === "Yes")}
+            required
+          >
             <option value="">-- Select an option --</option>
             <option>Yes</option>
             <option>No</option>
@@ -79,6 +84,7 @@ const RSVPForm = ({ fieldNames }) => {
               <Form.Control
                 type="text"
                 placeholder="Graduating Gradperson"
+                defaultValue={userInfo.name}
                 required
               />
               <Form.Text className="text-muted">
@@ -211,6 +217,10 @@ const RSVPForm = ({ fieldNames }) => {
           </Form.Row>
         </React.Fragment>
       )}
+
+      <Button type="submit" className="wiggle">
+        Hype hype
+      </Button>
     </Form>
   );
 }

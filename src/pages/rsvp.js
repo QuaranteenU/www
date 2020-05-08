@@ -30,6 +30,7 @@ const RSVP = () => {
   const [validated, setValidated] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [email, setEmail] = useState("");
+  const [userInfo, setUserInfo] = useState(null);
 
   const handleEmailChange = event => setEmail(event.target.value);
 
@@ -48,6 +49,7 @@ const RSVP = () => {
           }
         )
         .then(res => {
+          setUserInfo(res.data);
           const { rsvpd, signUpInfo, signedUp } = res.data;
 
           if (rsvpd && signedUp) {
@@ -113,42 +115,42 @@ const RSVP = () => {
           </small>
         </p>
 
-        <Form noValidate validated={validated} onSubmit={handleSubmit}>
-          <Form.Row>
-            <Form.Group as={Col} md="6" controlId="email">
-              <Form.Label>Email Address</Form.Label>
-              <InputGroup>
-                <Form.Control
-                  type="email"
-                  placeholder="someone@gmail.com"
-                  pattern={simpleEmailPattern}
-                  value={email}
-                  onChange={handleEmailChange}
-                  required
-                />
-                <Form.Control.Feedback type="invalid">
-                  Please enter a valid email address.
-                </Form.Control.Feedback>
-              </InputGroup>
-            </Form.Group>
-          </Form.Row>
+        {!userInfo ? (
+          <Form noValidate validated={validated} onSubmit={handleSubmit}>
+            <Form.Row>
+              <Form.Group as={Col} md="6" controlId="email">
+                <Form.Label>Email Address</Form.Label>
+                <InputGroup>
+                  <Form.Control
+                    type="email"
+                    placeholder="someone@gmail.com"
+                    pattern={simpleEmailPattern}
+                    value={email}
+                    onChange={handleEmailChange}
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please enter a valid email address.
+                  </Form.Control.Feedback>
+                </InputGroup>
+              </Form.Group>
+            </Form.Row>
 
-          <FlexRow>
-            <Button type="submit" className="wiggle" disabled={submitted}>
-              Hype hype
-            </Button>
-            {submitted && (
-              <React.Fragment>
-                <span>Looking you up in our database...</span>
-                <Spinner animation="border" variant="primary" />
-              </React.Fragment>
-            )}
-          </FlexRow>
-        </Form>
-
-        <RSVPForm />
-
-
+            <FlexRow>
+              <Button type="submit" className="wiggle" disabled={submitted}>
+                Hype hype
+              </Button>
+              {submitted && (
+                <React.Fragment>
+                  <span>Looking you up in our database...</span>
+                  <Spinner animation="border" variant="primary" />
+                </React.Fragment>
+              )}
+            </FlexRow>
+          </Form>
+        ) : (
+          <RSVPForm userInfo={userInfo.signUpInfo} />
+        )}
       </DeadlineChecker>
     </Layout>
   );

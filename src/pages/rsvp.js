@@ -9,7 +9,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import DeadlineChecker from "../components/DeadlineChecker";
 import { simpleEmailPattern } from "../util/regex";
-import axios from 'axios';
+import axios from "axios";
 import swal from "@sweetalert/with-react";
 import partyhat from "../images/party.png";
 
@@ -37,11 +37,14 @@ const RSVP = () => {
     } else {
       setSubmitted(true);
       axios
-        .post('https://us-central1-quaranteen-university-276618.cloudfunctions.net/check-email', {
-          email
-        })
+        .post(
+          "https://us-central1-quaranteen-university-276618.cloudfunctions.net/check-email",
+          {
+            email,
+          }
+        )
         .then(res => {
-          const {rsvpd, signUpInfo, signedUp} = res.data;
+          const { rsvpd, signUpInfo, signedUp } = res.data;
 
           if (rsvpd && signedUp) {
             swal({
@@ -50,7 +53,7 @@ const RSVP = () => {
               text: `You're already RSVP'd! Nice work!`,
               button: "yuh",
             });
-          } else if (signUpInfo && signUpInfo.role === 'Audience') {
+          } else if (signUpInfo && signUpInfo.role === "Audience") {
             swal({
               title: "Woohoo!",
               icon: partyhat,
@@ -81,17 +84,11 @@ const RSVP = () => {
   return (
     <Layout>
       <SEO title="RSVP" route="/rsvp" />
-      <DeadlineChecker
-        date="05/13/2020"
-        closedContent={(
-          <h1>rip</h1>
-        )}
-      >
-        <h1>
-          RSVP for Commencement!
-        </h1>
+      <DeadlineChecker date="05/13/2020" closedContent={<h1>rip</h1>}>
+        <h1>RSVP for Commencement!</h1>
         <p className="lead">
-          Fill out your info for your virtual diploma!<br />
+          Fill out your info for your virtual diploma!
+          <br />
           <small className="text-muted">
             <em>
               RSVPs close{" "}

@@ -5,13 +5,7 @@ const DeadlineChecker = ({ children, date, closedContent }) => {
   const now = new Date();
 
   return (
-    <React.Fragment>
-      {now > deadline ? (
-        closedContent
-      ) : (
-        children
-      )}
-    </React.Fragment>
+    <React.Fragment>{now > deadline ? closedContent : children}</React.Fragment>
   );
 };
 

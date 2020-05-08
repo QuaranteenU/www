@@ -23,7 +23,20 @@ const Registration = ({ location }) => {
   return (
     <Layout>
       <SEO title="Register" route="/register" />
-      <DeadlineChecker date="05/2/2020">
+      <DeadlineChecker
+        date="05/2/2020"
+        closedContent={(
+          <React.Fragment>
+            <h1>Registration Closed!</h1>
+            <p className="lead">
+              Unfortunately, the registration deadline has passed! Due to the huge
+              number of interested students, we had to set a deadline to ensure we
+              have enough time to plan out the ceremonies. Sorry for any
+              inconvenience!
+            </p>
+          </React.Fragment>
+        )}
+      >
         <h1>
           Join the {role === "Audience" ? "Audience" : "Graduating Class"}
         </h1>

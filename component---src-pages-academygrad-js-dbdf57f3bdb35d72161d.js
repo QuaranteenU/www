@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{z9XW:function(e,n,a){"use strict";a.r(n);var t=a("q1tI"),o=a.n(t),r=a("7oih"),l=a("EYWl");n.default=function(){return o.a.createElement(r.a,null,o.a.createElement(l.a,{title:"Graduation RSVP",route:"/academygrad"}),o.a.createElement("h1",null,"Coming soon!"))}}}]);
+//# sourceMappingURL=component---src-pages-academygrad-js-dbdf57f3bdb35d72161d.js.map

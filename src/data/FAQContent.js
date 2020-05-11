@@ -71,16 +71,6 @@ const FAQContent = [
     ),
   },
   {
-    question: "👀 What's the IP?",
-    answer: (
-      <React.Fragment>
-        You can join the server at <strong>play.quaranteen.university</strong>.
-        Currently the commencement area is under construction and only builders
-        are allowed, but feel free to check out the rest of the server!
-      </React.Fragment>
-    ),
-  },
-  {
     question: "🎓 Who can attend?",
     answer: (
       <React.Fragment>

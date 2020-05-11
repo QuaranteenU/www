@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import axios from "axios";
+import swal from "@sweetalert/with-react";
 
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
@@ -9,12 +10,11 @@ import Spinner from "react-bootstrap/Spinner";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 
+import Layout from "../components/Layout";
+import SEO from "../components/SEO";
 import RSVPForm from "../components/RSVPForm";
 import DeadlineChecker from "../components/DeadlineChecker";
 import { simpleEmailPattern } from "../util/regex";
-
-import axios from "axios";
-import swal from "@sweetalert/with-react";
 import partyhat from "../images/party.png";
 
 const FlexRow = styled(Form.Row)`
@@ -43,7 +43,7 @@ const RSVP = () => {
       setSubmitted(true);
       axios
         .post(
-          "https://us-central1-quaranteen-university-276618.cloudfunctions.net/check-email",
+          "https://us-central1-quaranteen-university-276618.cloudfunctions.net/checkEmail",
           {
             email,
           }
@@ -102,7 +102,7 @@ const RSVP = () => {
       <DeadlineChecker date="05/13/2020" closedContent={<h1>rip</h1>}>
         <h1>RSVP for Commencement!</h1>
         <p className="lead">
-          Fill out your info for your virtual diploma!
+          Fill out your info for your virtual diploma! <em>NOTE:</em> This is for the college/university commencement ceremony. If you're looking for the high school graduation ceremony, RSVP <Link to="/academygrad">here</Link>!
           <br />
           <small className="text-muted">
             <em>

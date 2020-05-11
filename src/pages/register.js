@@ -29,10 +29,10 @@ const Registration = ({ location }) => {
           <React.Fragment>
             <h1>Registration Closed!</h1>
             <p className="lead">
-              Unfortunately, the registration deadline has passed! Due to the
-              huge number of interested students, we had to set a deadline to
-              ensure we have enough time to plan out the ceremonies. Sorry for
-              any inconvenience!
+              Although registration has closed, due to a technical issue with
+              our email system we're opening up the RSVP to all interested
+              students instead of only those who had already registered. You can
+              find the RSVP form <Link to="/newgrad">here</Link>!
             </p>
           </React.Fragment>
         }

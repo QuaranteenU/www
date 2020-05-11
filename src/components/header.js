@@ -114,12 +114,12 @@ const Header = () => (
 
           <NavDropdown title="Ceremonies" alignRight>
             <NavDropdown.Item as="button">
-              <Link className="hvr-underline-from-center" to="/register">
+              <Link className="hvr-underline-from-center" to="/newgrad">
                 University
               </Link>
             </NavDropdown.Item>
             <NavDropdown.Item as="button">
-              <Link className="hvr-underline-from-center" to="/academy">
+              <Link className="hvr-underline-from-center" to="/academygrad">
                 High School
               </Link>
             </NavDropdown.Item>

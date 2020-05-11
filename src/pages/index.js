@@ -91,7 +91,7 @@ const SchoolTable = styled.table`
 
 const Section = styled.section`
   margin-top: 50px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 `;
 
 class IndexPage extends React.Component {
@@ -205,13 +205,8 @@ class IndexPage extends React.Component {
                 <h1>Quaranteen Commencement 2020</h1>
                 <p className="lead">Come graduate in Minecraft on May 22</p>
                 <div>
-                  <Link to="/register" state={{ role: "Graduate" }}>
-                    <Button className="wiggle">
-                      Join the graduating class
-                    </Button>
-                  </Link>
-                  <Link to="/register" state={{ role: "Audience" }}>
-                    <Button className="wiggle">Join the audience</Button>
+                  <Link to="/newgrad">
+                    <Button className="wiggle">RSVP!</Button>
                   </Link>
                 </div>
               </LandingContent>
@@ -323,6 +318,16 @@ class IndexPage extends React.Component {
             <p>
               If a lot of people from your school sign up, maybe you could
               graduate together??
+            </p>
+          </Section>
+
+          <Section>
+            <h3>How to join the server?</h3>
+            <p>
+              You can join the server at{" "}
+              <strong>play.quaranteen.university</strong>. Currently the
+              commencement area is under construction and only builders are
+              allowed, but feel free to check out the rest of the server!
             </p>
           </Section>
 

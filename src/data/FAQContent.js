@@ -12,6 +12,10 @@ const FAQContent = [
           The Verge
         </OutboundLink>
         ,{" "}
+        <OutboundLink href="https://www.wired.com/story/quanranteen-university-minecraft-graduation/">
+          WIRED
+        </OutboundLink>
+        ,{" "}
         <OutboundLink href="https://campustechnology.com/articles/2020/04/02/seniors-invited-to-participate-in-minecraft-graduation-ceremony.aspx">
           Campus Technology
         </OutboundLink>

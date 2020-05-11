@@ -45,7 +45,8 @@ const RSVPForm = ({ fieldNames, userInfo }) => {
             swal({
               title: "Woohoo!",
               icon: partyhat,
-              text: "gg no re",
+              text:
+                "Thanks for RSVPing! Keep your eye out for updates regarding the event, as more details on the event schedule will be sent out soon. We can't wait to see you at commencement!",
               button: "yuh",
             }).then(() => {
               form.reset();

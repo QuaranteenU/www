@@ -87,7 +87,10 @@ const RSVP = () => {
           }
           setSubmitted(false);
         })
-        .catch(err => console.error(err));
+        .catch(err => {
+          setSubmitted(false);
+          console.error(err);
+        });
     }
 
     setValidated(true);

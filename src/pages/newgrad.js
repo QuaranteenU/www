@@ -46,38 +46,43 @@ const RSVP = () => {
           "https://us-central1-quaranteen-university-276618.cloudfunctions.net/checkEmail",
           {
             email,
+            event: "QU",
           }
         )
         .then(res => {
-          setUserInfo(res.data);
-          const { rsvpd, signUpInfo, signedUp } = res.data;
+          const { rsvpd, signUpInfo, signedUp, rsvpdNew } = res.data;
 
-          if (rsvpd && signedUp) {
+          if ((rsvpd && signedUp) || rsvpdNew) {
             swal({
               title: "Woohoo!",
               icon: partyhat,
-              text: `You're already RSVP'd! Nice work!`,
+              text: "You're already RSVP'd! Nice work!",
               button: "yuh",
             });
           } else if (signUpInfo && signUpInfo.role === "Audience") {
             swal({
               title: "Woohoo!",
               icon: partyhat,
-              text: `You're an audience member, so we don't need to collect your virtual diploma information. All you need to do is show up the day of! See you at commencement!`,
+              text:
+                "You're an audience member, so we don't need to collect your virtual diploma information. All you need to do is show up the day of! See you at commencement!",
               button: "yuh",
             });
-          } else if (!rsvpd && signedUp) {
+          } else if (!(rsvpd || rsvpdNew) && signedUp) {
             swal({
               title: "Time to RSVP!",
-              text: `Thanks for registering your interest earlier! All we need now is your virtual diploma information (full name, major, minor, etc.) and you're all set!`,
+              text:
+                "Thanks for registering your interest earlier! All we need now is your virtual diploma information (full name, major, minor, etc.) and you're all set!",
               button: "yuh",
             });
-          } else if (!rsvpd && !signedUp) {
+            setUserInfo(res.data.signUpInfo);
+          } else if (!(rsvpd || rsvpdNew) && !signedUp) {
             swal({
               title: "Hi there!",
-              text: `Looks like you didn't register for commencement earlier, but luckily for you...`,
+              text:
+                "Looks like you didn't register for commencement earlier, but luckily for you our RSVP form is open! You'll just need to enter some extra info that the original signup form asked for (like your timezone).",
               button: "yuh",
             });
+            setUserInfo({ email });
           }
           setSubmitted(false);
         })
@@ -88,12 +93,20 @@ const RSVP = () => {
   };
 
   const fieldNames = {
-    firstName: "entry.1677400286",
-    lastName: "entry.993248599",
-    email: "entry.1555601280",
-    timezone: "entry.1538936380",
-    role: "entry.1806088227",
-    domain: "entry.144425953",
+    email: "entry.89022382",
+    comingYesNo: "entry.2074410333",
+    fullname: "entry.891515203",
+    timezone: "entry.686409048",
+    degree: "entry.700114343",
+    major: "entry.569807986",
+    minor: "entry.692255109",
+    honors: "entry.1397466450",
+    phonetic: "entry.1064113496",
+    logistics: "entry.956435478",
+    quote: "entry.631727165",
+    confirmMC: "entry.351728367",
+    mcUsername: "entry.1256404244",
+    extra: "entry.1515720683",
   };
 
   return (
@@ -102,7 +115,10 @@ const RSVP = () => {
       <DeadlineChecker date="05/13/2020" closedContent={<h1>rip</h1>}>
         <h1>RSVP for Commencement!</h1>
         <p className="lead">
-          Fill out your info for your virtual diploma! <em>NOTE:</em> This is for the college/university commencement ceremony. If you're looking for the high school graduation ceremony, RSVP <Link to="/academygrad">here</Link>!
+          Fill out your info for your virtual diploma! <em>NOTE:</em> This is
+          for the college/university commencement ceremony. If you're looking
+          for the high school graduation ceremony, RSVP{" "}
+          <Link to="/academygrad">here</Link>!
           <br />
           <small className="text-muted">
             <em>
@@ -119,11 +135,11 @@ const RSVP = () => {
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Form.Row>
               <Form.Group as={Col} md="6" controlId="email">
-                <Form.Label>Email Address</Form.Label>
+                <Form.Label>School Email Address</Form.Label>
                 <InputGroup>
                   <Form.Control
                     type="email"
-                    placeholder="someone@gmail.com"
+                    placeholder="newgrad@school.edu"
                     pattern={simpleEmailPattern}
                     value={email}
                     onChange={handleEmailChange}
@@ -138,7 +154,7 @@ const RSVP = () => {
 
             <FlexRow>
               <Button type="submit" className="wiggle" disabled={submitted}>
-                Hype hype
+                Check Status
               </Button>
               {submitted && (
                 <React.Fragment>
@@ -149,7 +165,7 @@ const RSVP = () => {
             </FlexRow>
           </Form>
         ) : (
-          <RSVPForm userInfo={userInfo.signUpInfo} />
+          <RSVPForm fieldNames={fieldNames} userInfo={userInfo} />
         )}
       </DeadlineChecker>
     </Layout>

@@ -1,13 +1,17 @@
 import React, { useState } from "react";
+import { navigate } from "gatsby";
 import styled from "styled-components";
+import swal from "@sweetalert/with-react";
+
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Spinner from "react-bootstrap/Spinner";
-import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 
+import partyhat from "../images/party.png";
 import { simpleEmailPattern } from "../util/regex";
+import serialize from "../util/serialize";
 
 const PWLB = styled.div`
   white-space: pre-wrap;
@@ -15,9 +19,55 @@ const PWLB = styled.div`
 
 const RSVPForm = ({ fieldNames, userInfo }) => {
   const [coming, setComing] = useState(false);
+  const [validated, setValidated] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.stopPropagation();
+    } else {
+      setSubmitted(true);
+      const formId = "1FAIpQLSc-ncgVvbSUNksTtWduj1dzd9XZIhZEKuuytRGIka0nqzKZiQ";
+      const postURL = `https://docs.google.com/forms/d/e/${formId}/formResponse?${serialize(
+        form
+      )}`;
+      const config = {
+        method: "GET",
+        mode: "no-cors",
+      };
+
+      const formRequest = new Request(postURL, config);
+      fetch(formRequest)
+        .then(res => {
+          if (res.status === 0 || res.status === 200) {
+            swal({
+              title: "Woohoo!",
+              icon: partyhat,
+              text: "gg no re",
+              button: "yuh",
+            }).then(() => {
+              form.reset();
+              setSubmitted(false);
+              setValidated(false);
+              navigate("/");
+            });
+          } else {
+            throw new Error("Request failed!");
+          }
+        })
+        .catch(error => {
+          swal("Oh no!", error, "error");
+          console.error(error);
+        });
+    }
+
+    setValidated(true);
+  };
 
   return (
-    <Form>
+    <Form noValidate validated={validated} onSubmit={handleSubmit}>
       <PWLB>
         <strong>
           The wait is over — get ready to make history with us on May 22nd in
@@ -73,8 +123,9 @@ const RSVPForm = ({ fieldNames, userInfo }) => {
           <Form.Label>Email Address</Form.Label>
           <Form.Control
             type="email"
+            name={fieldNames.email}
             placeholder="someone@gmail.com"
-            defaultValue={userInfo.email}
+            defaultValue={userInfo.email ? userInfo.email : ""}
             pattern={simpleEmailPattern}
             required
           />
@@ -87,6 +138,7 @@ const RSVPForm = ({ fieldNames, userInfo }) => {
           <Form.Label>Are you coming to the ceremony on May 22nd?</Form.Label>
           <Form.Control
             as="select"
+            name={fieldNames.comingYesNo}
             onChange={e => setComing(e.target.value === "Yes")}
             required
           >
@@ -106,12 +158,13 @@ const RSVPForm = ({ fieldNames, userInfo }) => {
           </p>
 
           <Form.Row>
-            <Form.Group as={Col} md="6" controlId="fullName">
+            <Form.Group as={Col} md="6" controlId="fullname">
               <Form.Label>Your Full Name</Form.Label>
               <Form.Control
                 type="text"
+                name={fieldNames.fullname}
                 placeholder="Graduating Gradperson"
-                defaultValue={userInfo.name}
+                defaultValue={userInfo.name ? userInfo.name : ""}
                 required
               />
               <Form.Text className="text-muted">
@@ -119,17 +172,21 @@ const RSVPForm = ({ fieldNames, userInfo }) => {
               </Form.Text>
             </Form.Group>
 
-            <Form.Group as={Col} md="6" controlId="email">
+            <Form.Group as={Col} md="6" controlId="degree">
               <Form.Label>Your Degree</Form.Label>
-              <Form.Control as="select" required>
-                <option value="">-- Select an option --</option>
+              <Form.Control
+                type="text"
+                list="degreeOptions"
+                name={fieldNames.degree}
+                required
+              />
+              <datalist id="degreeOptions">
                 <option>Bachelor of Arts</option>
                 <option>Bachelor of Science</option>
                 <option>Master of Arts</option>
                 <option>Master of Science</option>
                 <option>Doctorate (PhD)</option>
-                <option>Other</option>
-              </Form.Control>
+              </datalist>
               <Form.Text className="text-muted">
                 E.g. Bachelors, Masters, PhD, etc.
               </Form.Text>
@@ -137,37 +194,46 @@ const RSVPForm = ({ fieldNames, userInfo }) => {
           </Form.Row>
 
           <Form.Row>
-            <Form.Group as={Col} md="6" controlId="email">
+            <Form.Group as={Col} md="6" controlId="major">
               <Form.Label>Your Major(s)</Form.Label>
               <Form.Control
                 type="text"
+                name={fieldNames.major}
                 placeholder="Underwater Basketweaving"
                 required
               />
             </Form.Group>
 
-            <Form.Group as={Col} md="6" controlId="email">
+            <Form.Group as={Col} md="6" controlId="minor">
               <Form.Label>Your Minor(s)</Form.Label>
               <Form.Control
                 type="text"
+                name={fieldNames.minor}
                 placeholder="Aground Boxmaking"
-                required
               />
             </Form.Group>
           </Form.Row>
 
           <Form.Row>
-            <Form.Group as={Col} md="6" controlId="email">
+            <Form.Group as={Col} md="4" controlId="honors">
               <Form.Label>Anything else you'd like to include?</Form.Label>
-              <Form.Control type="text" placeholder="Your answer" required />
+              <Form.Control
+                type="text"
+                name={fieldNames.honors}
+                placeholder="Your answer"
+              />
               <Form.Text className="text-muted">
                 (Optional) E.g. Latin honors, first-gen student, etc.
               </Form.Text>
             </Form.Group>
 
-            <Form.Group as={Col} md="6" controlId="email">
+            <Form.Group as={Col} md="4" controlId="phonetic">
               <Form.Label>Phonetic spelling of your name</Form.Label>
-              <Form.Control type="text" placeholder="Your answer" required />
+              <Form.Control
+                type="text"
+                name={fieldNames.phonetic}
+                placeholder="Your answer"
+              />
               <Form.Text className="text-muted">
                 (Optional) So that we pronounce your name properly. Using IPA (
                 <OutboundLink href="https://www.ipachart.com/">
@@ -176,16 +242,34 @@ const RSVPForm = ({ fieldNames, userInfo }) => {
                 ) would be extra helpful!
               </Form.Text>
             </Form.Group>
+
+            <Form.Group as={Col} md="4" controlId="timezone">
+              <Form.Label>Your Timezone</Form.Label>
+              <Form.Control
+                type="text"
+                name={fieldNames.timezone}
+                placeholder="GMT"
+                defaultValue={userInfo.timezone ? userInfo.timezone : ""}
+                required
+              />
+              <Form.Text className="text-muted">
+                The timezone that you're currently in. Refer to
+                <OutboundLink href="https://www.timeanddate.com/time/current-number-time-zones.html">
+                  https://www.timeanddate.com/time/current-number-time-zones.html
+                </OutboundLink>
+                .
+              </Form.Text>
+            </Form.Group>
           </Form.Row>
 
           <h3>Logistics</h3>
           <Form.Row>
-            <Form.Group as={Col} md="6" controlId="email">
+            <Form.Group as={Col} md="6" controlId="logistics">
               <Form.Label>
                 Would you prefer to graduate with students from your school or
                 students in your timezone?
               </Form.Label>
-              <Form.Control as="select" required>
+              <Form.Control as="select" name={fieldNames.logistics} required>
                 <option value="">-- Select an option --</option>
                 <option>By School</option>
                 <option>By Timezone</option>
@@ -197,24 +281,31 @@ const RSVPForm = ({ fieldNames, userInfo }) => {
               </Form.Text>
             </Form.Group>
 
-            <Form.Group as={Col} md="6" controlId="email">
-              <Form.Label>Senior quote?</Form.Label>
-              <Form.Control type="text" placeholder="Your answer" required />
+            <Form.Group as={Col} md="6" controlId="quote">
+              <Form.Label>
+                Senior quote?
+                <br />
+              </Form.Label>
+              <Form.Control
+                type="text"
+                name={fieldNames.quote}
+                placeholder="Your answer"
+              />
               <Form.Text className="text-muted">
-                This will be read on stream by a text-to speech bot when you go
-                on stage! Just don't offend anyone, lol.
+                (Optional) This will be read on stream by a text-to speech bot
+                when you go on stage! Just don't offend anyone, lol.
               </Form.Text>
             </Form.Group>
           </Form.Row>
 
           <h3>One last thing...</h3>
           <Form.Row>
-            <Form.Group as={Col} md="6" controlId="email">
+            <Form.Group as={Col} md="6" controlId="confirmMC">
               <Form.Label>
                 I confirm I have a Minecraft Java Edition account or will get
                 one before the ceremony
               </Form.Label>
-              <Form.Control as="select" required>
+              <Form.Control as="select" name={fieldNames.confirmMC} required>
                 <option value="">-- Select an option --</option>
                 <option>Yup, I got it!</option>
                 <option>
@@ -234,9 +325,14 @@ const RSVPForm = ({ fieldNames, userInfo }) => {
               </Form.Text>
             </Form.Group>
 
-            <Form.Group as={Col} md="6" controlId="email">
+            <Form.Group as={Col} md="6" controlId="mcUsername">
               <Form.Label>Your Minecraft Username</Form.Label>
-              <Form.Control type="text" placeholder="MCNewGrad2020" required />
+              <Form.Control
+                type="text"
+                name={fieldNames.mcUsername}
+                placeholder="MCNewGrad2020"
+                required
+              />
               <Form.Text className="text-muted">
                 You can sign up for an account without purchasing the game right
                 away here:{" "}
@@ -249,9 +345,9 @@ const RSVPForm = ({ fieldNames, userInfo }) => {
           </Form.Row>
 
           <Form.Row>
-            <Form.Group as={Col} md="6" controlId="email">
+            <Form.Group as={Col} md="6" controlId="extra">
               <Form.Label>Anything else you'd like to tell us?</Form.Label>
-              <Form.Control as="textarea" rows="3" />
+              <Form.Control as="textarea" name={fieldNames.extra} rows="3" />
             </Form.Group>
           </Form.Row>
         </React.Fragment>

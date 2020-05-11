@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
 import styled from "styled-components";
 import axios from "axios";
 import swal from "@sweetalert/with-react";
@@ -111,8 +112,25 @@ const RSVP = () => {
 
   return (
     <Layout>
-      <SEO title="RSVP" route="/rsvp" />
-      <DeadlineChecker date="05/13/2020" closedContent={<h1>rip</h1>}>
+      <SEO title="Commencement RSVP" route="/newgrad" />
+      <DeadlineChecker
+        date="05/13/2020"
+        closedContent={
+          <React.Fragment>
+            <h1>RSVP Closed!</h1>
+            <p className="lead">
+              In order to ensure that our team has enough time to schedule all
+              the interested students, we had to close our RSVP form. We're
+              sorry if you weren't able to sign up before the deadline, but we'd
+              still love your support if you watched the event on{" "}
+              <OutboundLink href="https://www.twitch.tv/QuaranteenU">
+                Twitch
+              </OutboundLink>
+              !
+            </p>
+          </React.Fragment>
+        }
+      >
         <h1>RSVP for Commencement!</h1>
         <p className="lead">
           Fill out your info for your virtual diploma! <em>NOTE:</em> This is

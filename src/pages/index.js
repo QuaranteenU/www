@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
 import styled from "styled-components";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
@@ -320,15 +321,50 @@ class IndexPage extends React.Component {
               graduate together??
             </p>
           </Section>
-
+          <OutboundLink href=""></OutboundLink>
           <Section>
             <h3>How to join the server?</h3>
-            <p>
-              You can join the server at{" "}
-              <strong>play.quaranteen.university</strong>. Currently the
-              commencement area is under construction and only builders are
-              allowed, but feel free to check out the rest of the server!
-            </p>
+            <div>
+              <ol>
+                <li>
+                  First you'll need to get a copy of{" "}
+                  <OutboundLink href="https://www.minecraft.net/en-us/store/minecraft-java-edition/">
+                    Minecraft Java Edition
+                  </OutboundLink>
+                  .
+                </li>
+                <li>
+                  After registering a Minecraft account and{" "}
+                  <OutboundLink href="https://www.minecraft.net/en-us/download/">
+                    downloading the launcher
+                  </OutboundLink>
+                  , launch Minecraft and press <strong>Play</strong> (make sure
+                  next to <strong>Play</strong> it says{" "}
+                  <strong>Latest Release</strong>).
+                </li>
+                <li>
+                  Once the game is open, press <strong>Multiplayer</strong>.
+                  Then press <strong>Add Server</strong>. For{" "}
+                  <strong>Server Name</strong>, put{" "}
+                  <strong>Quaranteen University</strong>. For{" "}
+                  <strong>Server Address</strong>, put{" "}
+                  <strong>play.quaranteen.university</strong> (you can leave the
+                  other options alone). Then press <strong>Done</strong> (now
+                  whenever you open Minecraft and press{" "}
+                  <strong>Multiplayer</strong>, the server will be an option).
+                </li>
+                <li>
+                  Select the <strong>Quaranteen University</strong> option from
+                  the server list, and press <strong>Join Server</strong>.
+                </li>
+                <li>
+                  Once you're in the server, follow the signs for{" "}
+                  <strong>Quaranteen University</strong> (currently the QU world
+                  is under construction and closed to the public, but feel free
+                  to explore the rest of the server).
+                </li>
+              </ol>
+            </div>
           </Section>
 
           <Section id="faqs">

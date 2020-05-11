@@ -136,18 +136,17 @@ const RSVP = () => {
       >
         <h1>RSVP for Commencement!</h1>
         <p className="lead">
-          Fill out your info for your virtual diploma! <em>NOTE:</em> This is
-          for the college/university commencement ceremony. If you're looking
-          for the high school graduation ceremony, RSVP{" "}
-          <Link to="/academygrad">here</Link>!
+          Fill out your info for your virtual diploma! RSVPs close{" "}
+          <strong>
+            May 12<sup>th</sup>
+          </strong>{" "}
+          at <strong>midnight</strong>!
           <br />
           <small className="text-muted">
             <em>
-              RSVPs close{" "}
-              <strong>
-                May 12<sup>th</sup>
-              </strong>{" "}
-              at <strong>midnight</strong>!
+              This is for the <strong>college/university commencement</strong>{" "}
+              ceremony. If you're looking for the high school graduation
+              ceremony, RSVP <Link to="/academygrad">here</Link>!
             </em>
           </small>
         </p>

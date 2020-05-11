@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "gatsby";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 import styled from "styled-components";
 import axios from "axios";
@@ -134,7 +135,10 @@ const AcademyRSVP = () => {
       >
         <h1>RSVP for Graduation!</h1>
         <p className="lead">
-          Fill out your info for your virtual diploma!
+          Fill out your info for your virtual diploma! <em>NOTE:</em> This is
+          for the high school graduation ceremony. If you're looking
+          for the college/university commencement ceremony, RSVP{" "}
+          <Link to="/newgrad">here</Link>!
           <br />
           <small className="text-muted">
             <em>

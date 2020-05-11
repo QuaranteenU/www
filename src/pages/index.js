@@ -244,9 +244,8 @@ class IndexPage extends React.Component {
             </p>
             <p className="text-muted">
               <em>
-                Are you a graduating high school senior (or a friend/parent of
-                one)? Use the <Link to="/academy">QUA Interest Form</Link>{" "}
-                instead!
+                Are you a graduating high school senior? Use the{" "}
+                <Link to="/academygrad">QUA RSVP Form</Link>!
               </em>
             </p>
           </Section>

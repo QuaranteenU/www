@@ -16,7 +16,7 @@ const PWLB = styled.div`
   white-space: pre-wrap;
 `;
 
-const RSVPForm = ({ fieldNames, userInfo }) => {
+const AcademyRSVPForm = ({ fieldNames, userInfo }) => {
   const [coming, setComing] = useState(false);
   const [validated, setValidated] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -28,7 +28,7 @@ const RSVPForm = ({ fieldNames, userInfo }) => {
       event.stopPropagation();
     } else {
       setSubmitted(true);
-      const formId = "1FAIpQLSc-ncgVvbSUNksTtWduj1dzd9XZIhZEKuuytRGIka0nqzKZiQ";
+      const formId = "1FAIpQLSd47yRAOgMTnw1AfZxBSGiXMYNTV3FYh2z83WydGv-dor2qwg";
       const postURL = `https://docs.google.com/forms/d/e/${formId}/formResponse?${serialize(
         form
       )}`;
@@ -45,7 +45,7 @@ const RSVPForm = ({ fieldNames, userInfo }) => {
               title: "Woohoo!",
               icon: partyhat,
               text:
-                "Thanks for RSVPing! Keep your eye out for updates regarding the event, as more details on the event schedule will be sent out soon. We can't wait to see you at commencement!",
+                "Thanks for RSVPing! Keep your eye out for updates regarding the event, as more details on the event schedule will be sent out soon. We can't wait to see you at graduation!",
               button: "yuh",
             }).then(() => {
               form.reset();
@@ -70,8 +70,8 @@ const RSVPForm = ({ fieldNames, userInfo }) => {
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
       <PWLB>
         <strong>
-          The wait is over — get ready to make history with us on May 22
-          <sup>nd</sup> in Minecraft!
+          The wait is over — get ready to make history with us on May 30
+          <sup>th</sup> in Minecraft!
         </strong>
         <br />
         <br />
@@ -81,14 +81,14 @@ const RSVPForm = ({ fieldNames, userInfo }) => {
         The logistics will roughly be:
         <ol>
           <li>
-            You let us know whether you're coming by May 12<sup>th</sup>.
+            You let us know whether you're coming by May 19<sup>th</sup>.
           </li>
           <li>
-            We email you your commencement time at least a week before the
+            We email you your graduation time at least a week before the
             ceremony.
           </li>
           <li>
-            You are COMMENCED:
+            You are GRADUATED:
             <ul>
               <li>Have your name read</li>
               <li>Walk the QU stage to get your personalized diploma</li>
@@ -109,13 +109,6 @@ const RSVPForm = ({ fieldNames, userInfo }) => {
         <br />
         You'll be on stage for 1 minute, but you can stay on the server as long
         as you like before and after you walk.
-        <br />
-        <strong>
-          <i>
-            NOTE: Please use your university/college email! We need it to get
-            your school name and colors. :)
-          </i>
-        </strong>
       </PWLB>
       <br />
       <br />
@@ -174,44 +167,13 @@ const RSVPForm = ({ fieldNames, userInfo }) => {
               </Form.Text>
             </Form.Group>
 
-            <Form.Group as={Col} md="6" controlId="degree">
-              <Form.Label>Your Degree</Form.Label>
+            <Form.Group as={Col} md="6" controlId="school">
+              <Form.Label>Your School Name</Form.Label>
               <Form.Control
                 type="text"
-                list="degreeOptions"
-                name={fieldNames.degree}
+                name={fieldNames.school}
+                placeholder="North Minecraft High School"
                 required
-              />
-              <datalist id="degreeOptions">
-                <option>Bachelor of Arts</option>
-                <option>Bachelor of Science</option>
-                <option>Master of Arts</option>
-                <option>Master of Science</option>
-                <option>Doctorate (PhD)</option>
-              </datalist>
-              <Form.Text className="text-muted">
-                E.g. Bachelors, Masters, PhD, etc.
-              </Form.Text>
-            </Form.Group>
-          </Form.Row>
-
-          <Form.Row>
-            <Form.Group as={Col} md="6" controlId="major">
-              <Form.Label>Your Major(s)</Form.Label>
-              <Form.Control
-                type="text"
-                name={fieldNames.major}
-                placeholder="Underwater Basketweaving"
-                required
-              />
-            </Form.Group>
-
-            <Form.Group as={Col} md="6" controlId="minor">
-              <Form.Label>Your Minor(s)</Form.Label>
-              <Form.Control
-                type="text"
-                name={fieldNames.minor}
-                placeholder="Aground Boxmaking"
               />
             </Form.Group>
           </Form.Row>
@@ -362,4 +324,4 @@ const RSVPForm = ({ fieldNames, userInfo }) => {
   );
 };
 
-export default RSVPForm;
+export default AcademyRSVPForm;

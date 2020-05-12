@@ -117,7 +117,7 @@ const RSVP = () => {
     <Layout>
       <SEO title="Commencement RSVP" route="/newgrad" />
       <DeadlineChecker
-        date="05/13/2020"
+        date="05/14/2020"
         closedContent={
           <React.Fragment>
             <h1>RSVP Closed!</h1>

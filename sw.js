@@ -27,7 +27,7 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-02056d9539369736ec71.js"
+    "url": "webpack-runtime-fc4b161f0506d28144f8.js"
   },
   {
     "url": "framework-f47b549d6f237f17b5e3.js"
@@ -37,7 +37,7 @@ self.__precacheManifest = [
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "35e346e8c5822a349e378d5bb1a9e87e"
+    "revision": "464ed50d698f99baa0a474e0294dc151"
   },
   {
     "url": "google-fonts/s/librebaskerville/v7/kmKnZrc3Hgbbcjq75U4uslyuy4kn0qNZaxM.woff2",
@@ -52,7 +52,7 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "19ea1a9a7ac67b293c3425903348cc11"
+    "revision": "841872b4debba6a9641af295e46f891f"
   },
   {
     "url": "styles.cdbefcf032504d410e50.css"
@@ -129,7 +129,7 @@ self.__precacheManifest = [
     "revision": "01027a9290b2df11ac2b79ce73d7a9d1"
   },
   {
-    "url": "component---src-pages-newgrad-js-ff1cf99c6ce7d602301c.js"
+    "url": "component---src-pages-newgrad-js-8c9e8bff3cad43e255d2.js"
   },
   {
     "url": "page-data/newgrad/page-data.json",

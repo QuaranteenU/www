@@ -138,7 +138,7 @@ const RSVP = () => {
         <p className="lead">
           Fill out your info for your virtual diploma! RSVPs close{" "}
           <strong>
-            May 12<sup>th</sup>
+            May 13<sup>th</sup>
           </strong>{" "}
           at <strong>midnight</strong>!
           <br />

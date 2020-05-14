@@ -205,11 +205,6 @@ class IndexPage extends React.Component {
                 <div style={{ flex: 1 }} />
                 <h1>Quaranteen Commencement 2020</h1>
                 <p className="lead">Come graduate in Minecraft on May 22</p>
-                <div>
-                  <Link to="/newgrad">
-                    <Button className="wiggle">RSVP!</Button>
-                  </Link>
-                </div>
               </LandingContent>
             </Landing>
           </LandingWrapper>

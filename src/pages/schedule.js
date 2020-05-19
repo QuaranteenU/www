@@ -13,7 +13,7 @@ const LogoWrapper = styled.div`
 
 const Schedule = () => (
   <Layout>
-    <SEO title="Schedule" route="schedule" />
+    <SEO title="Schedule" route="/schedule" />
     <LogoWrapper>
       <Logo size="medium" />
     </LogoWrapper>

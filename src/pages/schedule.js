@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import Logo from "../components/Logo";
 import SchoolSchedule from "../components/SchoolSchedule";
+import Button from "react-bootstrap/Button";
 
 const LogoWrapper = styled.div`
   width: fit-content;
@@ -18,16 +19,24 @@ const Schedule = () => (
       <Logo size="medium" />
     </LogoWrapper>
     <div className="text-center">
-      <strong>Quaranteen University Commencement Schedule (Updates TBA)</strong>
+      <h2>2020 Commencement Schedule</h2>
+
+      <br/>
+
+      <i>
+        Below is the day-of schedule for QU's 2020 Commencement. Please try to show up
+        15 minutes before your school's time slot!
+      </i>
+
+      <br/>
+
+      <Button>How to connect to the server</Button>
     </div>
 
     <br/>
 
     <p>
-      <i>
-      Below is the day-of schedule for 2020 Commencement. Please try to show up
-        15 minutes before your slot! Our IPs are <b>play.quaranteen.university</b> and <b>XX.XXX.XXX.XX:XXXX</b>.
-      </i>
+
     </p>
 
     <br/>

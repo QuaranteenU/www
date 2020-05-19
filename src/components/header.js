@@ -108,6 +108,9 @@ const Header = () => (
           <Link className="hvr-underline-from-center" to="/schedule">
             Schedule
           </Link>
+          <Link className="hvr-underline-from-center" to="/instructions">
+            How to Join the Server
+          </Link>
           <Link className="hvr-underline-from-center" to="/livestream">
             Livestream
           </Link>

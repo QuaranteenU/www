@@ -105,12 +105,16 @@ const Header = () => (
           <Link className="hvr-underline-from-center" to="/about">
             About Us
           </Link>
-          <Link className="hvr-underline-from-center" to="/courses">
-            Courses
+          <Link className="hvr-underline-from-center" to="/schedule">
+            Schedule
           </Link>
           <Link className="hvr-underline-from-center" to="/livestream">
             Livestream
           </Link>
+          <Link className="hvr-underline-from-center" to="/courses">
+            Courses
+          </Link>
+
 
           <NavDropdown title="Ceremonies" alignRight>
             <NavDropdown.Item as="button">

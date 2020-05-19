@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
@@ -28,22 +29,26 @@ const Schedule = () => (
         15 minutes before your school's time slot!
       </i>
 
-      <br/>
+      <br/><br/>
 
-      <Button>How to connect to the server</Button>
+      <i>This page is under construction.</i>
+
+      <br/><br/>
+
+      <div className="action-buttons">
+        <Link to="/instructions">
+          <Button className="wiggle">
+            How to join the graduation server
+          </Button>
+        </Link>
+      </div>
     </div>
 
-    <br/>
-
-    <p>
-
-    </p>
-
-    <br/>
+    <br/><br/>
 
     <SchoolSchedule/>
 
-    {/*<div className="content" dangerouslySetInnerHTML={{__html: perf}}></div>*/}
+    <br/><br/><br/>
   </Layout>
 );
 

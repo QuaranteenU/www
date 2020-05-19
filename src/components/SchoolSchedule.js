@@ -1,11 +1,22 @@
 import React from "react";
-// import styled, { withTheme } from "styled-components";
+import styled, { withTheme } from "styled-components";
 
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-// TODO: Styles
+const SchoolScheduleTable = withTheme(styled.table`
+  font-family: "Libre Baskerville", serif;
+  background-color: ${props => props.theme.global.bg};
+  
+  & tr th:nth-child(2) {
+    text-align: right;
+  }
+  
+  & tr td:nth-child(2) {
+    text-align: right;
+  }
+`);
 
 const SchoolSchedule = () => (
   <>
@@ -17,7 +28,7 @@ const SchoolSchedule = () => (
         </Accordion.Toggle>
       </Card.Header>
       <Accordion.Collapse eventKey="0">
-        <table>
+        <SchoolScheduleTable>
           <thead>
           <tr><th>School                                                  </th><th>Start Time            </th></tr>
           </thead>
@@ -47,7 +58,7 @@ const SchoolSchedule = () => (
           <tr><td>Imperial College London                                 </td><td>2020-05-22 09:15:00 AM</td></tr>
           <tr><td>Quaranteen University                                   </td><td>2020-05-22 09:15:30 AM</td></tr>
           </tbody>
-        </table>
+        </SchoolScheduleTable>
 
       </Accordion.Collapse>
     </Card>
@@ -58,12 +69,12 @@ const SchoolSchedule = () => (
         </Accordion.Toggle>
       </Card.Header>
       <Accordion.Collapse eventKey="1">
-        <table>
+        <SchoolScheduleTable>
           <thead>
           <tr><th>School                                                  </th><th>Start Time            </th></tr>
           </thead>
           <tbody>
-          <tr><td>COMMENCEMENT SPEAKER                                    </td><td>2020-05-22 08:30:00 AM</td></tr>
+          <tr><td>COMMENCEMENT SPEAKER                                    </td><td>2020-05-22 06:30:00 PM</td></tr>
           <tr><td>Brown University                                        </td><td>2020-05-22 07:00:00 PM</td></tr>
           <tr><td>Quaranteen University                                   </td><td>2020-05-22 07:02:00 PM</td></tr>
           <tr><td>Boston University                                       </td><td>2020-05-22 07:15:30 PM</td></tr>
@@ -237,7 +248,7 @@ const SchoolSchedule = () => (
           <tr><td>Williams College                                        </td><td>2020-05-22 10:58:30 PM</td></tr>
           <tr><td>Lewis &amp; Clark College                                   </td><td>2020-05-22 10:59:30 PM</td></tr>
         </tbody>
-        </table>
+        </SchoolScheduleTable>
       </Accordion.Collapse>
     </Card>
   </Accordion>

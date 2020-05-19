@@ -4,10 +4,14 @@ const colorPalette = {
   lightAccent: "#8b8e95",
   lightShades: "#fff",
   lightMuted: "#6c757d",
+  lightPanel: "#e1e1e1",
+  lightSubpanel: "#fff",
 
   darkAccent: "#004599",
   darkShades: "#201e20",
   darkMuted: "#96a2ad",
+  darkPanel: "#272727",
+  darkSubpanel: "#2b2b2b",
 
   success: "#5f9951",
   warning: "#dd8819",
@@ -46,6 +50,8 @@ module.exports = {
       linkHover: colorPalette.lightAccent,
       muted: colorPalette.darkMuted,
       logoTint: "rgba(0,0,0,0.4)",
+      panel: colorPalette.darkPanel,
+      subpanel: colorPalette.darkSubpanel,
     },
   },
   lightTheme: {
@@ -57,6 +63,8 @@ module.exports = {
       linkHover: colorPalette.darkAccent,
       muted: colorPalette.lightMuted,
       logoTint: "rgba(0,0,0,0)",
+      panel: colorPalette.lightPanel,
+      subpanel: colorPalette.lightSubpanel,
     },
   },
 };

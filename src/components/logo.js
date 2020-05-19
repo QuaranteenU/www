@@ -21,6 +21,10 @@ const SmallImg = withTheme(styled(Img)`
   }
 `);
 
+const MediumImg = styled(Img)`
+  width: 150px;
+`;
+
 const LargeImg = styled(Img)`
   width: 300px;
 `;
@@ -41,6 +45,8 @@ const Logo = ({ size }) => {
   switch (size) {
     case "small":
       return <SmallImg fluid={logo.childImageSharp.fluid} />;
+    case "medium":
+      return <MediumImg fluid={logo.childImageSharp.fluid} />;
     case "large":
       return <LargeImg fluid={logo.childImageSharp.fluid} />;
     default:

@@ -8,7 +8,7 @@ const Instructions = () => (
   <Layout>
     <SEO title="Instructions" route="/instructions" />
     <h1>
-      How to join the QU graduation server
+      How to join QU's graduation server
     </h1>
 
     <ol>
@@ -21,7 +21,7 @@ const Instructions = () => (
         <li>104.192.227.3</li>
       </ul>
       <li>Click <b>Join Server</b>.</li>
-      <li>You're in! Press WASD to walk and use your mouse to look around! 😉</li>
+      <li>You're in! Press WASD to walk and use your mouse to look around. 🥳</li>
     </ol>
 
     <br/><br/>
@@ -29,7 +29,7 @@ const Instructions = () => (
     <p>We recommend you also <OutboundLink href="https://twitch.tv/QuaranteenU" target="_blank">
         open our Twitch stream
       </OutboundLink> so you can hear your name being called. Audio is on a 15 second delay, so
-      we'll notify you in-game when it's your turn to walk.
+      we'll be sure to notify you in-game when it's your turn to walk, too.
     </p>
 
     <p>Still have questions? <Link className="hvr-underline-from-center" to="/#faqs">

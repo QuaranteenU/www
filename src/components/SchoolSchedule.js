@@ -4,6 +4,14 @@ import styled, { withTheme } from "styled-components";
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
+import { FaQuestionCircle } from "react-icons/fa";
+import Modal from "react-bootstrap/Modal";
+
+// import scheduleRows from "../data/SchoolScheduleRows";
+const session1Rows = [['2020-05-22T09:00:00Z', 'Australian National University'], ['2020-05-22T09:00:30Z', 'Boston University'], ['2020-05-22T09:01:00Z', 'Monash University'], ['2020-05-22T09:01:30Z', 'The University of Queensland, Australia'], ['2020-05-22T09:02:00Z', 'University of Melbourne'], ['2020-05-22T09:03:00Z', 'University of Sydney'], ['2020-05-22T09:04:00Z', 'University of Technology Sydney'], ['2020-05-22T09:04:30Z', "St Clare's Oxford"], ['2020-05-22T09:05:00Z', 'University of Nottingham'], ['2020-05-22T09:05:30Z', 'Ashoka University'], ['2020-05-22T09:07:00Z', 'Forman Christian College'], ['2020-05-22T09:07:30Z', 'Indian Institute of Foreign Trade'], ['2020-05-22T09:08:00Z', 'University of the Arts London'], ['2020-05-22T09:08:30Z', 'Bilkent University'], ['2020-05-22T09:09:30Z', 'Middle East Technical University'], ['2020-05-22T09:10:00Z', 'American University in Cairo'], ['2020-05-22T09:10:30Z', "King's College London, University of London"], ['2020-05-22T09:11:00Z', 'Manchester University'], ['2020-05-22T09:12:00Z', 'The Paris Institute of Political Studies'], ['2020-05-22T09:12:30Z', 'University of Bristol'], ['2020-05-22T09:13:00Z', 'University of Kent'], ['2020-05-22T09:13:30Z', 'University of Strathclyde'], ['2020-05-22T09:15:00Z', 'Imperial College London'], ['2020-05-22T09:15:30Z', 'Unknown']];
+const session2Rows = [['2020-05-22T18:30:00Z', 'COMMENCEMENT SPEECH'], ['2020-05-22T19:00:00Z', 'Brown University'], ['2020-05-22T19:02:00Z', 'Unknown'], ['2020-05-22T19:15:30Z', 'Boston University'], ['2020-05-22T19:25:30Z', 'New York University'], ['2020-05-22T19:31:00Z', 'Ohio State University, Columbus'], ['2020-05-22T19:31:30Z', 'Point Park University'], ['2020-05-22T19:32:00Z', 'State University of New York at Canton'], ['2020-05-22T19:33:00Z', 'The City University of New York'], ['2020-05-22T19:34:00Z', 'William Peace University'], ['2020-05-22T19:35:00Z', 'Alfred University'], ['2020-05-22T19:35:30Z', 'Amherst College'], ['2020-05-22T19:36:00Z', 'Appalachian State University'], ['2020-05-22T19:36:30Z', 'Babson College'], ['2020-05-22T19:37:00Z', "Bishop's University"], ['2020-05-22T19:38:00Z', 'Boston College'], ['2020-05-22T19:39:00Z', 'Carnegie Mellon University'], ['2020-05-22T19:41:30Z', 'Champlain College'], ['2020-05-22T19:42:00Z', 'Colby College'], ['2020-05-22T19:42:30Z', 'Colgate University'], ['2020-05-22T19:43:00Z', 'Cooper Union for the Advancement of Science and Art'], ['2020-05-22T19:43:30Z', 'Cornell University'], ['2020-05-22T19:45:30Z', 'Drexel University'], ['2020-05-22T19:46:00Z', 'Duke University'], ['2020-05-22T19:48:00Z', 'Eastern Kentucky University'], ['2020-05-22T19:48:30Z', 'Eastern Michigan University'], ['2020-05-22T19:49:00Z', "Ecole Supérieure d'Electricité"], ['2020-05-22T19:49:30Z', 'Embry-Riddle Aeronautical University'], ['2020-05-22T19:50:00Z', 'Emerson College'], ['2020-05-22T19:51:00Z', 'Florida Atlantic University'], ['2020-05-22T19:51:30Z', 'Florida State University'], ['2020-05-22T19:53:00Z', 'Fordham University'], ['2020-05-22T19:53:30Z', 'Illinois Institute of Technology'], ['2020-05-22T19:54:00Z', 'Ivey Business School'], ['2020-05-22T19:54:30Z', 'Johns Hopkins University'], ['2020-05-22T19:57:00Z', 'Lafayette College'], ['2020-05-22T19:57:30Z', 'Laurentian University of Sudbury'], ['2020-05-22T19:58:00Z', 'Lehigh University'], ['2020-05-22T19:58:30Z', 'Liberty University'], ['2020-05-22T19:59:30Z', 'Macalester College'], ['2020-05-22T20:00:00Z', 'Middlebury College'], ['2020-05-22T20:01:00Z', 'New College, Oxford'], ['2020-05-22T20:01:30Z', 'North Carolina State University'], ['2020-05-22T20:02:00Z', 'Northeastern University'], ['2020-05-22T20:06:00Z', 'Northern Michigan University'], ['2020-05-22T20:06:30Z', 'Oakland University'], ['2020-05-22T20:07:00Z', 'Pennsylvania State University'], ['2020-05-22T20:07:30Z', 'Princeton University'], ['2020-05-22T20:09:00Z', 'Purdue University'], ['2020-05-22T20:10:30Z', 'Ramapo College'], ['2020-05-22T20:11:00Z', 'Rensselaer Polytechnic Institute'], ['2020-05-22T20:13:30Z', 'Roger Williams University'], ['2020-05-22T20:14:00Z', 'Rowan University'], ['2020-05-22T20:15:00Z', 'Rutgers University'], ['2020-05-22T20:19:00Z', 'Rutgers University, Newark'], ['2020-05-22T20:22:30Z', 'Savannah College of Art and Design'], ['2020-05-22T20:23:00Z', 'Simmons College'], ['2020-05-22T20:24:00Z', 'Smith College'], ['2020-05-22T20:25:30Z', 'State University of New York at Binghamton'], ['2020-05-22T20:26:30Z', 'Stonehill College'], ['2020-05-22T20:27:00Z', 'Suffolk University'], ['2020-05-22T20:27:30Z', 'Swarthmore College'], ['2020-05-22T20:28:00Z', 'The Ailey School'], ['2020-05-22T20:28:30Z', 'The College of William and Mary'], ['2020-05-22T20:29:30Z', 'The Ohio State University'], ['2020-05-22T20:30:00Z', 'Towson University'], ['2020-05-22T20:31:00Z', 'Tufts University'], ['2020-05-22T20:31:30Z', 'University of Connecticut'], ['2020-05-22T20:32:00Z', 'University of Delaware'], ['2020-05-22T20:33:00Z', 'University of Florida'], ['2020-05-22T20:34:30Z', 'University of Guelph'], ['2020-05-22T20:35:00Z', 'University of Illinois at Chicago'], ['2020-05-22T20:35:30Z', 'University of Kentucky'], ['2020-05-22T20:36:00Z', 'University of Maryland'], ['2020-05-22T20:37:30Z', 'University of Massachusetts at Lowell'], ['2020-05-22T20:38:00Z', 'University of Michigan - Ann Arbor'], ['2020-05-22T20:43:30Z', 'University of North Carolina at Asheville'], ['2020-05-22T20:44:00Z', 'University of North Carolina at Chapel Hill'], ['2020-05-22T20:46:30Z', 'University of Notre Dame'], ['2020-05-22T20:47:00Z', 'University of Pittsburgh'], ['2020-05-22T20:48:00Z', 'University of Puget Sound'], ['2020-05-22T20:48:30Z', 'University of Rochester'], ['2020-05-22T20:49:30Z', 'University of Tennessee, Knoxville'], ['2020-05-22T20:50:00Z', 'University of Waterloo'], ['2020-05-22T20:54:30Z', 'Vassar College'], ['2020-05-22T20:56:00Z', 'Virginia Polytechnic Institute and State University'], ['2020-05-22T20:58:30Z', 'Washington University, Saint Louis'], ['2020-05-22T20:59:00Z', 'Wayne State University'], ['2020-05-22T20:59:30Z', 'Wellesley College'], ['2020-05-22T21:00:30Z', 'Wingate University'], ['2020-05-22T21:01:00Z', 'Yale University'], ['2020-05-22T21:02:00Z', 'American University'], ['2020-05-22T21:03:00Z', 'Arizona State University'], ['2020-05-22T21:05:00Z', 'Austin Community College'], ['2020-05-22T21:05:30Z', 'Brandeis University'], ['2020-05-22T21:07:00Z', 'Carthage College'], ['2020-05-22T21:07:30Z', 'Case Western Reserve University'], ['2020-05-22T21:09:00Z', 'Cleveland Institution of Music'], ['2020-05-22T21:09:30Z', 'Columbia University'], ['2020-05-22T21:11:00Z', 'Dartmouth College'], ['2020-05-22T21:11:30Z', 'Dominican University'], ['2020-05-22T21:12:00Z', 'Emory University'], ['2020-05-22T21:13:30Z', 'Georgia Institute of Technology'], ['2020-05-22T21:14:30Z', 'Grinnell College'], ['2020-05-22T21:15:00Z', 'Harvard University'], ['2020-05-22T21:15:30Z', 'Illinois State University'], ['2020-05-22T21:16:00Z', 'Iowa State University'], ['2020-05-22T21:16:30Z', 'Loyola University New Orleans'], ['2020-05-22T21:17:00Z', 'Missouri Western State University'], ['2020-05-22T21:19:00Z', 'Northern Illinois University'], ['2020-05-22T21:19:30Z', 'Northwestern University'], ['2020-05-22T21:22:00Z', 'Oberlin College'], ['2020-05-22T21:24:00Z', 'The University of Texas'], ['2020-05-22T21:24:30Z', 'University of Arkansas - Fayetteville'], ['2020-05-22T21:25:00Z', 'University of Chicago'], ['2020-05-22T21:26:30Z', 'University of Illinois at Urbana-Champaign'], ['2020-05-22T21:30:30Z', 'University of Iowa'], ['2020-05-22T21:31:00Z', 'University of Minnesota - Twin Cities'], ['2020-05-22T21:32:00Z', 'University of Missouri'], ['2020-05-22T21:33:00Z', 'University of North Texas'], ['2020-05-22T21:33:30Z', 'University of Oklahoma'], ['2020-05-22T21:34:00Z', 'University of Pennsylvania'], ['2020-05-22T21:35:00Z', 'University of Texas at Austin'], ['2020-05-22T21:40:00Z', 'University of Toronto'], ['2020-05-22T21:44:30Z', 'Vanderbilt University'], ['2020-05-22T21:45:00Z', 'Colorado State University'], ['2020-05-22T21:45:30Z', 'Massachusetts Institute of Technology'], ['2020-05-22T21:46:30Z', 'Mount Royal University'], ['2020-05-22T21:47:00Z', 'Regis University'], ['2020-05-22T21:47:30Z', 'The University of Arizona'], ['2020-05-22T21:48:00Z', 'University of Alberta'], ['2020-05-22T21:49:30Z', 'University of Colorado at Boulder'], ['2020-05-22T21:50:00Z', 'University of Denver'], ['2020-05-22T21:51:00Z', 'Arizona Western College'], ['2020-05-22T21:51:30Z', 'California Northstate University'], ['2020-05-22T21:52:00Z', 'California Polytechnic State University, San Luis Obispo'], ['2020-05-22T21:53:30Z', 'California State University Channel Islands'], ['2020-05-22T21:54:00Z', 'California State University, Bakersfield'], ['2020-05-22T21:54:30Z', 'California State University, Fullerton'], ['2020-05-22T21:55:00Z', 'California State University, Los Angeles'], ['2020-05-22T21:55:30Z', 'California State University, Northridge'], ['2020-05-22T21:56:30Z', 'Chapman University'], ['2020-05-22T21:57:00Z', 'Claremont McKenna College'], ['2020-05-22T21:57:30Z', 'DigiPen Institute of Technology'], ['2020-05-22T21:58:30Z', 'Franciscan University of Steubenville'], ['2020-05-22T21:59:00Z', 'George Fox University'], ['2020-05-22T21:59:30Z', 'Gonzaga University'], ['2020-05-22T22:00:00Z', 'Harvey Mudd College'], ['2020-05-22T22:00:30Z', 'Minerva Schools at the Keck Graduate Institution'], ['2020-05-22T22:01:00Z', 'Mt. San Antonio College'], ['2020-05-22T22:01:30Z', 'Pacific Lutheran University'], ['2020-05-22T22:02:00Z', 'Reed College'], ['2020-05-22T22:02:30Z', "Saint Mary's College of California"], ['2020-05-22T22:03:00Z', 'San Diego State University'], ['2020-05-22T22:04:00Z', 'San Jose State University'], ['2020-05-22T22:07:00Z', 'Santa Clara University'], ['2020-05-22T22:07:30Z', 'Stanford University'], ['2020-05-22T22:09:00Z', 'The University of Auckland'], ['2020-05-22T22:09:30Z', 'The University of British Columbia'], ['2020-05-22T22:10:00Z', 'University of British Columbia'], ['2020-05-22T22:11:00Z', 'University of California, Berkeley'], ['2020-05-22T22:27:00Z', 'University of California, Davis'], ['2020-05-22T22:28:30Z', 'University of California, Irvine'], ['2020-05-22T22:31:00Z', 'University of California, Los Angeles'], ['2020-05-22T22:35:00Z', 'University of California, San Diego'], ['2020-05-22T22:43:30Z', 'University of California, Santa Barbara'], ['2020-05-22T22:45:30Z', 'University of California, Santa Cruz'], ['2020-05-22T22:47:00Z', 'University of Southern California'], ['2020-05-22T22:52:00Z', 'University of Washington'], ['2020-05-22T22:57:30Z', 'Wharton School of the University of Pennsylvania'], ['2020-05-22T22:58:00Z', 'Willamette University'], ['2020-05-22T22:58:30Z', 'Williams College'], ['2020-05-22T22:59:30Z', 'Lewis & Clark College']];
 
 const SchoolScheduleTable = withTheme(styled.table`
   font-family: "Libre Baskerville", serif;
@@ -18,242 +26,179 @@ const SchoolScheduleTable = withTheme(styled.table`
   }
 `);
 
-const SchoolSchedule = () => (
-  <>
-  <Accordion defaultActiveKey="0">
-    <Card>
-      <Card.Header>
-        <Accordion.Toggle as={Button} variant="link" eventKey="0">
-          Session 1: Europe, Asia, Africa, and Oceania
-        </Accordion.Toggle>
-      </Card.Header>
-      <Accordion.Collapse eventKey="0">
-        <SchoolScheduleTable>
-          <thead>
-          <tr><th>School                                                  </th><th>Start Time            </th></tr>
-          </thead>
-          <tbody>
-          <tr><td>Australian National University                          </td><td>2020-05-22 09:00:00 AM</td></tr>
-          <tr><td>Boston University                                       </td><td>2020-05-22 09:00:30 AM</td></tr>
-          <tr><td>Monash University                                       </td><td>2020-05-22 09:01:00 AM</td></tr>
-          <tr><td>The University of Queensland, Australia                 </td><td>2020-05-22 09:01:30 AM</td></tr>
-          <tr><td>University of Melbourne                                 </td><td>2020-05-22 09:02:00 AM</td></tr>
-          <tr><td>University of Sydney                                    </td><td>2020-05-22 09:03:00 AM</td></tr>
-          <tr><td>University of Technology Sydney                         </td><td>2020-05-22 09:04:00 AM</td></tr>
-          <tr><td>St Clare&#x27;s Oxford                                       </td><td>2020-05-22 09:04:30 AM</td></tr>
-          <tr><td>University of Nottingham                                </td><td>2020-05-22 09:05:00 AM</td></tr>
-          <tr><td>Ashoka University                                       </td><td>2020-05-22 09:05:30 AM</td></tr>
-          <tr><td>Forman Christian College                                </td><td>2020-05-22 09:07:00 AM</td></tr>
-          <tr><td>Indian Institute of Foreign Trade                       </td><td>2020-05-22 09:07:30 AM</td></tr>
-          <tr><td>University of the Arts London                           </td><td>2020-05-22 09:08:00 AM</td></tr>
-          <tr><td>Bilkent University                                      </td><td>2020-05-22 09:08:30 AM</td></tr>
-          <tr><td>Middle East Technical University                        </td><td>2020-05-22 09:09:30 AM</td></tr>
-          <tr><td>American University in Cairo                            </td><td>2020-05-22 09:10:00 AM</td></tr>
-          <tr><td>King&#x27;s College London, University of London             </td><td>2020-05-22 09:10:30 AM</td></tr>
-          <tr><td>Manchester University                                   </td><td>2020-05-22 09:11:00 AM</td></tr>
-          <tr><td>The Paris Institute of Political Studies                </td><td>2020-05-22 09:12:00 AM</td></tr>
-          <tr><td>University of Bristol                                   </td><td>2020-05-22 09:12:30 AM</td></tr>
-          <tr><td>University of Kent                                      </td><td>2020-05-22 09:13:00 AM</td></tr>
-          <tr><td>University of Strathclyde                               </td><td>2020-05-22 09:13:30 AM</td></tr>
-          <tr><td>Imperial College London                                 </td><td>2020-05-22 09:15:00 AM</td></tr>
-          <tr><td>Quaranteen University                                   </td><td>2020-05-22 09:15:30 AM</td></tr>
-          </tbody>
-        </SchoolScheduleTable>
 
-      </Accordion.Collapse>
-    </Card>
-    <Card>
-      <Card.Header>
-        <Accordion.Toggle as={Button} variant="link" eventKey="1">
-          Session 2: Americas
-        </Accordion.Toggle>
-      </Card.Header>
-      <Accordion.Collapse eventKey="1">
-        <SchoolScheduleTable>
-          <thead>
-          <tr><th>School                                                  </th><th>Start Time            </th></tr>
-          </thead>
-          <tbody>
-          <tr><td>COMMENCEMENT SPEAKER                                    </td><td>2020-05-22 06:30:00 PM</td></tr>
-          <tr><td>Brown University                                        </td><td>2020-05-22 07:00:00 PM</td></tr>
-          <tr><td>Quaranteen University                                   </td><td>2020-05-22 07:02:00 PM</td></tr>
-          <tr><td>Boston University                                       </td><td>2020-05-22 07:15:30 PM</td></tr>
-          <tr><td>New York University                                     </td><td>2020-05-22 07:25:30 PM</td></tr>
-          <tr><td>Ohio State University, Columbus                         </td><td>2020-05-22 07:31:00 PM</td></tr>
-          <tr><td>Point Park University                                   </td><td>2020-05-22 07:31:30 PM</td></tr>
-          <tr><td>State University of New York at Canton                  </td><td>2020-05-22 07:32:00 PM</td></tr>
-          <tr><td>The City University of New York                         </td><td>2020-05-22 07:33:00 PM</td></tr>
-          <tr><td>William Peace University                                </td><td>2020-05-22 07:34:00 PM</td></tr>
-          <tr><td>Alfred University                                       </td><td>2020-05-22 07:35:00 PM</td></tr>
-          <tr><td>Amherst College                                         </td><td>2020-05-22 07:35:30 PM</td></tr>
-          <tr><td>Appalachian State University                            </td><td>2020-05-22 07:36:00 PM</td></tr>
-          <tr><td>Babson College                                          </td><td>2020-05-22 07:36:30 PM</td></tr>
-          <tr><td>Bishop&#x27;s University                                     </td><td>2020-05-22 07:37:00 PM</td></tr>
-          <tr><td>Boston College                                          </td><td>2020-05-22 07:38:00 PM</td></tr>
-          <tr><td>Carnegie Mellon University                              </td><td>2020-05-22 07:39:00 PM</td></tr>
-          <tr><td>Champlain College                                       </td><td>2020-05-22 07:41:30 PM</td></tr>
-          <tr><td>Colby College                                           </td><td>2020-05-22 07:42:00 PM</td></tr>
-          <tr><td>Colgate University                                      </td><td>2020-05-22 07:42:30 PM</td></tr>
-          <tr><td>Cooper Union for the Advancement of Science and Art     </td><td>2020-05-22 07:43:00 PM</td></tr>
-          <tr><td>Cornell University                                      </td><td>2020-05-22 07:43:30 PM</td></tr>
-          <tr><td>Drexel University                                       </td><td>2020-05-22 07:45:30 PM</td></tr>
-          <tr><td>Duke University                                         </td><td>2020-05-22 07:46:00 PM</td></tr>
-          <tr><td>Eastern Kentucky University                             </td><td>2020-05-22 07:48:00 PM</td></tr>
-          <tr><td>Eastern Michigan University                             </td><td>2020-05-22 07:48:30 PM</td></tr>
-          <tr><td>Ecole Supérieure d&#x27;Electricité                          </td><td>2020-05-22 07:49:00 PM</td></tr>
-          <tr><td>Embry-Riddle Aeronautical University                    </td><td>2020-05-22 07:49:30 PM</td></tr>
-          <tr><td>Emerson College                                         </td><td>2020-05-22 07:50:00 PM</td></tr>
-          <tr><td>Florida Atlantic University                             </td><td>2020-05-22 07:51:00 PM</td></tr>
-          <tr><td>Florida State University                                </td><td>2020-05-22 07:51:30 PM</td></tr>
-          <tr><td>Fordham University                                      </td><td>2020-05-22 07:53:00 PM</td></tr>
-          <tr><td>Illinois Institute of Technology                        </td><td>2020-05-22 07:53:30 PM</td></tr>
-          <tr><td>Ivey Business School                                    </td><td>2020-05-22 07:54:00 PM</td></tr>
-          <tr><td>Johns Hopkins University                                </td><td>2020-05-22 07:54:30 PM</td></tr>
-          <tr><td>Lafayette College                                       </td><td>2020-05-22 07:57:00 PM</td></tr>
-          <tr><td>Laurentian University of Sudbury                        </td><td>2020-05-22 07:57:30 PM</td></tr>
-          <tr><td>Lehigh University                                       </td><td>2020-05-22 07:58:00 PM</td></tr>
-          <tr><td>Liberty University                                      </td><td>2020-05-22 07:58:30 PM</td></tr>
-          <tr><td>Macalester College                                      </td><td>2020-05-22 07:59:30 PM</td></tr>
-          <tr><td>Middlebury College                                      </td><td>2020-05-22 08:00:00 PM</td></tr>
-          <tr><td>New College, Oxford                                     </td><td>2020-05-22 08:01:00 PM</td></tr>
-          <tr><td>North Carolina State University                         </td><td>2020-05-22 08:01:30 PM</td></tr>
-          <tr><td>Northeastern University                                 </td><td>2020-05-22 08:02:00 PM</td></tr>
-          <tr><td>Northern Michigan University                            </td><td>2020-05-22 08:06:00 PM</td></tr>
-          <tr><td>Oakland University                                      </td><td>2020-05-22 08:06:30 PM</td></tr>
-          <tr><td>Pennsylvania State University                           </td><td>2020-05-22 08:07:00 PM</td></tr>
-          <tr><td>Princeton University                                    </td><td>2020-05-22 08:07:30 PM</td></tr>
-          <tr><td>Purdue University                                       </td><td>2020-05-22 08:09:00 PM</td></tr>
-          <tr><td>Ramapo College                                          </td><td>2020-05-22 08:10:30 PM</td></tr>
-          <tr><td>Rensselaer Polytechnic Institute                        </td><td>2020-05-22 08:11:00 PM</td></tr>
-          <tr><td>Roger Williams University                               </td><td>2020-05-22 08:13:30 PM</td></tr>
-          <tr><td>Rowan University                                        </td><td>2020-05-22 08:14:00 PM</td></tr>
-          <tr><td>Rutgers University                                      </td><td>2020-05-22 08:15:00 PM</td></tr>
-          <tr><td>Rutgers University, Newark                              </td><td>2020-05-22 08:19:00 PM</td></tr>
-          <tr><td>Savannah College of Art and Design                      </td><td>2020-05-22 08:22:30 PM</td></tr>
-          <tr><td>Simmons College                                         </td><td>2020-05-22 08:23:00 PM</td></tr>
-          <tr><td>Smith College                                           </td><td>2020-05-22 08:24:00 PM</td></tr>
-          <tr><td>State University of New York at Binghamton              </td><td>2020-05-22 08:25:30 PM</td></tr>
-          <tr><td>Stonehill College                                       </td><td>2020-05-22 08:26:30 PM</td></tr>
-          <tr><td>Suffolk University                                      </td><td>2020-05-22 08:27:00 PM</td></tr>
-          <tr><td>Swarthmore College                                      </td><td>2020-05-22 08:27:30 PM</td></tr>
-          <tr><td>The Ailey School                                        </td><td>2020-05-22 08:28:00 PM</td></tr>
-          <tr><td>The College of William and Mary                         </td><td>2020-05-22 08:28:30 PM</td></tr>
-          <tr><td>The Ohio State University                               </td><td>2020-05-22 08:29:30 PM</td></tr>
-          <tr><td>Towson University                                       </td><td>2020-05-22 08:30:00 PM</td></tr>
-          <tr><td>Tufts University                                        </td><td>2020-05-22 08:31:00 PM</td></tr>
-          <tr><td>University of Connecticut                               </td><td>2020-05-22 08:31:30 PM</td></tr>
-          <tr><td>University of Delaware                                  </td><td>2020-05-22 08:32:00 PM</td></tr>
-          <tr><td>University of Florida                                   </td><td>2020-05-22 08:33:00 PM</td></tr>
-          <tr><td>University of Guelph                                    </td><td>2020-05-22 08:34:30 PM</td></tr>
-          <tr><td>University of Illinois at Chicago                       </td><td>2020-05-22 08:35:00 PM</td></tr>
-          <tr><td>University of Kentucky                                  </td><td>2020-05-22 08:35:30 PM</td></tr>
-          <tr><td>University of Maryland                                  </td><td>2020-05-22 08:36:00 PM</td></tr>
-          <tr><td>University of Massachusetts at Lowell                   </td><td>2020-05-22 08:37:30 PM</td></tr>
-          <tr><td>University of Michigan - Ann Arbor                      </td><td>2020-05-22 08:38:00 PM</td></tr>
-          <tr><td>University of North Carolina at Asheville               </td><td>2020-05-22 08:43:30 PM</td></tr>
-          <tr><td>University of North Carolina at Chapel Hill             </td><td>2020-05-22 08:44:00 PM</td></tr>
-          <tr><td>University of Notre Dame                                </td><td>2020-05-22 08:46:30 PM</td></tr>
-          <tr><td>University of Pittsburgh                                </td><td>2020-05-22 08:47:00 PM</td></tr>
-          <tr><td>University of Puget Sound                               </td><td>2020-05-22 08:48:00 PM</td></tr>
-          <tr><td>University of Rochester                                 </td><td>2020-05-22 08:48:30 PM</td></tr>
-          <tr><td>University of Tennessee, Knoxville                      </td><td>2020-05-22 08:49:30 PM</td></tr>
-          <tr><td>University of Waterloo                                  </td><td>2020-05-22 08:50:00 PM</td></tr>
-          <tr><td>Vassar College                                          </td><td>2020-05-22 08:54:30 PM</td></tr>
-          <tr><td>Virginia Polytechnic Institute and State University     </td><td>2020-05-22 08:56:00 PM</td></tr>
-          <tr><td>Washington University, Saint Louis                      </td><td>2020-05-22 08:58:30 PM</td></tr>
-          <tr><td>Wayne State University                                  </td><td>2020-05-22 08:59:00 PM</td></tr>
-          <tr><td>Wellesley College                                       </td><td>2020-05-22 08:59:30 PM</td></tr>
-          <tr><td>Wingate University                                      </td><td>2020-05-22 09:00:30 PM</td></tr>
-          <tr><td>Yale University                                         </td><td>2020-05-22 09:01:00 PM</td></tr>
-          <tr><td>American University                                     </td><td>2020-05-22 09:02:00 PM</td></tr>
-          <tr><td>Arizona State University                                </td><td>2020-05-22 09:03:00 PM</td></tr>
-          <tr><td>Austin Community College                                </td><td>2020-05-22 09:05:00 PM</td></tr>
-          <tr><td>Brandeis University                                     </td><td>2020-05-22 09:05:30 PM</td></tr>
-          <tr><td>Carthage College                                        </td><td>2020-05-22 09:07:00 PM</td></tr>
-          <tr><td>Case Western Reserve University                         </td><td>2020-05-22 09:07:30 PM</td></tr>
-          <tr><td>Cleveland Institution of Music                          </td><td>2020-05-22 09:09:00 PM</td></tr>
-          <tr><td>Columbia University                                     </td><td>2020-05-22 09:09:30 PM</td></tr>
-          <tr><td>Dartmouth College                                       </td><td>2020-05-22 09:11:00 PM</td></tr>
-          <tr><td>Dominican University                                    </td><td>2020-05-22 09:11:30 PM</td></tr>
-          <tr><td>Emory University                                        </td><td>2020-05-22 09:12:00 PM</td></tr>
-          <tr><td>Georgia Institute of Technology                         </td><td>2020-05-22 09:13:30 PM</td></tr>
-          <tr><td>Grinnell College                                        </td><td>2020-05-22 09:14:30 PM</td></tr>
-          <tr><td>Harvard University                                      </td><td>2020-05-22 09:15:00 PM</td></tr>
-          <tr><td>Illinois State University                               </td><td>2020-05-22 09:15:30 PM</td></tr>
-          <tr><td>Iowa State University                                   </td><td>2020-05-22 09:16:00 PM</td></tr>
-          <tr><td>Loyola University New Orleans                           </td><td>2020-05-22 09:16:30 PM</td></tr>
-          <tr><td>Missouri Western State University                       </td><td>2020-05-22 09:17:00 PM</td></tr>
-          <tr><td>Northern Illinois University                            </td><td>2020-05-22 09:19:00 PM</td></tr>
-          <tr><td>Northwestern University                                 </td><td>2020-05-22 09:19:30 PM</td></tr>
-          <tr><td>Oberlin College                                         </td><td>2020-05-22 09:22:00 PM</td></tr>
-          <tr><td>The University of Texas                                 </td><td>2020-05-22 09:24:00 PM</td></tr>
-          <tr><td>University of Arkansas - Fayetteville                   </td><td>2020-05-22 09:24:30 PM</td></tr>
-          <tr><td>University of Chicago                                   </td><td>2020-05-22 09:25:00 PM</td></tr>
-          <tr><td>University of Illinois at Urbana-Champaign              </td><td>2020-05-22 09:26:30 PM</td></tr>
-          <tr><td>University of Iowa                                      </td><td>2020-05-22 09:30:30 PM</td></tr>
-          <tr><td>University of Minnesota - Twin Cities                   </td><td>2020-05-22 09:31:00 PM</td></tr>
-          <tr><td>University of Missouri                                  </td><td>2020-05-22 09:32:00 PM</td></tr>
-          <tr><td>University of North Texas                               </td><td>2020-05-22 09:33:00 PM</td></tr>
-          <tr><td>University of Oklahoma                                  </td><td>2020-05-22 09:33:30 PM</td></tr>
-          <tr><td>University of Pennsylvania                              </td><td>2020-05-22 09:34:00 PM</td></tr>
-          <tr><td>University of Texas at Austin                           </td><td>2020-05-22 09:35:00 PM</td></tr>
-          <tr><td>University of Toronto                                   </td><td>2020-05-22 09:40:00 PM</td></tr>
-          <tr><td>Vanderbilt University                                   </td><td>2020-05-22 09:44:30 PM</td></tr>
-          <tr><td>Colorado State University                               </td><td>2020-05-22 09:45:00 PM</td></tr>
-          <tr><td>Massachusetts Institute of Technology                   </td><td>2020-05-22 09:45:30 PM</td></tr>
-          <tr><td>Mount Royal University                                  </td><td>2020-05-22 09:46:30 PM</td></tr>
-          <tr><td>Regis University                                        </td><td>2020-05-22 09:47:00 PM</td></tr>
-          <tr><td>The University of Arizona                               </td><td>2020-05-22 09:47:30 PM</td></tr>
-          <tr><td>University of Alberta                                   </td><td>2020-05-22 09:48:00 PM</td></tr>
-          <tr><td>University of Colorado at Boulder                       </td><td>2020-05-22 09:49:30 PM</td></tr>
-          <tr><td>University of Denver                                    </td><td>2020-05-22 09:50:00 PM</td></tr>
-          <tr><td>Arizona Western College                                 </td><td>2020-05-22 09:51:00 PM</td></tr>
-          <tr><td>California Northstate University                        </td><td>2020-05-22 09:51:30 PM</td></tr>
-          <tr><td>California Polytechnic State University, San Luis Obispo</td><td>2020-05-22 09:52:00 PM</td></tr>
-          <tr><td>California State University Channel Islands             </td><td>2020-05-22 09:53:30 PM</td></tr>
-          <tr><td>California State University, Bakersfield                </td><td>2020-05-22 09:54:00 PM</td></tr>
-          <tr><td>California State University, Fullerton                  </td><td>2020-05-22 09:54:30 PM</td></tr>
-          <tr><td>California State University, Los Angeles                </td><td>2020-05-22 09:55:00 PM</td></tr>
-          <tr><td>California State University, Northridge                 </td><td>2020-05-22 09:55:30 PM</td></tr>
-          <tr><td>Chapman University                                      </td><td>2020-05-22 09:56:30 PM</td></tr>
-          <tr><td>Claremont McKenna College                               </td><td>2020-05-22 09:57:00 PM</td></tr>
-          <tr><td>DigiPen Institute of Technology                         </td><td>2020-05-22 09:57:30 PM</td></tr>
-          <tr><td>Franciscan University of Steubenville                   </td><td>2020-05-22 09:58:30 PM</td></tr>
-          <tr><td>George Fox University                                   </td><td>2020-05-22 09:59:00 PM</td></tr>
-          <tr><td>Gonzaga University                                      </td><td>2020-05-22 09:59:30 PM</td></tr>
-          <tr><td>Harvey Mudd College                                     </td><td>2020-05-22 10:00:00 PM</td></tr>
-          <tr><td>Minerva Schools at the Keck Graduate Institution        </td><td>2020-05-22 10:00:30 PM</td></tr>
-          <tr><td>Mt. San Antonio College                                 </td><td>2020-05-22 10:01:00 PM</td></tr>
-          <tr><td>Pacific Lutheran University                             </td><td>2020-05-22 10:01:30 PM</td></tr>
-          <tr><td>Reed College                                            </td><td>2020-05-22 10:02:00 PM</td></tr>
-          <tr><td>Saint Mary&#x27;s College of California                      </td><td>2020-05-22 10:02:30 PM</td></tr>
-          <tr><td>San Diego State University                              </td><td>2020-05-22 10:03:00 PM</td></tr>
-          <tr><td>San Jose State University                               </td><td>2020-05-22 10:04:00 PM</td></tr>
-          <tr><td>Santa Clara University                                  </td><td>2020-05-22 10:07:00 PM</td></tr>
-          <tr><td>Stanford University                                     </td><td>2020-05-22 10:07:30 PM</td></tr>
-          <tr><td>The University of Auckland                              </td><td>2020-05-22 10:09:00 PM</td></tr>
-          <tr><td>The University of British Columbia                      </td><td>2020-05-22 10:09:30 PM</td></tr>
-          <tr><td>University of British Columbia                          </td><td>2020-05-22 10:10:00 PM</td></tr>
-          <tr><td>University of California, Berkeley                      </td><td>2020-05-22 10:11:00 PM</td></tr>
-          <tr><td>University of California, Davis                         </td><td>2020-05-22 10:27:00 PM</td></tr>
-          <tr><td>University of California, Irvine                        </td><td>2020-05-22 10:28:30 PM</td></tr>
-          <tr><td>University of California, Los Angeles                   </td><td>2020-05-22 10:31:00 PM</td></tr>
-          <tr><td>University of California, San Diego                     </td><td>2020-05-22 10:35:00 PM</td></tr>
-          <tr><td>University of California, Santa Barbara                 </td><td>2020-05-22 10:43:30 PM</td></tr>
-          <tr><td>University of California, Santa Cruz                    </td><td>2020-05-22 10:45:30 PM</td></tr>
-          <tr><td>University of Southern California                       </td><td>2020-05-22 10:47:00 PM</td></tr>
-          <tr><td>University of Washington                                </td><td>2020-05-22 10:52:00 PM</td></tr>
-          <tr><td>Wharton School of the University of Pennsylvania        </td><td>2020-05-22 10:57:30 PM</td></tr>
-          <tr><td>Willamette University                                   </td><td>2020-05-22 10:58:00 PM</td></tr>
-          <tr><td>Williams College                                        </td><td>2020-05-22 10:58:30 PM</td></tr>
-          <tr><td>Lewis &amp; Clark College                                   </td><td>2020-05-22 10:59:30 PM</td></tr>
-        </tbody>
-        </SchoolScheduleTable>
-      </Accordion.Collapse>
-    </Card>
-  </Accordion>
+// Returns the time part of a date with am/pm attached
+function formatAMPM(date) {
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let seconds = date.getSeconds();
+  let ampm = hours >= 12 ? 'PM' : 'AM';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+  seconds = seconds < 10 ? '0' + seconds : seconds;
+  return hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+}
 
-  </>
-);
+class SchoolSchedule extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      UTCOffset: 0,
+      offsetInput: "", // Note that "" == 0 in JS, so we can still do UTC arithmetic with the empty string.
+      showOffsetModal: false,
+      notValidText: ""
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.setNewOffset = this.setNewOffset.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({offsetInput: event.target.value});
+  }
+
+  setNewOffset() {
+    if (isNaN(this.state.offsetInput)) { // Validates that input is integer or empty string.
+      this.setState({notValidText: "Must be a number."});
+      return;
+    }
+
+    let newOffset = Number(this.state.offsetInput);
+
+    if (newOffset % 1 !== 0) {
+      this.setState({notValidText: "Must be a whole number."});
+      return;
+    }
+
+    if (!(newOffset >= -12 && newOffset <= 16)) {
+      this.setState({notValidText: "Must be between -12 and 16."});
+      return;
+    }
+
+    // Add the + sign, if needed.
+    if (newOffset >= 0) {
+      newOffset = "+" + newOffset;
+    }
+
+    this.setState({UTCOffset: newOffset});
+    this.setState({
+      offsetInput: "",
+      notValidText: ""
+    });
+  }
+
+  render() {
+    return (
+      <>
+      <Accordion>
+        <Card>
+          <Card.Header>
+            <Accordion.Toggle as={Button} variant="link" eventKey="0">
+              Session 1: Europe, Asia, Africa, and Oceania
+            </Accordion.Toggle>
+          </Card.Header>
+          <Accordion.Collapse eventKey="0">
+            <SchoolScheduleTable>
+              <thead>
+              <tr><th>School</th><th>Start Time <OverlayTrigger
+                placement="right"
+                overlay={
+                  <Tooltip>
+                    Set time zone
+                  </Tooltip>
+                }
+              >
+                <FaQuestionCircle
+                  style={{cursor: "pointer"}}
+                  onClick={() => this.setState({ showOffsetModal: true })} />
+              </OverlayTrigger></th></tr>
+              </thead>
+              <tbody>
+              {session1Rows.map((element) => (
+                <tr><td>{element[1]}</td><td>{
+                  new Intl.DateTimeFormat('en-US', {weekday: 'long'}).format(new Date(element[0]))}, {formatAMPM(new Date(element[0]))}</td></tr>
+              ))}
+              </tbody>
+            </SchoolScheduleTable>
+
+          </Accordion.Collapse>
+        </Card>
+        <Card>
+          <Card.Header>
+            <Accordion.Toggle as={Button} variant="link" eventKey="1">
+              Session 2: Americas
+            </Accordion.Toggle>
+          </Card.Header>
+          <Accordion.Collapse eventKey="1">
+            <SchoolScheduleTable>
+              <thead>
+              <tr><th>School</th><th>Start Time <OverlayTrigger
+                placement="right"
+                overlay={
+                  <Tooltip>
+                    Set time zone
+                  </Tooltip>
+                }
+              >
+                <FaQuestionCircle
+                  style={{cursor: "pointer"}}
+                  onClick={() => this.setState({ showOffsetModal: true })} />
+              </OverlayTrigger></th></tr>
+              </thead>
+              <tbody>
+              {session2Rows.map((element) => (
+                <tr><td>{element[1]}</td><td>{
+                  new Intl.DateTimeFormat('en-US', {weekday: 'long'}).format(new Date(element[0]))}, {formatAMPM(new Date(element[0]))}</td></tr>
+              ))}
+              </tbody>
+            </SchoolScheduleTable>
+          </Accordion.Collapse>
+        </Card>
+      </Accordion>
+
+      <Modal
+        show={this.state.showOffsetModal}
+        onHide={() => this.setState({ showOffsetModal: false })}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>
+            Your Time Zone
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>
+            Quaranteen commencement is an international event.
+
+            <br/><br/>
+
+            As a result, the times displayed in the table may not match your actual timezone
+            (currently <b>UTC{this.state.UTCOffset}</b>).
+
+            <br/><br/>
+
+            You can set your actual timezone below:
+          </p>
+
+          <div>
+            <input
+              type="text"
+              style={{width: "100%"}}
+              value={this.state.offsetInput}
+              onChange={this.handleChange}
+              placeholder="A number between -12 to 16 (UTC offset)"
+            />
+
+            <Button onClick={() => this.setNewOffset()}>
+              Set it
+            </Button>
+            {this.state.notValidText}
+          </div>
+        </Modal.Body>
+      </Modal>
+      </>
+    );
+  }
+};
 
 export default SchoolSchedule;

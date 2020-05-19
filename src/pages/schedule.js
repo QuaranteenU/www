@@ -20,18 +20,19 @@ const Schedule = () => (
       <Logo size="medium" />
     </LogoWrapper>
     <div className="text-center">
-      <h2>2020 Commencement Schedule</h2>
+      <h2>🎉 2020 Commencement Schedule 🎉</h2>
 
       <br/>
 
       <i>
-        Below is the day-of schedule for QU's 2020 Commencement. Please try to show up
-        15 minutes before your school's time slot!
+        Below is the day-of schedule for QU's 2020 Commencement, localized to your timezone. To view times in UTC, click <a href={"AA"}>here</a>.
       </i>
 
       <br/><br/>
 
-      <i>This page is under construction.</i>
+      <i>
+        Please try to show up 15 minutes before your school's time slot!
+      </i>
 
       <br/><br/>
 

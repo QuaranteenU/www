@@ -27,24 +27,24 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-38d6835ebd80315cd028.js"
+    "url": "webpack-runtime-a42d38bdc87160cf9039.js"
   },
   {
-    "url": "framework-94a54decf70e519a0efa.js"
+    "url": "framework-f47b549d6f237f17b5e3.js"
   },
   {
-    "url": "app-a3b4f97183bc432d513f.js"
+    "url": "app-a3dd9bc335237f890b67.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "f4ce075f7d0466a3869acc5c0d65bfc3"
+    "revision": "728d3809e85e0a06ecbaee96a37b852c"
   },
   {
     "url": "google-fonts/s/librebaskerville/v7/kmKnZrc3Hgbbcjq75U4uslyuy4kn0qNZaxM.woff2",
     "revision": "d15ba972040b09041a17f6a751282dcb"
   },
   {
-    "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-a6191254e4a51f6eb8b2.js"
+    "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-e00da1ea3e7fe3ae77e6.js"
   },
   {
     "url": "styles.38f88ec532e973e58b29.css"
@@ -53,10 +53,10 @@ self.__precacheManifest = [
     "url": "1bfc9850-aede54f535e63efb202f.js"
   },
   {
-    "url": "component---src-pages-404-js-e9aa60665a26082ef6d5.js"
+    "url": "component---src-pages-404-js-a70d3319481d40aa4551.js"
   },
   {
-    "url": "788675e8132e677a8fb4756ef1095a7138c12703-624084c405c6b9455763.js"
+    "url": "788675e8132e677a8fb4756ef1095a7138c12703-c5bbfe71ba4b5aad479b.js"
   },
   {
     "url": "styles-d3259afcef90844d6efd.js"
@@ -67,77 +67,80 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "5aadd09cb6cafbe2e2a6030db6e389e5"
+    "revision": "e80cdf2118255165409d1c8390ef4915"
   },
   {
     "url": "page-data/404.html/page-data.json",
     "revision": "d2d3612af1df181302e193fa8c922dd4"
   },
   {
-    "url": "component---src-pages-about-js-cdc65861f5d1613e5d15.js"
+    "url": "component---src-pages-about-js-823149d96963698574be.js"
   },
   {
     "url": "page-data/about/page-data.json",
     "revision": "3ddd5d51b095997b4d473ef99898912f"
   },
   {
-    "url": "component---src-pages-academy-js-c4a085de94f2b84a3ca1.js"
+    "url": "component---src-pages-academy-js-eaa1e6c39e0b0d1402ce.js"
   },
   {
     "url": "page-data/academy/page-data.json",
     "revision": "802b9b1abc5174a4ec4aaa21c09bb364"
   },
   {
-    "url": "component---src-pages-academygrad-js-8583cb886554fe7dd479.js"
+    "url": "component---src-pages-academygrad-js-6570d9134257b863bf6c.js"
   },
   {
     "url": "page-data/academygrad/page-data.json",
     "revision": "da10be4f1e14c69912c783c38c22539c"
   },
   {
-    "url": "component---src-pages-courses-js-4accb31ea552a05ecf18.js"
+    "url": "component---src-pages-courses-js-10e9f9d661ba612c7f3a.js"
   },
   {
     "url": "page-data/courses/page-data.json",
     "revision": "4c55b0a37587ffa7dc418322d0e7972d"
   },
   {
-    "url": "component---src-pages-index-js-bd1fa646098b68f9f4cd.js"
+    "url": "937911d241d7f3ea2546b91f06eb775f38ce2a9b-219cf9d5a66c9729d69d.js"
+  },
+  {
+    "url": "component---src-pages-index-js-29785b0a1651ce4ca5ee.js"
   },
   {
     "url": "page-data/index/page-data.json",
     "revision": "1fb79e6fc14d98f88dd9e5819fe647f5"
   },
   {
-    "url": "component---src-pages-instructions-js-80b690ac2ae15d9e2c3b.js"
+    "url": "component---src-pages-instructions-js-dcea76783fa61d09bf5e.js"
   },
   {
     "url": "page-data/instructions/page-data.json",
     "revision": "98639e9a908cbbbcfc140ae5b57c32a5"
   },
   {
-    "url": "component---src-pages-livestream-js-2305f6cdaef8b8c22d2e.js"
+    "url": "component---src-pages-livestream-js-f558586e120df94ac997.js"
   },
   {
     "url": "page-data/livestream/page-data.json",
     "revision": "01027a9290b2df11ac2b79ce73d7a9d1"
   },
   {
-    "url": "component---src-pages-newgrad-js-0ac5eb2cc9b816605556.js"
+    "url": "component---src-pages-newgrad-js-6e5351625631f9028ee9.js"
   },
   {
     "url": "page-data/newgrad/page-data.json",
     "revision": "2f5320de9811980d894fee1733ca8d72"
   },
   {
-    "url": "component---src-pages-register-js-37090bcf219e398c9e3a.js"
+    "url": "component---src-pages-register-js-4f33edfa635621fee95b.js"
   },
   {
     "url": "page-data/register/page-data.json",
     "revision": "5268465e7a2db1b91e8ccc4d43d47fe2"
   },
   {
-    "url": "component---src-pages-schedule-js-17dad0b86c97a6d1906c.js"
+    "url": "component---src-pages-schedule-js-777f6b709536577a9590.js"
   },
   {
     "url": "page-data/schedule/page-data.json",
@@ -238,7 +241,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/app-a3b4f97183bc432d513f.js`))) {
+  if (!resources || !(await caches.match(`/app-a3dd9bc335237f890b67.js`))) {
     return await fetch(event.request)
   }
 

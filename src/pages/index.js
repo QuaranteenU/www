@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 import styled from "styled-components";
 import Jumbotron from "react-bootstrap/Jumbotron";
+import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Modal from "react-bootstrap/Modal";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
@@ -204,6 +205,17 @@ class IndexPage extends React.Component {
                 <div style={{ flex: 1 }} />
                 <h1>Quaranteen Commencement 2020</h1>
                 <p className="lead">Come graduate in Minecraft on May 22</p>
+
+                <div>
+                  <Link to="/schedule">
+                    <Button className="wiggle">
+                      View the schedule
+                    </Button>
+                  </Link>
+                  <Link to="/instructions">
+                    <Button className="wiggle">How to join the server</Button>
+                  </Link>
+                </div>
               </LandingContent>
             </Landing>
           </LandingWrapper>

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 const FAQContent = [
@@ -78,10 +77,9 @@ const FAQContent = [
     question: "🎓 Who can attend?",
     answer: (
       <React.Fragment>
-        We ask that only Class of 2020 graduates walk (
-        <Link to="/academy">high school seniors included</Link>) &mdash; we're
-        using the honor system here. If you are a proud parent or friend, there
-        will be seats for you in the audience.
+        We ask that only Class of 2020 graduates walk (high school seniors
+        included) &mdash; we're using the honor system here. If you are a proud
+        parent or friend, there will be seats for you in the audience.
       </React.Fragment>
     ),
   },

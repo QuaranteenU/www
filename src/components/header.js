@@ -76,7 +76,7 @@ const Header = () => (
       </HomeLink>
 
       <SocialLinks>
-        <SocialIcon href="https://discord.gg/UbrvVcU" target="_blank">
+        <SocialIcon href="https://discord.gg/KwTX26Q" target="_blank">
           <FaDiscord />
         </SocialIcon>
         <SocialIcon href="https://www.facebook.com/quaranteenu" target="_blank">
@@ -105,32 +105,36 @@ const Header = () => (
           <Link className="hvr-underline-from-center" to="/about">
             About Us
           </Link>
-          <Link className="hvr-underline-from-center" to="/schedule">
-            Schedule
-          </Link>
-          <Link className="hvr-underline-from-center" to="/instructions">
-            How to Join the Server
-          </Link>
-          <Link className="hvr-underline-from-center" to="/livestream">
-            Livestream
-          </Link>
-          <Link className="hvr-underline-from-center" to="/courses">
-            Courses
-          </Link>
 
-
-          <NavDropdown title="Ceremonies" alignRight>
+          <NavDropdown title="Schedule" alignRight>
             <NavDropdown.Item as="button">
-              <Link className="hvr-underline-from-center" to="/newgrad">
+              <Link className="hvr-underline-from-center" to="/schedule">
                 University
               </Link>
             </NavDropdown.Item>
             <NavDropdown.Item as="button">
-              <Link className="hvr-underline-from-center" to="/academygrad">
+              <Link
+                className="hvr-underline-from-center"
+                to="/academy-schedule"
+              >
                 High School
               </Link>
             </NavDropdown.Item>
           </NavDropdown>
+
+          <Link className="hvr-underline-from-center" to="/instructions">
+            How to Join the Server
+          </Link>
+          <OutboundLink
+            className="hvr-underline-from-center"
+            href="https://www.twitch.tv/quaranteenu"
+            target="_blank"
+          >
+            Livestream
+          </OutboundLink>
+          <Link className="hvr-underline-from-center" to="/courses">
+            Courses
+          </Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

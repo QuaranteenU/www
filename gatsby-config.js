@@ -1,5 +1,3 @@
-const { lightTheme, darkTheme } = require("./src/styles/theme");
-
 module.exports = {
   siteMetadata: {
     title: `Quaranteen University`,

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 import Layout from "../components/Layout";

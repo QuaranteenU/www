@@ -33,7 +33,7 @@ const session1Rows = [
   ["2020-05-22T09:15:30Z", "Quaranteen University"],
 ];
 const session2Rows = [
-  ["2020-05-22T18:30:00Z", "COMMENCEMENT SPEECH"],
+  ["2020-05-22T18:45:00Z", "COMMENCEMENT SPEECH"],
   ["2020-05-22T19:00:00Z", "Brown University"],
   ["2020-05-22T19:02:00Z", "Quaranteen University"],
   ["2020-05-22T19:15:30Z", "Boston University (Session 2)"],

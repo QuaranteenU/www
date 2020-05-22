@@ -18,12 +18,8 @@ const Instructions = () => (
         After the game menu loads, click <b>Multiplayer</b>.
       </li>
       <li>
-        Click <b>Direct Connect</b> and type either:
+        Click <b>Direct Connect</b> and type: <strong>play.quaranteen.university</strong>
       </li>
-      <ul>
-        <li>play.quaranteen.university</li>
-        <li>104.192.227.3</li>
-      </ul>
       <li>
         Click <b>Join Server</b>.
       </li>
@@ -35,49 +31,21 @@ const Instructions = () => (
       </li>
     </ol>
 
-    {/*
-    <ol>
-      <li>
-        First you'll need to get a copy of{" "}
-        <OutboundLink href="https://www.minecraft.net/en-us/store/minecraft-java-edition/">
-          Minecraft Java Edition
-        </OutboundLink>
-        .
-      </li>
-      <li>
-        After registering a Minecraft account and{" "}
-        <OutboundLink href="https://www.minecraft.net/en-us/download/">
-          downloading the launcher
-        </OutboundLink>
-        , launch Minecraft and press <strong>Play</strong> (make sure
-        next to <strong>Play</strong> it says{" "}
-        <strong>Latest Release</strong>).
-      </li>
-      <li>
-        Once the game is open, press <strong>Multiplayer</strong>.
-        Then press <strong>Add Server</strong>. For{" "}
-        <strong>Server Name</strong>, put{" "}
-        <strong>Quaranteen University</strong>. For{" "}
-        <strong>Server Address</strong>, put{" "}
-        <strong>play.quaranteen.university</strong> (you can leave the
-        other options alone). Then press <strong>Done</strong> (now
-        whenever you open Minecraft and press{" "}
-        <strong>Multiplayer</strong>, the server will be an option).
-      </li>
-      <li>
-        Select the <strong>Quaranteen University</strong> option from
-        the server list, and press <strong>Join Server</strong>.
-      </li>
-      <li>
-        Once you're in the server, follow the signs for{" "}
-        <strong>Quaranteen University</strong> (currently the QU world
-        is under construction and closed to the public, but feel free
-        to explore the rest of the server).
-      </li>
-    </ol>
-    */}
-
     <br />
+
+    <h2>How to get COMMENCED</h2>
+
+    <ol>
+      <li>You'll load in at the end of QU's docks. Walk down the pier towards the arch at the other end, optionally stopping at the information booth to get some more details. <em>Hint: You can interact with most things like doors and books with right-click!</em></li>
+      <li>
+        After you exit the docks you'll enter a huge field surrounded by the QU castle walls. Follow the path towards the right to go to the campus.
+      </li>
+      <li>Once you're at the campus, feel free to explore! The campus includes a variety of houses, parkour courses, and more for you to enjoy! When you've had your fill, head to the center plaza to go up the stage.</li>
+      <li>From the plaza you'll see the entrance to the stage, you can either immediately ascend the stairs or take the paths to the sides to go to the front of the stage. The audience area also includes multiple levels in case you'd like a better view.</li>
+      <li>You'll notice that you can't walk onto the stage willy-nilly, this is done to prevent people from trolling and ruining a graduate's moment. Instead, when it's your turn you'll automatically be teleported onstage, where you'll have 30 seconds to do as you please. We highly recommend going to Professor Steve at the front and right-clicking him for your diploma! You're now <em>COMMENCED</em>!</li>
+      <li>After you'd had your 30 seconds of fame, feel free to stick around and support your fellow graduates, or just explore the campus! If you come back to the server after the event, you'll be able to play vanilla and Factions Minecraft too!</li>
+    </ol>
+
     <br />
 
     <p>

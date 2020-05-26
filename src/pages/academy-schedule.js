@@ -40,7 +40,7 @@ class AcademySchedule extends React.Component {
           style={{ cursor: "pointer" }}
           onClick={() => this.setState({ showTZModal: true })}
         />
-        . To view times in UTC,
+        . To view times in UTC,{" "}
         <a
           href="#"
           onClick={e => {

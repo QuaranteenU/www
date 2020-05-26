@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import Logo from "../components/Logo";
-import SchoolSchedule from "../components/SchoolSchedule";
+import AcademySchoolSchedule from "../components/AcademySchoolSchedule";
 import Button from "react-bootstrap/Button";
 
 import { FaQuestionCircle } from "react-icons/fa";
@@ -34,15 +34,20 @@ class AcademySchedule extends React.Component {
   render() {
     let UTCText = (
       <i>
-        Below is the day-of schedule for QU's 2020 Commencement,{" "}
+        Below is the day-of schedule for QUA's 2020 Graduation,{" "}
         <b>localized to your timezone</b>{" "}
         <FaQuestionCircle
           style={{ cursor: "pointer" }}
           onClick={() => this.setState({ showTZModal: true })}
         />
-        . To view times in UTC,{" "}
-          {/*eslint-disable-next-line no-script-url*/}
-        <a href={"javascript:void(0);"} onClick={() => this.toggleUTC()}>
+        . To view times in UTC,
+        <a
+          href="#"
+          onClick={e => {
+            e.preventDefault();
+            this.toggleUTC();
+          }}
+        >
           click here
         </a>
         .
@@ -52,15 +57,20 @@ class AcademySchedule extends React.Component {
     if (this.state.usingUTC) {
       UTCText = (
         <i>
-          Below is the day-of schedule for QU's 2020 Commencement,{" "}
+          Below is the day-of schedule for QUA's 2020 Graduation,{" "}
           <b>localized to UTC</b>{" "}
           <FaQuestionCircle
             style={{ cursor: "pointer" }}
             onClick={() => this.setState({ showTZModal: true })}
           />
           . To view times in your timezone,{" "}
-          {/*eslint-disable-next-line no-script-url*/}
-          <a href={"javascript:void(0);"} onClick={() => this.toggleUTC()}>
+          <a
+            href="#"
+            onClick={e => {
+              e.preventDefault();
+              this.toggleUTC();
+            }}
+          >
             click here
           </a>
           .
@@ -75,22 +85,30 @@ class AcademySchedule extends React.Component {
           <Logo size="medium" />
         </LogoWrapper>
         <div className="text-center">
-          <h2>🎉 2020 Graduation Schedule 🎉</h2>
+          <h2>
+            <span role="img" aria-label="party">
+              🎉
+            </span>{" "}
+            2020 Graduation Schedule{" "}
+            <span role="img" aria-label="party">
+              🎉
+            </span>
+          </h2>
 
           <br />
 
-          <h3>Coming Soon!</h3>
-        </div>
-        {/*
           {UTCText}
 
-          <br/><br/>
+          <br />
+          <br />
 
           <i>
-            Please show up 15 minutes before your school's time slot! (Just to make sure there's space on the server)
+            Please show up 15 minutes before your school's time slot! (Just to
+            make sure there's space on the server)
           </i>
 
-          <br/><br/>
+          <br />
+          <br />
 
           <div className="action-buttons">
             <Link to="/instructions">
@@ -101,36 +119,45 @@ class AcademySchedule extends React.Component {
           </div>
         </div>
 
-        <br/><br/>
+        <br />
+        <br />
 
-        <SchoolSchedule usingUTC={this.state.usingUTC} />
+        <AcademySchoolSchedule usingUTC={this.state.usingUTC} />
 
-        <br/><br/><br/><br/>
+        <br />
+        <br />
+        <br />
+        <br />
 
         <Modal
           show={this.state.showTZModal}
           onHide={() => this.setState({ showTZModal: false })}
         >
           <Modal.Header closeButton>
-            <Modal.Title>
-              Timezones
-            </Modal.Title>
+            <Modal.Title>Timezones</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <p>
-              We localized this schedule to fit your time zone because
-              you could be from any of QU's 20 represented timezones (20/24 on 🌎)!
-
-              <br/><br/>
-
-              In case we messed up getting your timezone, though, you can change it to UTC.
-
-              <br/><br/>
-
-              You seem to live in <b>{Intl.DateTimeFormat().resolvedOptions().timeZone}</b>. 🤠
+              We localized this schedule to fit your time zone because you could
+              be from any of QUA's 20 represented timezones (20/24 on{" "}
+              <span role="img" aria-label="earth">
+                🌎
+              </span>
+              )!
+              <br />
+              <br />
+              In case we messed up getting your timezone, though, you can change
+              it to UTC.
+              <br />
+              <br />
+              Your timezone looks like{" "}
+              <b>{Intl.DateTimeFormat().resolvedOptions().timeZone}</b>.{" "}
+              <span role="img" aria-label="cowboy">
+                🤠
+              </span>
             </p>
           </Modal.Body>
-        </Modal>*/}
+        </Modal>
       </Layout>
     );
   }

@@ -40,8 +40,14 @@ class Schedule extends React.Component {
           style={{ cursor: "pointer" }}
           onClick={() => this.setState({ showTZModal: true })}
         />
-        . To view times in UTC, {/*eslint-disable-next-line no-script-url*/}
-        <a href={"javascript:void(0);"} onClick={() => this.toggleUTC()}>
+        . To view times in UTC,
+        <a
+          href="#"
+          onClick={e => {
+            e.preventDefault();
+            this.toggleUTC();
+          }}
+        >
           click here
         </a>
         .
@@ -58,8 +64,13 @@ class Schedule extends React.Component {
             onClick={() => this.setState({ showTZModal: true })}
           />
           . To view times in your timezone,{" "}
-          {/*eslint-disable-next-line no-script-url*/}
-          <a href={"javascript:void(0);"} onClick={() => this.toggleUTC()}>
+          <a
+            href="#"
+            onClick={e => {
+              e.preventDefault();
+              this.toggleUTC();
+            }}
+          >
             click here
           </a>
           .

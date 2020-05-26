@@ -206,7 +206,7 @@ class IndexPage extends React.Component {
                 <p className="lead">Come graduate in Minecraft on May 22</p>
 
                 <div>
-                  <Link to="/schedule">
+                  <Link to="/academy-schedule">
                     <Button className="wiggle">View the schedule</Button>
                   </Link>
                   <Link to="/instructions">
@@ -290,10 +290,11 @@ class IndexPage extends React.Component {
                 <em>
                   Top Ten Schools by Signups (
                   <a
-                    href={
-                      "javascript:void(0);" /*eslint-disable-line no-script-url*/
-                    }
-                    onClick={() => this.setState({ showSchoolModal: true })}
+                    href="#"
+                    onClick={e => {
+                      e.preventDefault();
+                      this.setState({ showSchoolModal: true });
+                    }}
                   >
                     view all schools
                   </a>

@@ -1,6 +1,5 @@
 import React from "react";
 import styled, { withTheme } from "styled-components";
-
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
@@ -234,6 +233,16 @@ const SchoolScheduleTable = withTheme(styled.table`
   font-family: "Libre Baskerville", serif;
   background-color: ${props => props.theme.global.subpanel};
 
+  & th {
+    ${props =>
+      props.theme.isDark && "border-bottom: 1px solid hsla(0, 0%, 100%, 0.12)"}
+  }
+
+  & td {
+    ${props =>
+      props.theme.isDark && "border-bottom: 1px solid hsla(0, 0%, 100%, 0.12)"}
+  }
+
   & tr th:nth-child(2) {
     text-align: right;
   }
@@ -336,7 +345,7 @@ class SchoolSchedule extends React.Component {
     }
 
     return (
-      <>
+      <React.Fragment>
         <Accordion>
           <SSCard>
             <SSCardHeader>
@@ -380,7 +389,7 @@ class SchoolSchedule extends React.Component {
             </Accordion.Collapse>
           </SSCard>
         </Accordion>
-      </>
+      </React.Fragment>
     );
   }
 }

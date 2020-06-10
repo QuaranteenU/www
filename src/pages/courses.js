@@ -67,10 +67,8 @@ class Courses extends React.Component {
               Bamboozled
             </h1>
             <p>
-              Sorry about that. We don't actually have courses. However, our
-              virtual commencement is 100% real! We hope to see you there!
-              Please accept this randomized dog picture as reparation for our
-              academic deceit.
+              Sorry about that. We don't actually have courses. Please accept
+              this randomized dog picture as reparation for our academic deceit.
             </p>
             <Doggo>
               <img src={dogURL} alt="doggo" />

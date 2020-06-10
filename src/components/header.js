@@ -3,12 +3,10 @@ import { Link } from "gatsby";
 import styled, { withTheme } from "styled-components";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 import {
   FaFacebookSquare,
   FaTwitterSquare,
-  FaEnvelopeSquare,
   FaDiscord,
   FaTwitch,
 } from "react-icons/fa";
@@ -88,12 +86,6 @@ const Header = () => (
         <SocialIcon href="https://www.twitch.tv/QuaranteenU" target="_blank">
           <FaTwitch />
         </SocialIcon>
-        <SocialIcon
-          href="mailto:admissions@quaranteen.university?subject=Virtual Commencement 2020"
-          target="_blank"
-        >
-          <FaEnvelopeSquare />
-        </SocialIcon>
         <ThemeToggler />
       </SocialLinks>
     </HeaderContainer>
@@ -106,34 +98,16 @@ const Header = () => (
             About Us
           </Link>
 
-          <NavDropdown title="Schedule" alignRight>
-            <NavDropdown.Item as="button">
-              <Link className="hvr-underline-from-center" to="/schedule">
-                University
-              </Link>
-            </NavDropdown.Item>
-            <NavDropdown.Item as="button">
-              <Link
-                className="hvr-underline-from-center"
-                to="/academy-schedule"
-              >
-                High School
-              </Link>
-            </NavDropdown.Item>
-          </NavDropdown>
-
-          <Link className="hvr-underline-from-center" to="/instructions">
-            How to Join the Server
-          </Link>
-          <OutboundLink
-            className="hvr-underline-from-center"
-            href="https://www.twitch.tv/quaranteenu"
-            target="_blank"
-          >
-            Livestream
-          </OutboundLink>
           <Link className="hvr-underline-from-center" to="/courses">
             Courses
+          </Link>
+
+          <Link className="hvr-underline-from-center" to="/schedule">
+            University Schedule
+          </Link>
+
+          <Link className="hvr-underline-from-center" to="/academy-schedule">
+            High School Schedule
           </Link>
         </Nav>
       </Navbar.Collapse>

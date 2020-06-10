@@ -1,6 +1,3 @@
-import React from "react";
-import { OutboundLink } from "gatsby-plugin-google-analytics";
-
 const Team = [
   {
     name: "Warren Partridge",
@@ -25,18 +22,7 @@ const Team = [
   {
     name: "Nicholas Marchuk",
     title: "Minecraft Architect",
-    bio: (
-      <React.Fragment>
-        Boston University 2023, Engineering (
-        <OutboundLink
-          href="https://www.instagram.com/craft.bu/"
-          target="_blank"
-        >
-          @craft.bu
-        </OutboundLink>
-        )
-      </React.Fragment>
-    ),
+    bio: "Boston University 2023, Engineering",
   },
   {
     name: "Krishna Upadhyayula",

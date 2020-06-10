@@ -1,18 +1,11 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
 import styled from "styled-components";
 import Jumbotron from "react-bootstrap/Jumbotron";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Modal from "react-bootstrap/Modal";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
-import { FaQuestionCircle } from "react-icons/fa";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-import FAQs from "../components/FAQs";
-
-import UNIVERSITY_MAP from "../data/university_map";
 
 const LandingWrapper = styled.div`
   height: 500px;
@@ -68,271 +61,124 @@ const LandingContent = styled(Container)`
   }
 `;
 
-const SchoolListContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const SchoolTable = styled.table`
-  & td {
-    ${props =>
-      props.theme.isDark && "border-bottom: 1px solid hsla(0, 0%, 100%, 0.12)"}
-  }
-
-  & .school {
-    font-family: "Libre Baskerville", serif;
-  }
-
-  & .signups {
-    text-align: right;
-  }
-`;
-
 const Section = styled.section`
   margin-top: 50px;
   margin-bottom: 50px;
 `;
 
-class IndexPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      countSignedUp: "_",
-      countUniqueSchools: "_",
-      countGraduates: "_",
-      countAudience: "_",
-      rankedSchools: [],
-      showSchoolModal: false,
-    };
-  }
-
-  componentDidMount() {
-    fetch(
-      "https://sheets.googleapis.com/v4/spreadsheets/1WANjh9qm28VFb5pF6Ba3rMdvG1r93DbUpg-HdTxjs6c/values/Sheet1!A1:D1?key=AIzaSyA-pLbYH5fK9S3b2nmnog6fc1XkSY-eG6M",
-      {
-        method: "GET",
-      }
-    )
-      .then(res => res.json())
-      .then(
-        result =>
-          this.setState({
-            countSignedUp: result.values[0][0],
-            countUniqueSchools: result.values[0][1],
-            countGraduates: result.values[0][2],
-            countAudience: result.values[0][3],
-          }),
-        error =>
-          this.setState({
-            countSignedUp: -1,
-            countUniqueSchools: -1,
-            countGraduates: -1,
-            countAudience: -1,
-          })
-      );
-
-    fetch(
-      "https://sheets.googleapis.com/v4/spreadsheets/1R8R4Y9mlxURvyXY4xml_1LUddAtiWUI-fGF5aZV_nWM/values/API!C2:D?key=AIzaSyA-pLbYH5fK9S3b2nmnog6fc1XkSY-eG6M",
-      {
-        method: "GET",
-      }
-    )
-      .then(res => res.json())
-      .then(
-        result => {
-          const filtered = result.values
-            .filter(v => v[0] !== "")
-            .filter(v => !v[0].includes("gmail"));
-
-          const collator = new Intl.Collator(undefined, {
-            numeric: true,
-            sensitivity: "base",
-          });
-          const rankedSchools = filtered.sort((a, b) =>
-            collator.compare(b[1], a[1])
-          );
-          this.setState({ rankedSchools });
-        },
-        error => console.error(error)
-      );
-  }
-
-  render() {
-    const {
-      countSignedUp,
-      countUniqueSchools,
-      countGraduates,
-      countAudience,
-      rankedSchools,
-      showSchoolModal,
-    } = this.state;
-
-    const SchoolList = ({ topTen }) => {
-      if (!rankedSchools) return null;
-      let schools = rankedSchools;
-      if (topTen) schools = schools.slice(0, 10);
-      return (
-        <SchoolTable>
-          <tbody>
-            {schools.map((school, i) => (
-              <tr key={school[0]}>
-                <td className="school">
-                  <strong>{`#${i + 1}`}</strong>{" "}
-                  {UNIVERSITY_MAP.hasOwnProperty(school[0])
-                    ? UNIVERSITY_MAP[school[0]]
-                    : school[0]}
-                </td>
-                <td className="signups">{school[1]}</td>
-              </tr>
-            ))}
-          </tbody>
-        </SchoolTable>
-      );
-    };
-
-    return (
-      <Layout>
-        <SEO title="Home" route="/" />
-        <div style={{ marginTop: "-55px" }}>
-          <LandingWrapper>
-            <Landing
-              fluid
-              background={this.props.data.coverphoto.childImageSharp.fluid.src}
-            >
-              <LandingContent>
-                <div style={{ flex: 1 }} />
-                <h1>Quaranteen Commencement 2020</h1>
-                <p className="lead">Come graduate in Minecraft on May 22</p>
-
-                <div>
-                  <Link to="/academy-schedule">
-                    <Button className="wiggle">View the schedule</Button>
-                  </Link>
-                  <Link to="/instructions">
-                    <Button className="wiggle">How to join the server</Button>
-                  </Link>
-                </div>
-              </LandingContent>
-            </Landing>
-          </LandingWrapper>
-
-          <Section>
-            <h3>Important note about RSVPs</h3>
-            <p>
-              Due to many university spam filters blocking emails sent from
-              .university domains, we'll be sending out QU RSVP emails through{" "}
-              <b>rooday@bu.edu</b>. Keep an eye out!
+const IndexPage = ({ data }) => (
+  <Layout>
+    <SEO title="Home" route="/" />
+    <div style={{ marginTop: "-55px" }}>
+      <LandingWrapper>
+        <Landing fluid background={data.coverphoto.childImageSharp.fluid.src}>
+          <LandingContent>
+            <div style={{ flex: 1 }} />
+            <h1>Quaranteen Commencement 2020</h1>
+            <p className="lead">
+              Thank you to everyone who made this possible!
             </p>
-          </Section>
+          </LandingContent>
+        </Landing>
+      </LandingWrapper>
 
-          <Section>
-            <h3>
-              Walk the stage and receive your undergrad or grad diploma,
-              virtually
-            </h3>
-            <p>
-              Have you worked hard for years but are graduating with no
-              recognition? Forced to leave campus and your friends?
-            </p>
-            <p>
-              Us too, but coronavirus won't stop the Class of 2020.{" "}
-              <span role="img" aria-label="huff">
-                😤
-              </span>
-            </p>
-            <p>
-              We're going to livestream this because we don't have anything
-              better to do under quarantine lol.
-            </p>
-          </Section>
+      <Section>
+        <h3>We did it!</h3>
+        <p>
+          After nearly 2 months of hard work, the Commencement and Graduation
+          ceremonies ended up being far greater than we could've hoped for! All
+          of us at QU are incredibly grateful for the positive reaction this
+          project has gotten, and we're so glad that it was a meaningful
+          experience for a lot of people. Over 500 students from nearly 200
+          schools RSVP'd to QU Commencement, and nearly 100 students from over
+          70 schools did the same for QUA Graduation! If you'd like to rewatch
+          the ceremonies, you can find them (as well as the
+          commencement/graduation speeches) on{" "}
+          <OutboundLink href="https://www.youtube.com/channel/UCUa8-hoyDzHC1j9Pk0Pah_w">
+            our YouTube channel
+          </OutboundLink>
+          . If you're interested in the stats, you can find the anonymized RSVP
+          dataset{" "}
+          <OutboundLink href="https://drive.google.com/drive/folders/1QEfPSKaEd_etBAsSQGEcRHp4bmQgapQE?usp=sharing">
+            here
+          </OutboundLink>
+          .
+        </p>
+      </Section>
 
-          <Section>
-            <h3>Who's coming?</h3>
-            <p>
-              Currently the QU Class of 2020 is <strong>{countSignedUp}</strong>{" "}
-              strong ({countGraduates} grads and {countAudience} audience
-              members), comprised of <strong>{countUniqueSchools}</strong>{" "}
-              different schools. Join us and be a part of internet history! And
-              if you can get all your classmates to sign up, you might just snag
-              that top spot!
-            </p>
+      <Section>
+        <h3>Check out the code</h3>
+        <p>
+          Now that the event is done, we're closing up shop on the virtual
+          graduation front, but we'd love for others to take what we've built
+          and go on to do other great things! All our code is open-source and
+          available on{" "}
+          <OutboundLink href="https://github.com/QuaranteenU">
+            our Github
+          </OutboundLink>
+          . All our repositories use GPL licenses, so the only requirement for
+          using them is that whatever you make has to be open-source too. We
+          hope that this will help the community create better and better
+          resources for each other as time goes on.
+        </p>
+      </Section>
 
-            <Modal
-              show={showSchoolModal}
-              onHide={() => this.setState({ showSchoolModal: false })}
-            >
-              <Modal.Header closeButton>
-                <Modal.Title>
-                  Schools Ranked by Signups{" "}
-                  <OverlayTrigger
-                    placement="right"
-                    overlay={
-                      <Tooltip>
-                        We map school names based on their email domain, but
-                        unfortunately we couldn't account for every combination.
-                        If your school's name isn't showing up properly, let us
-                        know and we'll add it!
-                      </Tooltip>
-                    }
-                  >
-                    <FaQuestionCircle />
-                  </OverlayTrigger>
-                </Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <SchoolList />
-              </Modal.Body>
-            </Modal>
+      <Section>
+        <h3>Moving Forward</h3>
+        <p>
+          We're going to leave the event schedules to make it easier for people
+          to find where they are in the YouTube videos, and all the social links
+          in the header are still live in case you'd like to chat! The server is
+          still live as well, and can currently still be accessed at{" "}
+          <strong>play.quaranteen.university</strong>. However, the server is
+          owned and operated by{" "}
+          <OutboundLink href="https://craftbu.com">CraftBU</OutboundLink>, so
+          going forward you should use that for connection information.
+        </p>
+      </Section>
 
-            <SchoolListContainer>
-              <strong>
-                <em>
-                  Top Ten Schools by Signups (
-                  <a
-                    href="#"
-                    onClick={e => {
-                      e.preventDefault();
-                      this.setState({ showSchoolModal: true });
-                    }}
-                  >
-                    view all schools
-                  </a>
-                  )
-                </em>
-              </strong>
-              <SchoolList topTen />
-            </SchoolListContainer>
-          </Section>
-
-          <Section>
-            <h3>How's this gonna work?</h3>
-            <p>
-              Once enough people express interest, we'll select graduation times
-              for everyone (and check you can make it). You'll connect to the
-              world, get dressed into robes dyed in your school's color, have
-              your name called, and walk up to receive your diploma in front of
-              everyone. Plus, it will all be livestreamed!
-            </p>
-
-            <p>
-              If a lot of people from your school sign up, maybe you could
-              graduate together??
-            </p>
-          </Section>
-
-          <Section id="faqs">
-            <FAQs />
-          </Section>
-        </div>
-      </Layout>
-    );
-  }
-}
+      <Section>
+        <h3>Where we've been mentioned</h3>
+        <p>
+          If you'd like to read about the event/the process leading up to it,
+          check out these publications:{" "}
+          <OutboundLink href="https://www.theverge.com/2020/3/31/21200972/college-students-graduation-minecraft-coronavirus-school-closures">
+            The Verge
+          </OutboundLink>
+          ,{" "}
+          <OutboundLink href="https://www.wired.com/story/quanranteen-university-minecraft-graduation/">
+            WIRED
+          </OutboundLink>
+          ,{" "}
+          <OutboundLink href="https://www.rollingstone.com/culture/culture-features/global-graduation-quaranteen-minecraft-1007713/">
+            Rolling Stone
+          </OutboundLink>
+          ,{" "}
+          <OutboundLink href="https://campustechnology.com/articles/2020/04/02/seniors-invited-to-participate-in-minecraft-graduation-ceremony.aspx">
+            Campus Technology
+          </OutboundLink>
+          ,{" "}
+          <OutboundLink href="https://www.chronicle.com/article/Virtual-BingoMinecraft/248450">
+            The Chronicle of Higher Education
+          </OutboundLink>
+          ,{" "}
+          <OutboundLink href="https://www.campusreform.org/?ID=14673">
+            Campus Reform
+          </OutboundLink>
+          , and{" "}
+          <OutboundLink href="https://thejournal.com/articles/2020/04/02/seniors-invited-to-participate-in-minecraft-graduation-ceremony.aspx">
+            The Journal
+          </OutboundLink>
+          .
+        </p>
+      </Section>
+    </div>
+  </Layout>
+);
 
 export const query = graphql`
   query {
-    coverphoto: file(relativePath: { eq: "minecraft-hall.png" }) {
+    coverphoto: file(relativePath: { eq: "classphoto.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1920) {
           ...GatsbyImageSharpFluid

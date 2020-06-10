@@ -1,11 +1,9 @@
 import React from "react";
-import { Link } from "gatsby";
 import styled from "styled-components";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import Logo from "../components/Logo";
 import AcademySchoolSchedule from "../components/AcademySchoolSchedule";
-import Button from "react-bootstrap/Button";
 
 import { FaQuestionCircle } from "react-icons/fa";
 import Modal from "react-bootstrap/Modal";
@@ -98,25 +96,6 @@ class AcademySchedule extends React.Component {
           <br />
 
           {UTCText}
-
-          <br />
-          <br />
-
-          <i>
-            Please show up 15 minutes before your school's time slot! (Just to
-            make sure there's space on the server)
-          </i>
-
-          <br />
-          <br />
-
-          <div className="action-buttons">
-            <Link to="/instructions">
-              <Button className="wiggle">
-                How to join the graduation server
-              </Button>
-            </Link>
-          </div>
         </div>
 
         <br />

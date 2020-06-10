@@ -18,6 +18,10 @@ export const VideoIframe = styled.iframe`
 export const GlobalStyle = createGlobalStyle`
   /* BOOTSTRAP OVERRIDES */
 
+  nav.navbar {
+    padding: 15px;
+  }
+
   .navbar-toggler {
     border-color: white !important;
   }

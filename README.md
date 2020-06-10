@@ -1,6 +1,6 @@
 # Quaranteen University Website
 
-Come graduate in Minecraft on May 22!
+QU's Website.
 
 ## Development
 

@@ -15,6 +15,10 @@ const FAQContent = [
           WIRED
         </OutboundLink>
         ,{" "}
+        <OutboundLink href="https://www.rollingstone.com/culture/culture-features/global-graduation-quaranteen-minecraft-1007713/">
+          Rolling Stone
+        </OutboundLink>
+        ,{" "}
         <OutboundLink href="https://campustechnology.com/articles/2020/04/02/seniors-invited-to-participate-in-minecraft-graduation-ceremony.aspx">
           Campus Technology
         </OutboundLink>
